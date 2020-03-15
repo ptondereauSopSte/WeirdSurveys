@@ -1,0 +1,6 @@
+<div *ngIf="!isAnimationClosed" class="loadingScreen">
+    <div [ngClass]="{isFullSizeRond: isLoaded}" class="rondLogo"></div>
+    <img [ngClass]="{isFullSizeImg: isLoaded}" src="../assets/images/logo_weirdSurveys.png"/>
+</div>
+
+<router-outlet *ngIf="isAnimationClosed"></router-outlet>
