@@ -1,3 +1,3 @@
-# AN-startup
+# WeirdSurveys
 
-Custom Angular Node base to build new projects faster.
+Application dans le but de regrouper des sondages étranges qui donnent des réponses à des questions sans utilité
