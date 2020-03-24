@@ -17,11 +17,11 @@ app.use(function (req, res, next) {
 
 // custom routes
 
-//var NoteController = require('./controllers/NoteController');
+var SurveysController = require('./controllers/SurveysController');
 
 // Set our routes
 
-//app.use('/notes', NoteController);
+app.use('/surveys', SurveysController);
 
 // Handle 404
 app.use(function (req, res) {
@@ -44,7 +44,7 @@ app.use(function (error, req, res, next) {
 
 //listen
 
-//const uri = "mongodb+srv://ID:MDP@noteever-xxpjy.mongodb.net/test?retryWrites=true&w=majority";
+const uri = "mongodb+srv://adminWS:adminWS@weirdsurveys-dm1eb.mongodb.net/test?retryWrites=true&w=majority";
 const client = new MongoClient(uri, {
     useNewUrlParser: true
 });

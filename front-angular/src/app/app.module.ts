@@ -11,11 +11,13 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
+import { SurveyPreviewComponent } from './home/surveyPreview/surveyPreview.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+    SurveyPreviewComponent,
   ],
   imports: [
     BrowserModule,

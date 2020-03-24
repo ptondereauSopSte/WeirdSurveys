@@ -18,6 +18,6 @@ export class AppComponent implements OnInit{
       setTimeout(()=>{
         this.isAnimationClosed=true;
       },400);
-    },3000)
+    },0)
   }
 }

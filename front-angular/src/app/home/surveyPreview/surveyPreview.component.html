@@ -1,0 +1,36 @@
+<div class="divSurvey">
+    <p>{{survey.text}}</p>
+
+    <div *ngIf="!voted">
+        <div *ngFor="let option of survey.options; let index = index;" class="flexRow option button" (click)="vote(option)">
+            <div class="indicator">
+                <p>{{index}}</p>
+            </div>
+            <p>{{option.text}}</p>
+        </div>
+    </div>
+
+    <div *ngIf="voted">
+        <div *ngFor="let option of survey.options; let index = index;" class="resultBar">
+            <div class="bar" [style]="mapBarStyle[index]"></div>
+            <div class="flexRow informationsResult">
+                <div class="flexRow">
+                    <p>{{index}} - </p>
+                    <p>{{option.text}}</p>
+                </div>
+                <p>{{option.percent}}%</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="flexRow surveyStatistics">
+        <div class="button flexRow customButton">
+            <img src="https://image.flaticon.com/icons/svg/1216/1216649.svg"/>
+            <p>{{survey.likes}}</p>
+        </div>
+        <div class="button flexRow customButton">
+            <img src="https://image.flaticon.com/icons/svg/747/747545.svg"/>
+            <p>{{survey.participations}}</p>
+        </div>
+    </div>
+</div>
