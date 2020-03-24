@@ -1,79 +1,84 @@
-.divSurvey{
-    border:1px solid white;
-    border-radius:0.43em;
-    width:40vw;
-    margin:auto;
-    margin-bottom:3vh;
-    padding:1vh 2vw;
-    background-color: #fff2f2;
-    color:black;
+.divSurvey {
+  border: 1px solid white;
+  border-radius: 0.43em;
+  width: 40vw;
+  margin: auto;
+  margin-bottom: 3vh;
+  padding: 1vh 2vw;
+  background-color: #ffffffb8;
+  color: black;
 }
 
-.option{
+.option {
+  background-color: #ffc7c7;
+  border: 1px solid black;
+  margin-bottom: 1vh;
+  margin-left: 3vw;
+  width: 20vw;
+  padding: 0.5vh 1vw;
+  align-items: center;
+
+  p {
+    margin: 0px;
+  }
+
+  .indicator {
+    border: 1px solid black;
+    border-radius: 100%;
+    width: 3vh;
+    height: 3vh;
+    text-align: center;
+    line-height: 3vh;
+    margin-right: 0.5vw;
+  }
+}
+
+.resultBar {
+  position: relative;
+  margin-left: 3vw;
+  margin-bottom: 1vh;
+  align-items: center;
+
+  .bar {
     background-color: #ffc7c7;
-    border:1px solid black;
-    margin-bottom:1vh;
-    margin-left: 3vw;
-    width:20vw;
-    padding:0.5vh 1vw;
-    align-items: center;
-    p{
-        margin:0px;
+    width: 0vw;
+    height: 4vh;
+    transition-property: width;
+    transition-delay: 1s;
+  }
+
+  .informationsResult {
+    position: absolute;
+    left: 1vw;
+    top: 1vh;
+    width: 25vw;
+    justify-content: space-between;
+
+    p {
+      margin: 0px;
     }
-    .indicator{
-        border: 1px solid black;
-        border-radius: 100%;
-        width: 3vh;
-        height: 3vh;
-        text-align: center;
-        line-height: 3vh;
-        margin-right: 0.5vw;
-    }
+  }
 }
 
-.resultBar{
-    position: relative;
-    margin-left: 3vw;
-    margin-bottom:1vh;
+.surveyStatistics {
+  align-items: center;
+
+  .customButton {
     align-items: center;
+    width: 3vw;
+    justify-content: space-around;
+    border: 1px solid black;
+    border-radius: 0.43em;
+    padding: 0.2vh 0.5vw;
+    margin-right: 1vw;
 
-    .bar{
-        background-color: #ffc7c7;
-        width:0vw;
-        height: 4vh;
-        transition-property: width;
-        transition-delay: 1s;
+    p {
+      margin: 0px;
     }
+  }
 
-    .informationsResult{
-        position: absolute;
-        left: 1vw;
-        top: 1vh;
-        width:25vw;
-        justify-content: space-between;
-
-        p{
-            margin: 0px;
-        }
-    }
-}
-
-.surveyStatistics{
-    align-items: center;
-    .customButton{
-        align-items: center;
-        width: 3vw;
-        justify-content: space-around; 
-        border:1px solid black;
-        border-radius: 0.43em;
-        padding:0.2vh 0.5vw;
-        margin-right:1vw;
-        p{
-            margin:0px;
-        }
-    }
-    img{
-        width:20px;
-        height:20px;
-    }
+  img {
+    width: 20px;
+    height: 20px;
+  }
 }

@@ -1,27 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 
-body{
-    margin:0px;
+body {
+  margin: 0px;
+  background-image: url(https://cutewallpaper.org/21/minimalist-wallpaper-hd/Minimalist-Wallpapers-1920x1080-White-Abstract-Hexagon-.jpg);
+  background-size: cover;
 }
 
 //Containers
-.flexRow{
-    display: flex;
-    flex-direction: row;
+.flexRow {
+  display: flex;
+  flex-direction: row;
 }
 
-.flexCol{
-    display: flex;
-    flex-direction: column;
+.flexCol {
+  display: flex;
+  flex-direction: column;
 }
 
 //Objects
-.button{
-    cursor:pointer;
-}
-
-body{
-    background-color: #131313;
-    color:white;
+.button {
+  cursor: pointer;
 }
