@@ -1,4 +1,4 @@
-<div class="divSurvey">
+<!--<div class="divSurvey">
     <p>{{survey.text}}</p>
 
     <div *ngIf="!voted">
@@ -32,5 +32,33 @@
             <img src="https://image.flaticon.com/icons/svg/747/747545.svg"/>
             <p>{{survey.participations}}</p>
         </div>
+    </div>
+</div>-->
+<div class="fakeBody">
+    <div [ngClass]="{'isVoted': voted}" class="container">
+        <div class="front side">
+            <div class="content">
+                <h1>{{survey.text}}</h1>
+                <div class="groupOption">
+                    <div *ngFor="let option of survey.options; let index = index;" class="flexRow option button" (click)="vote(option)">
+                        <p>{{option.text}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="back side">
+            <div class="content">
+                <h1>{{survey.text}}</h1>
+                <div class="groupOption">
+                    <div *ngFor="let option of survey.options;" class="flexRow" style="position: relative;">
+                        <div class="option">
+                            <p>{{option.text}}</p>
+                        </div>
+                        <p class="percentInfo">{{option.percent}}%</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>
