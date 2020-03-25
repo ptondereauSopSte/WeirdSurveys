@@ -1,0 +1,55 @@
+.identificationBox{
+    width: 56vw;
+    height: 80vh;
+    box-shadow: 2px 2px 5px #8c8c8c, 0px 0px 0px black, 0px 0px 0px black;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 0.43em;
+    padding: 1vh 2vw;
+    position: absolute;
+    left: 20vw;
+    top: 8vh;
+
+    h1{
+        text-align: center;
+        font-size: 1.7em;
+        margin: 0.5vh;
+    }
+}
+
+.listAge{
+    width:60%;
+    margin: auto;
+    justify-content: space-between;
+    .oneAge{
+        width:5vw;
+        height:3vh;
+        border:1px solid black;
+        border-radius:0.43em;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        p{
+            margin:0px auto;
+        }
+    }
+}
+
+.listSexe{
+    width:40%;
+    margin: auto;
+    justify-content: space-between;
+    .oneSexe{
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+        text-align: center;
+        width:10vw;
+        height: 10vw;
+        border:3px solid black;
+        border-radius: 100%;
+        img {
+            width: 5vw;
+            margin: auto;
+        }
+    }
+}

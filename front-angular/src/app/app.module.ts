@@ -10,13 +10,19 @@ import {MatInputModule} from '@angular/material/input';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 
 import { AppComponent } from './app.component';
+import { IdentificationComponent } from './identification/identification.component';
 import { HomeComponent } from './home/home.component';
+import { AddSurveyComponent } from './home/add-survey/AddSurvey.component';
 import { SurveyPreviewComponent } from './home/surveyPreview/surveyPreview.component';
+
+import { SurveyManagementService } from './home/surveyManagement.service';
 
 @NgModule({
   declarations: [
     AppComponent,
+    IdentificationComponent,
     HomeComponent,
+    AddSurveyComponent,
     SurveyPreviewComponent,
   ],
   imports: [
@@ -30,7 +36,7 @@ import { SurveyPreviewComponent } from './home/surveyPreview/surveyPreview.compo
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [SurveyManagementService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

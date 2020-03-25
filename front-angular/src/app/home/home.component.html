@@ -1,16 +1,8 @@
 <div class="timeline">
-    <app-surveyPreview></app-surveyPreview>
-    <app-surveyPreview></app-surveyPreview>
-    <app-surveyPreview></app-surveyPreview>
-    <app-surveyPreview></app-surveyPreview>
-    <app-surveyPreview></app-surveyPreview>
-    <app-surveyPreview></app-surveyPreview>
-    <app-surveyPreview></app-surveyPreview>
-    <app-surveyPreview></app-surveyPreview>
-    <app-surveyPreview></app-surveyPreview>
+    <app-surveyPreview *ngFor="let survey of listSurveys" [survey]="survey"></app-surveyPreview>
 </div>
 
-<div class="flexRow post">
+<div class="flexRow post button" routerLink="/add-survey">
     <h1>Écrire un sondage</h1>
     <img src="https://image.flaticon.com/icons/svg/1355/1355562.svg"/>
 </div>

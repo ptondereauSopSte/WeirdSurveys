@@ -1,0 +1,37 @@
+<div class="boxNewSurvey">
+    <h1 style="text-align: center;">Nouveau sondage</h1>
+    <mat-form-field class="textInput">
+        <mat-label>Expliquez votre problème...</mat-label>
+        <textarea [(ngModel)]="newSurvey.text" (keydown)="checkIfSurveyIsCorrect()" matInput></textarea>
+    </mat-form-field>
+
+    <div class="separator"></div>
+
+    <div class="optionSelection">
+        <div *ngFor="let option of newSurvey.options" class="flexRow oneOption">
+            <p>{{option.text}}</p>
+            <img class="button" (click)="deleteOption(option.text)" src="https://image.flaticon.com/icons/svg/395/395848.svg"/>
+        </div>
+        <div class="addOption">
+            <div *ngIf="!isAddingOption && !isFull" class="flexRow button" (click)="openNewOption()">
+                <img class="addLogo" src="https://image.flaticon.com/icons/svg/1828/1828931.svg">
+                <p>Ajouter une option</p>
+            </div>
+            <div *ngIf="isAddingOption" class="newOptionInput flexRow">
+                <mat-form-field style="width: 95%;">
+                    <input [(ngModel)]="newOptionTxt" matInput placeholder="Nouvelle option">
+                </mat-form-field>
+                <img class="button" (click)="addOption()" src="https://image.flaticon.com/icons/svg/148/148764.svg"/>
+            </div>
+        </div>
+    </div>
+
+    <div class="flexRow buttonsCancelAndAdd">
+        <div class="button" style="background-color: black; color:white;" routerLink="/home">
+            <p>Annuler</p>
+        </div>
+        <div class="button" style="background-color: blue; color:white;" [ngClass]="{'disabled': !isCorrect}" (click)="submitSurvey()">
+            <p>Poster</p>
+        </div>
+    </div>
+</div>

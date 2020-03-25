@@ -8,7 +8,7 @@ var mongoose = require('mongoose');
 
 router.get('/', function (req, res) {
     console.log("Request /surveys/")
-    db.collection('Surveys').find().toArray(function(err, results) {
+    surveysDB.collection('surveys').find().toArray(function(err, results) {
         console.log("found "+results.length+" surveys")
         res.json(results);
     })
@@ -16,8 +16,30 @@ router.get('/', function (req, res) {
 
 router.post('/post', function (req, res) {
     console.log("Request /surveys/post");
-    db.collection('Surveys').insertOne(req.body);
+    surveysDB.collection('surveys').insertOne(req.body);
     res.send(req.body);
+});
+
+router.post('/vote', function (req, res) {
+    console.log("Request /surveys/vote");
+    var idSurvey = mongoose.Types.ObjectId(req.body["surveyId"]);
+    var optionText = req.body["option"].text;
+    console.log(idSurvey)
+    surveysDB.collection('surveys').findOne({
+        _id: idSurvey
+    }, function (findErr, survey) {
+        survey.participations+=1
+        survey.options.forEach((option)=>{
+            if(option.text==optionText){
+                option.number+=1
+            }
+            option.percent=Math.floor(100*option.number/survey.participations)
+        })
+        surveysDB.collection('surveys').update({
+            _id: idSurvey
+        },survey);
+        res.send(survey);
+    });
 });
 
 

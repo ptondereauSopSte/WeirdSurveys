@@ -50,7 +50,7 @@ const client = new MongoClient(uri, {
 });
 client.connect(err => {
     if (err) return console.log(err)
-    db = client.db('DBNAME')
+    surveysDB = client.db('SurveysDB')
     var httpServer = http.createServer(app);
     httpServer.listen(PORT, () => console.log(`API running on localhost:${PORT}`));
 })
