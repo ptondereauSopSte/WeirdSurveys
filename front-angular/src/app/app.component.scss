@@ -3,7 +3,7 @@
         overflow: hidden;
         width:100vw;
         height:100vh;
-        background-color: #e63a3f;
+        background-color: var(--color-black);
         position: relative;
         .rondLogo{
             width:10vw;
@@ -47,7 +47,7 @@
         overflow: hidden;
         width:100vw;
         height:100vh;
-        background-color: #e63a3f;
+        background-color: var(--color-black);
         position: relative;
         .rondLogo{
             width:40vw;

@@ -1,0 +1,32 @@
+.onePreview{
+    background-color: var(--color-gray);
+    border: 1px solid black;
+    border-radius: 0.43em;
+    margin-top: 0.5vh;
+    padding: 0.5vh 2vw;
+    width: 80%;
+    margin: 0.5vh auto;
+}
+
+.oneInfo{
+    margin-left: 3vw;
+    width: 5vw;
+    align-items: center;
+    img{
+        width:1vw;
+        margin-right: 0.5vw;
+    }
+    p{
+        font-size: 1.5em;
+        margin: 0px;
+    }
+}
+
+.actions{
+    width:5vw;
+    justify-content: space-around;
+    padding-right: 2vw;
+    img{
+        width:2vw;
+    }
+}

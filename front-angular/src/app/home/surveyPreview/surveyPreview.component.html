@@ -35,7 +35,7 @@
             </div>
         </div>
     </div>
-    <div class="flexCol barInterract">
+    <div *ngIf="!admin" class="flexCol barInterract">
         <div [ngClass]="{isWarned: warned}"class="button hexagon" (click)="warn()">
             <div [ngClass]="{barSignal: survey.warnings>=1}" class="bar bar1"></div>
             <div [ngClass]="{barSignal: survey.warnings>=2}" class="bar bar2"></div>

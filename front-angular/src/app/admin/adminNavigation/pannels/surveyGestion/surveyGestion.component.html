@@ -1,0 +1,16 @@
+<div class="blockGestion">
+    <div class="blockSurveys">
+        <h1>Sondages suspendus:</h1>
+        <div class="separator"></div>
+        <p *ngIf="listSuspendedSurveys.length==0">Aucun sondage est suspendu et en attente de modération</p>
+        <app-surveyAdminPreview *ngFor="let survey of listSuspendedSurveys" [survey]="survey"></app-surveyAdminPreview>
+    </div>
+    
+    <div class="blackSeparator"></div>
+    
+    <div class="blockSurveys">
+        <h1>Sondages en cours:</h1>
+        <div class="separator"></div>
+        <app-surveyAdminPreview *ngFor="let survey of listNotSuspendedSurveys" [survey]="survey"></app-surveyAdminPreview>
+    </div>
+</div>

@@ -17,6 +17,16 @@ router.get('/', function (req, res) {
     })
 });
 
+router.get('/suspended', function (req, res) {
+    console.log("Request /surveys/suspended")
+    surveysDB.collection('surveys').find(
+        { warnings: { $gte: 6 } }
+    ).toArray(function(err, results) {
+        res.json(results);
+    })
+});
+
+
 router.post('/post', function (req, res) {
     console.log("Request /surveys/post");
     surveysDB.collection('surveys').insertOne(req.body);
@@ -75,6 +85,30 @@ router.post('/addwarning', function (req, res) {
         survey.warnings = survey.warnings ? survey.warnings : 0;
         survey.warnings+=1
         
+        surveysDB.collection('surveys').update({
+            _id: idSurvey
+        },survey);
+        res.send(survey);
+    });
+});
+
+router.delete('/deleteById/:id', function (req, res) {
+    console.log("Request /surveys/deleteById");
+    var id = mongoose.Types.ObjectId(req.params.id);
+    surveysDB.collection('surveys').remove({
+        _id: id
+    });
+    res.send(req.body);
+});
+
+
+router.post('/safe', function (req, res) {
+    console.log("Request /surveys/safe");
+    var idSurvey = mongoose.Types.ObjectId(req.body["surveyId"]);
+    surveysDB.collection('surveys').findOne({
+        _id: idSurvey
+    }, function (findErr, survey) {
+        survey.warnings = 0;
         surveysDB.collection('surveys').update({
             _id: idSurvey
         },survey);

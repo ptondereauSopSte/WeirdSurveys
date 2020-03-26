@@ -1,0 +1,14 @@
+<div class="flexCol formConnect">
+    <mat-form-field>
+        <mat-label>Id</mat-label>
+        <input matInput [(ngModel)]="login">
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Mdp</mat-label>
+        <input matInput [(ngModel)]="mdp">
+    </mat-form-field>
+
+    <p class="button" (click)="connect()">Connexion</p>
+    <p *ngIf="wrongInfo" class="messageWrongId">Les informations saisies sont incorrectes</p>
+</div>

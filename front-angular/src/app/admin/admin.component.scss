@@ -1,0 +1,24 @@
+.formConnect{
+    width: 15vw;
+    background: white;
+    padding: 2vh 2vw;
+    border-radius: 0.43em;
+    border: 1px solid black;
+    margin: 40vh auto;
+
+    .button{
+        background-color: black;
+        color: white;
+        padding: 0.5vh;
+        width: 5vw;
+        text-align: center;
+        border-radius: 0.43em;
+        margin: 1vh auto 0px auto;
+    }
+}
+
+.messageWrongId{
+    color:red;
+    text-align:center;
+    margin:5px;
+}
