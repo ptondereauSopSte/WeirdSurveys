@@ -71,6 +71,21 @@ export class SurveyManagementService {
     );
   }
 
+  likeOrDislike(survey:Survey, isLike:boolean){
+    this.httpClient.post<any>(environment.apiUrl + '/surveys/likedislike', {"surveyId":survey.id, "isLike":isLike}).subscribe(
+      (response) => {
+          console.log('Like ou dislike ajouté avec succès');
+          //On met le like en session
+          let mapLike = JSON.parse(this.cookieService.get('WS-mapLike'));
+          mapLike[""+survey.id]=isLike;
+          this.cookieService.set('WS-mapLike', JSON.stringify(mapLike));
+      },
+      (error) => {
+          console.log('Erreur ! : ' + error);
+      }
+    );
+  }
+
   emitListSurveysSubject(){
     console.log(this.listSurveys)
     this.listSurveysSubject.next(this.listSurveys.length!==0 ? this.listSurveys.slice() : []);

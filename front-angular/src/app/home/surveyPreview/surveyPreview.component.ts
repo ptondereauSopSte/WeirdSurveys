@@ -14,7 +14,7 @@ export class SurveyPreviewComponent implements OnInit {
   
   @Input() survey:Survey;
   voted:boolean;
-  liked:boolean;
+  liked:boolean=false;
   optionVotedTxt:String;
 
   constructor(private sanitizer : DomSanitizer, private surveyManagementService:SurveyManagementService, private cookieService : CookieService) {}
@@ -28,6 +28,13 @@ export class SurveyPreviewComponent implements OnInit {
       }
     } else{
       this.voted=false;
+    }
+
+    if(this.cookieService.get('WS-mapLike')){
+      let mapLike = JSON.parse(this.cookieService.get('WS-mapLike'));
+      if(Object.keys(mapLike).indexOf(""+this.survey.id)>-1){
+        this.liked=mapLike[""+this.survey.id];
+      }
     }
   }
 
@@ -45,5 +52,6 @@ export class SurveyPreviewComponent implements OnInit {
     } else {
       this.survey.likes-=1;
     }
+    this.surveyManagementService.likeOrDislike(this.survey, this.liked);
   }
 }

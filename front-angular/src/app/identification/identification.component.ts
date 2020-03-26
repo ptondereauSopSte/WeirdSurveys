@@ -42,6 +42,7 @@ export class IdentificationComponent implements OnInit {
   userSubmit(){
     this.cookieService.set('WS-user', JSON.stringify(this.user));
     this.cookieService.set('WS-mapVote',"{}")
+    this.cookieService.set('WS-mapLike',"{}")
     this.router.navigate(['home']);
   }
 }

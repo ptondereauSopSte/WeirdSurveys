@@ -43,5 +43,24 @@ router.post('/vote', function (req, res) {
     });
 });
 
+router.post('/likedislike', function (req, res) {
+    console.log("Request /surveys/likedislike");
+    var idSurvey = mongoose.Types.ObjectId(req.body["surveyId"]);
+    var isLiked = req.body["isLike"];
+    surveysDB.collection('surveys').findOne({
+        _id: idSurvey
+    }, function (findErr, survey) {
+        if(isLiked){
+            survey.likes+=1
+        } else {
+            survey.likes-=1
+        }
+        
+        surveysDB.collection('surveys').update({
+            _id: idSurvey
+        },survey);
+        res.send(survey);
+    });
+});
 
 module.exports = router;
