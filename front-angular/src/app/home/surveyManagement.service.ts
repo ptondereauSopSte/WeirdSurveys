@@ -79,7 +79,7 @@ export class SurveyManagementService {
           //On met en session le vote
           let mapVote = JSON.parse(this.cookieService.get('WS-mapVote'));
           mapVote[""+survey.id]=option.text;
-          this.cookieService.set('WS-mapVote', JSON.stringify(mapVote));
+          this.cookieService.set('WS-mapVote', JSON.stringify(mapVote), 365);
       },
       (error) => {
           console.log('Erreur ! : ' + error);
@@ -94,7 +94,7 @@ export class SurveyManagementService {
           //On met le like en session
           let mapLike = JSON.parse(this.cookieService.get('WS-mapLike'));
           mapLike[""+survey.id]=isLike;
-          this.cookieService.set('WS-mapLike', JSON.stringify(mapLike));
+          this.cookieService.set('WS-mapLike', JSON.stringify(mapLike), 365);
       },
       (error) => {
           console.log('Erreur ! : ' + error);
@@ -109,7 +109,7 @@ export class SurveyManagementService {
           //On met le warning en session
           let listWarning = this.cookieService.get('WS-listWarning');
           listWarning+=","+survey.id
-          this.cookieService.set('WS-listWarning', listWarning);
+          this.cookieService.set('WS-listWarning', listWarning, 365);
       },
       (error) => {
           console.log('Erreur ! : ' + error);

@@ -40,10 +40,10 @@ export class IdentificationComponent implements OnInit {
 
   //On met l'user en session
   userSubmit(){
-    this.cookieService.set('WS-user', JSON.stringify(this.user));
-    this.cookieService.set('WS-mapVote',"{}")
-    this.cookieService.set('WS-mapLike',"{}")
-    this.cookieService.set('WS-mapLike',"{}")
+    this.cookieService.set('WS-user', JSON.stringify(this.user), 365);
+    this.cookieService.set('WS-mapVote',"{}", 365)
+    this.cookieService.set('WS-mapLike',"{}", 365)
+    this.cookieService.set('WS-mapLike',"{}", 365)
     this.router.navigate(['home']);
   }
 }
