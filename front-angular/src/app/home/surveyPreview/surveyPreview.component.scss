@@ -19,12 +19,13 @@
 	transform-style: preserve-3d;
 	position: relative;
 	font-family: "Montserrat";
+	width: 45vw;
+    margin: auto;
 }
 
 .container {
 	width: 40vw;
-  height: 30vh;
-  margin:2vh auto;
+	margin:2vh auto;
 	border-radius: 20px;
 	position: relative;
 	-webkit-transition: 1.5s ease-in-out;
@@ -34,6 +35,7 @@
 
 .side {
 	position: absolute;
+	top:0px;
 	text-align: center;
 	width: 100%;
 	height: 100%;
@@ -59,7 +61,7 @@
 	position: absolute;
 	bottom: -20px;
 	height: 3px;
-	background-color: #3e3;
+	background-color: var(--color-blue);
 	width: 70px;
 	left: 50%;
 	transform: translateX(-50%);
@@ -69,6 +71,8 @@
 	background-size: 100vh;
 	background-size: cover;
 	background-image: url(https://livewallpaperhd.com/wp-content/uploads/2017/07/Dark-Elegant-Wallpaper.jpg);
+	//background-image: url(https://i.pinimg.com/originals/51/03/f8/5103f8f289b70fbcb9242bc1b5c3d265.png)
+	height: auto;
 }
 .back {
 	background-color: #333;
@@ -76,6 +80,8 @@
 	z-index: 0;
 	padding-top: 10px;
 	background-image: url(https://userscontent2.emaze.com/images/f9538183-0ff9-478f-b964-c8ab90421e3b/3d28e192fda5c17250f96a2779c84475.jpg);
+	//background-image: url(https://lucadebiase.nova100.ilsole24ore.com/wp-content/uploads/sites/24/2019/09/data-grid.jpg);
+	height: auto;
 }
 .isVoted {
 	-webkit-transform: rotateY(180deg);
@@ -129,14 +135,15 @@ form input[type="submit"] {
 	background-color: #fff;
 	color: #122;
 }
+
 .groupOption{
   margin-top:4vh;
   .option{
-    background-color: white;
+    background-color: var(--color-white);
     padding: 5px 20px;
     border-radius: 3.43em;
     margin-top: 1vh;
-    color:black;
+    color:var(--color-black);
     width: 100%;
   }
 
@@ -148,8 +155,37 @@ form input[type="submit"] {
 }
 
 .selected{
-	color:yellow;
+	color:var(--color-yellow);
 	.option{
-		background-color: yellow;
+		background-color: var(--color-yellow);
+	}
+}
+
+.barInterract{
+	width: 5vw;
+    margin-left: 0.5vw;
+	.oneInfo{
+		background-color: white;
+		padding: 0.5vh;
+		margin: 0.5vh;
+		border: 1px solid black;
+		border-radius: 0.43em;
+		justify-content: space-around;
+	}
+	.iconButton{
+		width:1vw;
+	}
+
+	p {
+		font-size: 1.3em;
+	}
+	.iconLike{
+		width: 2vw;
+		margin: 2vh auto;
+		filter: drop-shadow(0px 2px 2px black) grayscale(0.8);
+	}
+
+	.liked{
+		filter:drop-shadow(0px 2px 2px black);
 	}
 }

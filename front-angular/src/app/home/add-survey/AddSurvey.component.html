@@ -27,10 +27,10 @@
     </div>
 
     <div class="flexRow buttonsCancelAndAdd">
-        <div class="button" style="background-color: black; color:white;" routerLink="/home">
+        <div class="button" style="background-color: var(--color-black); color:var(--color-white);" routerLink="/home">
             <p>Annuler</p>
         </div>
-        <div class="button" style="background-color: blue; color:white;" [ngClass]="{'disabled': !isCorrect}" (click)="submitSurvey()">
+        <div class="button" style="background-color: blue; color:var(--color-white);" [ngClass]="{'disabled': !isCorrect}" (click)="submitSurvey()">
             <p>Poster</p>
         </div>
     </div>

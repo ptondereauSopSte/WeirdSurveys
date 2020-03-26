@@ -34,6 +34,16 @@ export class SurveyPreviewComponent implements OnInit {
   vote(option:SurveyOption){
     this.voted=true;
     this.optionVotedTxt=option.text;
+    this.survey.participations+=1;
     this.surveyManagementService.vote(this.survey, option);
+  }
+
+  like(){
+    this.liked=!this.liked;
+    if(this.liked){
+      this.survey.likes+=1;
+    } else {
+      this.survey.likes-=1;
+    }
   }
 }

@@ -9,8 +9,8 @@
             width:10vw;
             height:10vw;
             border-radius: 100%;
-            box-shadow: 0px 0px 30px black, 0px 0px 0px black, 0px 0px 0px black;
-            background-color: white;
+            box-shadow: 0px 0px 30px var(--color-black), 0px 0px 0px var(--color-black), 0px 0px 0px var(--color-black);
+            background-color: var(--color-white);
             position: absolute;
             left:45vw;
             top:38vh;
@@ -53,8 +53,8 @@
             width:40vw;
             height:40vw;
             border-radius: 100%;
-            box-shadow: 0px 0px 30px black, 0px 0px 0px black, 0px 0px 0px black;
-            background-color: white;
+            box-shadow: 0px 0px 30px var(--color-black), 0px 0px 0px var(--color-black), 0px 0px 0px var(--color-black);
+            background-color: var(--color-white);
             position: absolute;
             left: 30vw;
             top: 30vh;

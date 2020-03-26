@@ -1,5 +1,16 @@
 <div class="fakeBody">
     <div [ngClass]="{'isVoted': voted}" class="container">
+        <div  style="visibility: hidden;; position: relative;" class="front side">
+            <div class="content">
+                <h1>{{survey.text}}</h1>
+                <div class="groupOption">
+                    <div *ngFor="let option of survey.options" class="flexRow option button" (click)="vote(option)">
+                        <p>{{option.text}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="front side">
             <div class="content">
                 <h1>{{survey.text}}</h1>
@@ -23,6 +34,16 @@
                 </div>
             </div>
         </div>
-
+    </div>
+    <div class="flexCol barInterract">
+        <img [ngClass]="{liked: liked}" class="button iconLike" (click)="like()" src="https://image.flaticon.com/icons/svg/1216/1216649.svg">
+        <div class="flexRow oneInfo">
+            <img class="iconButton" src="https://image.flaticon.com/icons/svg/1216/1216649.svg">
+            <p>{{survey.likes}}</p>
+        </div>
+        <div class="flexRow oneInfo">
+            <img class="iconButton" src="https://image.flaticon.com/icons/svg/2633/2633926.svg">
+            <p>{{survey.participations}}</p>
+        </div>
     </div>
 </div>

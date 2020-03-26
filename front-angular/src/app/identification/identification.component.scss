@@ -1,7 +1,7 @@
 .identificationBox{
     width: 56vw;
     height: 80vh;
-    box-shadow: 2px 2px 5px #8c8c8c, 0px 0px 0px black, 0px 0px 0px black;
+    box-shadow: 2px 2px 5px #8c8c8c, 0px 0px 0px var(--color-black), 0px 0px 0px var(--color-black);
     background-color: rgba(255, 255, 255, 0.9);
     border-radius: 0.43em;
     padding: 1vh 2vw;
@@ -16,7 +16,7 @@
     }
 
     .button{
-        border:1px solid black;
+        border:1px solid var(--color-black);
         border-radius:0.43em;
         padding:0.5vh 1vw;
         width:3vw;
@@ -35,7 +35,7 @@
     .oneAge{
         width:5vw;
         height:3vh;
-        border:1px solid black;
+        border:1px solid var(--color-black);
         border-radius:0.43em;
         display: flex;
         flex-direction: column;
@@ -57,7 +57,7 @@
         text-align: center;
         width:10vw;
         height: 10vw;
-        border:3px solid black;
+        border:3px solid var(--color-black);
         border-radius: 100%;
         img {
             width: 5vw;
@@ -67,10 +67,10 @@
 }
 
 .selected{
-    background-color:yellow;
+    background-color:var(--color-yellow);
 }
 
 .disabled{
     pointer-events: none;
-    background-color: gray;
+    background-color: var(--color-gray);
 }
