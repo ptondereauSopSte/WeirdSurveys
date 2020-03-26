@@ -8,7 +8,10 @@ var mongoose = require('mongoose');
 
 router.get('/', function (req, res) {
     console.log("Request /surveys/")
-    surveysDB.collection('surveys').find().toArray(function(err, results) {
+    surveysDB.collection('surveys').find(
+        //On exclu les sondages en cours de vérification
+        { warnings: { $lt: 6 } }
+    ).toArray(function(err, results) {
         console.log("found "+results.length+" surveys")
         res.json(results);
     })
@@ -55,6 +58,22 @@ router.post('/likedislike', function (req, res) {
         } else {
             survey.likes-=1
         }
+        
+        surveysDB.collection('surveys').update({
+            _id: idSurvey
+        },survey);
+        res.send(survey);
+    });
+});
+
+router.post('/addwarning', function (req, res) {
+    console.log("Request /surveys/addwarning");
+    var idSurvey = mongoose.Types.ObjectId(req.body["surveyId"]);
+    surveysDB.collection('surveys').findOne({
+        _id: idSurvey
+    }, function (findErr, survey) {
+        survey.warnings = survey.warnings ? survey.warnings : 0;
+        survey.warnings+=1
         
         surveysDB.collection('surveys').update({
             _id: idSurvey

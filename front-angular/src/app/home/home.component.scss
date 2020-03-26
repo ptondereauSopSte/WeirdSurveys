@@ -1,23 +1,26 @@
-.timeline{
-    padding:5vh 0px;
-    height:90vh;
+.timelineWOptions{
+    height: 100vh;
     overflow-y: scroll;
 }
 
-.timeline::-webkit-scrollbar-track 
+.timeline{
+    padding:0vh 0px 5vh 0px;
+}
+
+.timelineWOptions::-webkit-scrollbar-track 
 {
 	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
 	border-radius: 10px;
 	background-color: #F5F5F5;
 }
 
-.timeline::-webkit-scrollbar
+.timelineWOptions::-webkit-scrollbar
 {
 	width: 8px;
 	background-color: #F5F5F5;
 }
 
-.timeline::-webkit-scrollbar-thumb
+.timelineWOptions::-webkit-scrollbar-thumb
 {
 	border-radius: 10px;
 	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
@@ -38,5 +41,46 @@
     h1{
         font-size: 1.5em;
         margin-right:0.5vw;
+    }
+}
+
+.sorting{
+    position: relative;
+    width: 35%;
+    justify-content: flex-end;
+    margin: 4vh auto 1vh auto;
+    .logoSort {
+        width: 2vw;
+        height: 2vw;
+        align-self: flex-end;
+        margin-right: -2vw;
+        padding: 0.5vw;
+    }
+
+    .choiceFilter {
+        position: absolute;
+        background-color: var(--color-white);;
+        padding: 0px 1.5vw;
+        box-shadow: var(--shadow-light);
+        right: 13px;
+        top: 1vw;
+        z-index: 1;
+        border-radius: 0.43em;
+
+        .check {
+            margin-right: 15px;
+            font-weight: bold;
+            color: var(--color-blue);
+        }
+
+        .isSelectable {
+            cursor: pointer;
+
+            &:hover {
+                p {
+                    text-decoration: underline;
+                }
+            }
+        }
     }
 }

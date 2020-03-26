@@ -13,9 +13,14 @@ export class HomeComponent implements OnInit {
 
   listSurveys:Survey[]=[];
   listSurveysSubscription: Subscription;
+
+  sortedBy: String;
+  isSortingPopupOpen: Boolean = false;
+
   constructor(private surveyManagementService : SurveyManagementService) {}
 
   ngOnInit() {
+    this.sortedBy = 'time';
     this.surveyManagementService.getAllSurveys();
     this.listSurveysSubscription = this.surveyManagementService.listSurveysSubject.subscribe(
       (listSurveys: Survey[]) => {
@@ -24,5 +29,17 @@ export class HomeComponent implements OnInit {
       }
     );
     this.surveyManagementService.emitListSurveysSubject();
+  }
+
+  openOrClosePopup() {
+    this.isSortingPopupOpen = !this.isSortingPopupOpen;
+  }
+
+  changeSortBy(key: string) {
+    if (key != this.sortedBy) {
+      this.surveyManagementService.sortSurveys(key);
+      this.sortedBy = key;
+      this.isSortingPopupOpen = false;
+    }
   }
 }

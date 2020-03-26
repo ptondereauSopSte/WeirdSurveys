@@ -1,5 +1,25 @@
-<div class="timeline">
-    <app-surveyPreview *ngFor="let survey of listSurveys" [survey]="survey"></app-surveyPreview>
+
+<div class="timelineWOptions">
+    <div class="flexRow sorting">
+        <img class="button logoSort" (click)="openOrClosePopup()" src="https://image.flaticon.com/icons/svg/117/117221.svg" />
+        <div *ngIf="isSortingPopupOpen" class="choiceFilter">
+            <div [ngClass]="{'isSelectable':sortedBy!='time'}" (click)="changeSortBy('time')" class="flexRow">
+                <p [ngStyle]="{'visibility':sortedBy=='time' ? 'visible' : 'hidden' }" class="check">✓</p>
+                <p>Date de publication</p>
+            </div>
+            <div [ngClass]="{'isSelectable':sortedBy!='likes'}" (click)="changeSortBy('likes')" class="flexRow">
+                <p [ngStyle]="{'visibility':sortedBy=='likes' ? 'visible' : 'hidden' }" class="check">✓</p>
+                <p>Nombre de likes</p>
+            </div>
+            <div [ngClass]="{'isSelectable':sortedBy!='participations'}" (click)="changeSortBy('participations')" class="flexRow">
+                <p [ngStyle]="{'visibility':sortedBy=='participations' ? 'visible' : 'hidden' }" class="check">✓</p>
+                <p>Nombre de participants</p>
+            </div>
+        </div>
+    </div>
+    <div class="timeline">
+        <app-surveyPreview *ngFor="let survey of listSurveys" [survey]="survey"></app-surveyPreview>
+    </div>
 </div>
 
 <div class="flexRow post button" routerLink="/add-survey">

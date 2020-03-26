@@ -32,6 +32,23 @@ export class SurveyManagementService {
     );
   }
 
+  sortSurveys(key:string){
+      if (key == "time") {
+          this.listSurveys.sort(function (a: Survey, b: Survey) {
+              return +b.date - +a.date;
+          });
+      } else if (key == "likes") {
+          this.listSurveys.sort(function (a: Survey, b: Survey) {
+              return +a.likes - b.likes;
+          });
+      } else if (key == "participations") {
+          this.listSurveys.sort(function (a: Survey, b: Survey) {
+              return +a.participations - b.participations;
+          });
+      }
+      this.emitListSurveysSubject();
+  }
+
   postSurvey(newSurvey : Survey){
     this.httpClient.post<Survey>(environment.apiUrl + '/surveys/post', newSurvey).subscribe(
       (response) => {
@@ -47,7 +64,6 @@ export class SurveyManagementService {
 
   vote(survey:Survey, option:SurveyOption){
     let user = this.cookieService.get("WS-user")
-    console.log(user)
     this.httpClient.post<any>(environment.apiUrl + '/surveys/vote', {"surveyId":survey.id, "option":option, "user": user}).subscribe(
       (response) => {
           console.log('Vote ajouté avec succès');
@@ -86,8 +102,22 @@ export class SurveyManagementService {
     );
   }
 
+  addWarning(survey:Survey){
+    this.httpClient.post<any>(environment.apiUrl + '/surveys/addwarning', {"surveyId":survey.id}).subscribe(
+      (response) => {
+          console.log('Warning ajouté avec succès');
+          //On met le warning en session
+          let listWarning = this.cookieService.get('WS-listWarning');
+          listWarning+=","+survey.id
+          this.cookieService.set('WS-listWarning', listWarning);
+      },
+      (error) => {
+          console.log('Erreur ! : ' + error);
+      }
+    );
+  }
+
   emitListSurveysSubject(){
-    console.log(this.listSurveys)
     this.listSurveysSubject.next(this.listSurveys.length!==0 ? this.listSurveys.slice() : []);
   }
 }

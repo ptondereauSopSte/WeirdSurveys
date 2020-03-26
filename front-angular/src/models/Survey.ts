@@ -6,6 +6,7 @@ interface SurveyData {
     options:SurveyOption[];
     likes:number;
     participations:number;
+    warnings:number;
     date: Date;
 }
 
@@ -16,18 +17,20 @@ interface SurveyOptionData {
 }
 
 export class Survey{
-    id:String=new String()
+    id:String;
     text:String =new String();
     options:SurveyOption[] =[];
     likes:number=0;
     participations:number=0;
-    date:Date;
+    warnings:number=0;
+    date:Date=new Date();
 
     fromHashMap(data: SurveyData) {
         this.id = String(data._id);
         this.text = String(data.text);
         this.likes = data.likes;
         this.participations = data.participations;
+        this.warnings = data.warnings;
         this.date = data.date;
         this.options = []
         data.options.forEach((optionJson)=>{

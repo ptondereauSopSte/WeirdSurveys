@@ -22,7 +22,6 @@ export class AddSurveyComponent implements OnInit {
   }
 
   submitSurvey(){
-    console.log(this.newSurvey)
     this.surveyManagementService.postSurvey(this.newSurvey);
   }
 

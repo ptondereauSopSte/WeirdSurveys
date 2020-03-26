@@ -15,11 +15,13 @@ export class SurveyPreviewComponent implements OnInit {
   @Input() survey:Survey;
   voted:boolean;
   liked:boolean=false;
+  warned:boolean=false;
   optionVotedTxt:String;
 
   constructor(private sanitizer : DomSanitizer, private surveyManagementService:SurveyManagementService, private cookieService : CookieService) {}
 
   ngOnInit() {
+    this.survey.warnings=this.survey.warnings? this.survey.warnings : 0;
     if(this.cookieService.get('WS-mapVote')){
       let mapVote = JSON.parse(this.cookieService.get('WS-mapVote'));
       if(Object.keys(mapVote).indexOf(""+this.survey.id)>-1){
@@ -36,6 +38,14 @@ export class SurveyPreviewComponent implements OnInit {
         this.liked=mapLike[""+this.survey.id];
       }
     }
+
+    if(this.cookieService.get('WS-listWarning')){
+      let listWarning = this.cookieService.get('WS-listWarning').split(",");
+      if(listWarning.indexOf(""+this.survey.id)>-1){
+        this.warned=true;
+      }
+    }
+
   }
 
   vote(option:SurveyOption){
@@ -53,5 +63,11 @@ export class SurveyPreviewComponent implements OnInit {
       this.survey.likes-=1;
     }
     this.surveyManagementService.likeOrDislike(this.survey, this.liked);
+  }
+
+  warn(){
+    this.warned=true;
+    this.survey.warnings+=1;
+    this.surveyManagementService.addWarning(this.survey);
   }
 }

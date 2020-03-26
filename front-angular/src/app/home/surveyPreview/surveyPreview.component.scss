@@ -71,7 +71,7 @@
 	background-size: 100vh;
 	background-size: cover;
 	background-image: url(https://livewallpaperhd.com/wp-content/uploads/2017/07/Dark-Elegant-Wallpaper.jpg);
-	//background-image: url(https://i.pinimg.com/originals/51/03/f8/5103f8f289b70fbcb9242bc1b5c3d265.png)
+	//background-image: url(https://i.pinimg.com/originals/51/03/f8/5103f8f289b70fbcb9242bc1b5c3d265.png);
 	height: auto;
 }
 .back {
@@ -163,7 +163,8 @@ form input[type="submit"] {
 
 .barInterract{
 	width: 5vw;
-    margin-left: 0.5vw;
+	margin-left: 0.5vw;
+	position: relative;
 	.oneInfo{
 		background-color: white;
 		padding: 0.5vh;
@@ -188,4 +189,79 @@ form input[type="submit"] {
 	.liked{
 		filter:drop-shadow(0px 2px 2px black);
 	}
+}
+
+.hexagon{
+	transform: scale(0.1);
+	margin-bottom: 2vh;
+	background-color: var(--color-black);
+
+	h1{
+		font-size: 206px;
+		position: absolute;
+		left: -59px;
+		border-radius: 10px;
+		margin-top: -98px;
+		color: yellow;
+		background: black;
+		width: 212px;
+		text-align: center;
+	}
+}
+
+.bar{
+	position:absolute;
+	background-color:black;
+	width:200px;
+	height:50px;
+	border-radius: 100px;
+}
+
+.bar1{
+	top:-115px;
+	right:-117px;
+	transform:rotate(30deg);
+	z-index:6;
+}
+
+.bar2{
+	right:-183px;
+	transform:rotate(90deg);
+	z-index:5;
+}
+
+.bar3{
+	top:115px;
+	right:-117px;
+	transform:rotate(-30deg);
+	z-index:4;
+}
+
+.bar4{
+	top:115px;
+	left:-117px;
+	transform:rotate(30deg);
+	z-index:3;
+}
+
+.bar5{
+	left:-183px;
+	transform:rotate(90deg);
+	z-index:2;
+}
+
+.bar6{
+	top:-115px;
+	left:-117px;
+	transform:rotate(-30deg);
+	z-index:1;
+}
+
+.barSignal{
+	background-color: var(--color-yellow);
+}
+
+.isWarned{
+	pointer-events: none;
+	filter: opacity(0.5);
 }

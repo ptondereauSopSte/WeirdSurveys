@@ -36,6 +36,15 @@
         </div>
     </div>
     <div class="flexCol barInterract">
+        <div [ngClass]="{isWarned: warned}"class="button hexagon" (click)="warn()">
+            <div [ngClass]="{barSignal: survey.warnings>=1}" class="bar bar1"></div>
+            <div [ngClass]="{barSignal: survey.warnings>=2}" class="bar bar2"></div>
+            <div [ngClass]="{barSignal: survey.warnings>=3}" class="bar bar3"></div>
+            <div [ngClass]="{barSignal: survey.warnings>=4}" class="bar bar4"></div>
+            <div [ngClass]="{barSignal: survey.warnings>=5}" class="bar bar5"></div>
+            <div [ngClass]="{barSignal: survey.warnings>=6}" class="bar bar6"></div>
+            <h1>!</h1>
+        </div>
         <img [ngClass]="{liked: liked}" class="button iconLike" (click)="like()" src="https://image.flaticon.com/icons/svg/1216/1216649.svg">
         <div class="flexRow oneInfo">
             <img class="iconButton" src="https://image.flaticon.com/icons/svg/1216/1216649.svg">
