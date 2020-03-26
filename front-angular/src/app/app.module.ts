@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CookieService } from 'ngx-cookie-service';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
@@ -36,7 +37,7 @@ import { SurveyManagementService } from './home/surveyManagement.service';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [SurveyManagementService],
+  providers: [CookieService, SurveyManagementService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

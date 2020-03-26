@@ -14,6 +14,18 @@
         font-size: 1.7em;
         margin: 0.5vh;
     }
+
+    .button{
+        border:1px solid black;
+        border-radius:0.43em;
+        padding:0.5vh 1vw;
+        width:3vw;
+        margin:auto;
+        text-align: center;
+        p{
+            margin:0px;
+        }
+    }
 }
 
 .listAge{
@@ -52,4 +64,13 @@
             margin: auto;
         }
     }
+}
+
+.selected{
+    background-color:yellow;
+}
+
+.disabled{
+    pointer-events: none;
+    background-color: gray;
 }

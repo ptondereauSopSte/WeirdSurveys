@@ -1,3 +1,4 @@
+import { CookieService } from 'ngx-cookie-service';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from "@angular/core";
 import { Survey, SurveyOption } from 'src/models/Survey';
@@ -11,7 +12,7 @@ export class SurveyManagementService {
   listSurveys: Survey[] = [];
   listSurveysSubject= new Subject<Survey[]>();
 
-  constructor(private httpClient : HttpClient, private router : Router) {}
+  constructor(private httpClient : HttpClient, private router : Router, private cookieService: CookieService) {}
 
   getAllSurveys(){
     this.httpClient.get<any>(environment.apiUrl + '/surveys').subscribe(
@@ -45,9 +46,9 @@ export class SurveyManagementService {
   }
 
   vote(survey:Survey, option:SurveyOption){
-    console.log(survey)
-    console.log(option)
-    this.httpClient.post<any>(environment.apiUrl + '/surveys/vote', {"surveyId":survey.id, "option":option}).subscribe(
+    let user = this.cookieService.get("WS-user")
+    console.log(user)
+    this.httpClient.post<any>(environment.apiUrl + '/surveys/vote', {"surveyId":survey.id, "option":option, "user": user}).subscribe(
       (response) => {
           console.log('Vote ajouté avec succès');
           const survey = new Survey();
@@ -59,6 +60,10 @@ export class SurveyManagementService {
               this.emitListSurveysSubject();
             }
           })
+          //On met en session le vote
+          let mapVote = JSON.parse(this.cookieService.get('WS-mapVote'));
+          mapVote[""+survey.id]=option.text;
+          this.cookieService.set('WS-mapVote', JSON.stringify(mapVote));
       },
       (error) => {
           console.log('Erreur ! : ' + error);

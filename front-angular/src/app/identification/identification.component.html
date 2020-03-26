@@ -5,21 +5,21 @@
     <p>Seulement quelques informations sur vous:</p>
     <h2>Age</h2>
     <div class="flexRow listAge">
-        <div class="oneAge" *ngFor="let age of listAge">
-            <p>{{age.text}}</p>
+        <div class="button oneAge" *ngFor="let age of listAge" (click)="selectAge(age)" [ngClass]="{selected: user.age==age}">
+            <p>{{age}}</p>
         </div>
     </div>
     <h2>Sexe</h2>
     <div class="flexRow listSexe">
-        <div class="oneSexe">
+        <div class="button oneSexe" [ngClass]="{selected: user.sex=='H'}" (click)="selectSex('H')">
             <img src="https://image.flaticon.com/icons/svg/1340/1340645.svg"/>
             <p>Homme</p>
         </div>
-        <div class="oneSexe">
+        <div class="button oneSexe" [ngClass]="{selected: user.sex=='F'}" (click)="selectSex('F')">
             <img src="https://image.flaticon.com/icons/svg/1340/1340653.svg"/>
             <p>Femme</p>
         </div>
     </div>
 
-    <p class="button" routerLink="/home">OK</p>
+    <p [ngClass]="{disabled: !userValid}" class="button" (click)="userSubmit()">OK</p>
 </div>

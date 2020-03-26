@@ -146,3 +146,10 @@ form input[type="submit"] {
     top: 1.5vh;
   }
 }
+
+.selected{
+	color:yellow;
+	.option{
+		background-color: yellow;
+	}
+}

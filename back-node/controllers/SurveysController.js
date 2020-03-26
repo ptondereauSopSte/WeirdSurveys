@@ -24,7 +24,6 @@ router.post('/vote', function (req, res) {
     console.log("Request /surveys/vote");
     var idSurvey = mongoose.Types.ObjectId(req.body["surveyId"]);
     var optionText = req.body["option"].text;
-    console.log(idSurvey)
     surveysDB.collection('surveys').findOne({
         _id: idSurvey
     }, function (findErr, survey) {
@@ -32,6 +31,8 @@ router.post('/vote', function (req, res) {
         survey.options.forEach((option)=>{
             if(option.text==optionText){
                 option.number+=1
+                console.log(req.body["user"])
+                option.users.push(JSON.parse(req.body["user"]))
             }
             option.percent=Math.floor(100*option.number/survey.participations)
         })

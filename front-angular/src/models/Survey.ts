@@ -1,3 +1,5 @@
+import { User } from './User';
+
 interface SurveyData {
     _id: String;
     text: String;
@@ -40,6 +42,7 @@ export class Survey{
         newOption.text=optionText;
         newOption.percent=0;
         newOption.number=0;
+        newOption.users=[];
         //Check si déjà dans les options
         let isIn=false;
         this.options.forEach((option)=>{
@@ -65,6 +68,7 @@ export class SurveyOption{
     text:String;
     percent:number;
     number:number;
+    users:User[];
 
     fromHashMap(data: SurveyOptionData) {
         this.text = String(data.text);
