@@ -46,6 +46,7 @@
   transform-style: preserve-3d;
   backface-visibility: hidden;
   border-radius: 20px;
+  box-shadow: 1px 1px 8px black;
 }
 
 .content {
@@ -303,7 +304,7 @@
 }
 
 //CATEGORIES
-/* .sexCat{
+.sexCat{
   .front{
     background-image: url(../../../assets/images/bannerSex_front.PNG);
   }
@@ -331,6 +332,12 @@
 }
 
 .uselessCat{
+  h1, .percentInfo{
+    color:var(--color-black);
+  }
+  .selected .percentInfo{
+    color:var(--color-yellow);
+  }
   .front{
     background-image: url(../../../assets/images/bannerUseless_front.PNG);
   }
@@ -367,6 +374,12 @@
 }
 
 .lifeCat{
+  h1, .percentInfo{
+    color:var(--color-black);
+  }
+  .selected .percentInfo{
+    color:var(--color-yellow);
+  }
   .front{
     background-image: url(../../../assets/images/bannerLife_front.PNG);
   }
@@ -376,10 +389,16 @@
 }
 
 .musicCat{
+  h1, .percentInfo{
+    color:var(--color-black);
+  }
+  .selected .percentInfo{
+    color:var(--color-yellow);
+  }
   .front{
     background-image: url(../../../assets/images/bannerMusic_front.PNG);
   }
   .back{
     background-image: url(../../../assets/images/bannerMusic_back.PNG);
   }
-}*/
+}

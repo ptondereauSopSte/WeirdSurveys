@@ -4,6 +4,7 @@ import { Component, OnInit, AfterViewInit, Input, ViewChild, ElementRef} from "@
 import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
 import { Survey, SurveyOption } from 'src/models/Survey';
 import { Chart } from 'chart.js';
+import { User } from 'src/models/User';
 
 @Component({
   selector: "app-surveyPreview",
