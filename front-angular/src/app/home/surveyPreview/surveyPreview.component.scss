@@ -1,71 +1,77 @@
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
+
 .fakeBody {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	-webkit-perspective: 1000px;
-	perspective: 1000px;
-	-webkit-transform-style: preserve-3d;
-	transform-style: preserve-3d;
-	position: relative;
-	font-family: "Montserrat";
-	width: 45vw;
-    margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  position: relative;
+  font-family: "Montserrat";
+  width: 60vw;
+  margin: auto;
 }
 
 .container {
-	width: 40vw;
-	margin:2vh auto;
-	border-radius: 20px;
-	position: relative;
-	-webkit-transition: 1.5s ease-in-out;
-	transition: 1.5s ease-in-out;
-	transform-style: preserve-3d;
+  width: 50vw;
+  margin: 2vh auto;
+  border-radius: 20px;
+  position: relative;
+  -webkit-transition: 1.5s ease-in-out;
+  transition: 1.5s ease-in-out;
+  transform-style: preserve-3d;
 }
 
 .side {
-	position: absolute;
-	top:0px;
-	text-align: center;
-	width: 100%;
-	height: 100%;
-	padding: 20px 50px;
-	color: #fff;
-	transform-style: preserve-3d;
-	backface-visibility: hidden;
-	border-radius: 20px;
+  position: absolute;
+  top: 0px;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  padding: 20px 50px;
+  color: #fff;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  border-radius: 20px;
 }
+
 .content {
-	transform: translatez(70px) scale(0.8);
-	line-height: 1.5em;
+  transform: translatez(70px) scale(0.8);
+  line-height: 1.5em;
 }
+
 .content h1 {
   position: relative;
   line-height: 1em;
 }
+
 .content p {
-	line-height: 2em;
+  line-height: 2em;
 }
+
 .content h1:before {
-	content: "";
-	position: absolute;
-	bottom: -20px;
-	height: 3px;
-	background-color: var(--color-blue);
-	width: 70px;
-	left: 50%;
-	transform: translateX(-50%);
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  height: 3px;
+  background-color: var(--color-blue);
+  width: 70px;
+  left: 50%;
+  transform: translateX(-50%);
 }
+
 .front {
 	z-index: 2;
 	background-size: 100vh;
@@ -73,6 +79,7 @@
 	background-image: url(https://livewallpaperhd.com/wp-content/uploads/2017/07/Dark-Elegant-Wallpaper.jpg);
 	//background-image: url(https://i.pinimg.com/originals/51/03/f8/5103f8f289b70fbcb9242bc1b5c3d265.png);
 }
+
 .back {
 	background-color: #333;
 	transform: rotateY(180deg);
@@ -81,13 +88,14 @@
 	background: black;
 	//background-image: url(https://lucadebiase.nova100.ilsole24ore.com/wp-content/uploads/sites/24/2019/09/data-grid.jpg);
 }
+
 .isVoted {
-	-webkit-transform: rotateY(180deg);
-	transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
 }
 
 .back h1 {
-	margin: 0;
+  margin: 0;
 }
 
 .listStatisticsView{
@@ -107,14 +115,14 @@
 .groupOptionFront, .groupOptionBack{
   .option{
     background-color: var(--color-white);
-    padding: 5px 20px;
+    padding: 0px 20px;
     border-radius: 3.43em;
     margin-top: 1vh;
-    color:var(--color-black);
+    color: var(--color-black);
     width: 100%;
   }
 
-  .percentInfo{
+  .percentInfo {
     position: absolute;
     right: -50px;
     top: 1.5vh;
@@ -132,104 +140,108 @@
 	}
 }
 
-.barInterract{
-	width: 5vw;
-	margin-left: 0.5vw;
-	position: relative;
-	.oneInfo{
-		background-color: white;
-		padding: 0.5vh;
-		margin: 0.5vh;
-		border: 1px solid black;
-		border-radius: 0.43em;
-		justify-content: space-around;
-	}
-	.iconButton{
-		width:1vw;
-	}
+.barInterract {
+  width: 5vw;
+  margin-left: 0.5vw;
+  position: relative;
 
-	p {
-		font-size: 1.3em;
-	}
-	.iconLike{
-		width: 2vw;
-		margin: 2vh auto;
-		filter: drop-shadow(0px 2px 2px black) grayscale(0.8);
-	}
+  .oneInfo {
+    background-color: white;
+    padding: 0.5vh;
+    margin: 0.5vh;
+    border: 1px solid black;
+    border-radius: 0.43em;
+    justify-content: space-around;
+  }
 
-	.liked{
-		filter:drop-shadow(0px 2px 2px black);
-	}
+  .iconButton {
+    width: 1vw;
+  }
+
+  p {
+    font-size: 1.3em;
+  }
+
+  .iconLike {
+    width: 2vw;
+    margin: 2vh auto;
+    filter: drop-shadow(0px 2px 2px black) grayscale(0.8);
+  }
+
+  .liked {
+    filter: drop-shadow(0px 2px 2px black);
+  }
 }
 
-.hexagon{
-	transform: scale(0.1);
-	margin-bottom: 2vh;
-	background-color: var(--color-black);
+.hexagon {
+  transform: scale(0.1);
+  margin-bottom: 2vh;
+  background-color: var(--color-black);
 
-	h1{
-		font-size: 206px;
-		position: absolute;
-		left: -59px;
-		border-radius: 10px;
-		margin-top: -98px;
-		color: yellow;
-		background: black;
-		width: 212px;
-		text-align: center;
-	}
+  h1 {
+    font-size: 206px;
+    position: absolute;
+    left: -75px;
+    border-radius: 10px;
+    margin-top: -100px;
+    padding: 5px 0px;
+    color: yellow;
+    background: black;
+    width: 214px;
+    text-align: center;
+  }
 }
 
-.bar{
-	position:absolute;
-	background-color:black;
-	width:200px;
-	height:50px;
-	border-radius: 100px;
+.bar {
+  position: absolute;
+  background-color: black;
+  width: 200px;
+  height: 50px;
+  border-radius: 100px;
 }
 
-.bar1{
-	top:-115px;
-	right:-117px;
-	transform:rotate(30deg);
-	z-index:6;
+.bar1 {
+  top: -115px;
+  right: -133px;
+  transform: rotate(30deg);
+  z-index: 6;
 }
 
-.bar2{
-	right:-183px;
-	transform:rotate(90deg);
-	z-index:5;
+.bar2 {
+  right: -198px;
+  transform: rotate(90deg);
+  z-index: 5;
 }
 
-.bar3{
-	top:115px;
-	right:-117px;
-	transform:rotate(-30deg);
-	z-index:4;
+.bar3 {
+  top: 115px;
+  right: -133px;
+  transform: rotate(-30deg);
+  z-index: 4;
 }
 
-.bar4{
-	top:115px;
-	left:-117px;
-	transform:rotate(30deg);
-	z-index:3;
+.bar4 {
+  top: 115px;
+  left: -133px;
+  transform: rotate(30deg);
+  z-index: 3;
 }
 
-.bar5{
-	left:-183px;
-	transform:rotate(90deg);
-	z-index:2;
+.bar5 {
+  left: -198px;
+  transform: rotate(90deg);
+  z-index: 2;
 }
 
-.bar6{
-	top:-115px;
-	left:-117px;
-	transform:rotate(-30deg);
-	z-index:1;
+.bar6 {
+  top: -115px;
+  left: -133px;
+  transform: rotate(-30deg);
+  z-index: 1;
 }
 
-.barSignal{
-	background-color: var(--color-yellow);
+.barSignal {
+  background-color: var(--color-yellow);
 }
 
 .isWarned{
