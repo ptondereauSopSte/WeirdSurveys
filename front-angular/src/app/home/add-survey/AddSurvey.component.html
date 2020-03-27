@@ -26,6 +26,21 @@
         </div>
     </div>
 
+    <mat-form-field>
+        <mat-label>Catégorie</mat-label>
+        <mat-select [(value)]="newSurvey.category">
+          <mat-option value="sex">Sexe</mat-option>
+          <mat-option value="love">Amour</mat-option>
+          <mat-option value="society">Société</mat-option>
+          <mat-option value="useless">Inutile</mat-option>
+          <mat-option value="sport">Sport</mat-option>
+          <mat-option value="news">Actualité</mat-option>
+          <mat-option value="art">Art</mat-option>
+          <mat-option value="life">Vie quotidienne</mat-option>
+          <mat-option value="music">Musique</mat-option>
+        </mat-select>
+    </mat-form-field>
+
     <div class="flexRow buttonsCancelAndAdd">
         <div class="button" style="background-color: var(--color-black); color:var(--color-white);" routerLink="/home">
             <p>Annuler</p>

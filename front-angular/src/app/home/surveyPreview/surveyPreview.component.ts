@@ -20,15 +20,25 @@ export class SurveyPreviewComponent implements OnInit, AfterViewInit {
   warned:boolean=false;
   optionVotedTxt:String;
   mapSelectedViewResult={
-    "list":false,
+    "list":true,
     "heatmap":false,
-    "sex":true,
+    "sex":false,
     "donut":false
   };
 
+  mapDataSex={
+    "H":[],
+    "F":[]
+  }
+
+  mapDataDonut={
+    "dataFix":[]
+  }
   //GRAPHES
   @ViewChild('sexBarsGraph',null) sexBarsGraph: ElementRef;
   sexBarsChart =[];
+  @ViewChild('donutGraph',null) donutGraph: ElementRef;
+  donutChart =[];
 
   constructor(private sanitizer : DomSanitizer, private surveyManagementService:SurveyManagementService, private cookieService : CookieService, private elementRef : ElementRef) {}
 
@@ -42,6 +52,7 @@ export class SurveyPreviewComponent implements OnInit, AfterViewInit {
         if(Object.keys(mapVote).indexOf(""+this.survey.id)>-1){
           this.voted=true;
           this.optionVotedTxt=mapVote[""+this.survey.id];
+          this.computeStats();
         }
       } else{
         this.voted=false;
@@ -86,6 +97,24 @@ export class SurveyPreviewComponent implements OnInit, AfterViewInit {
     this.surveyManagementService.addWarning(this.survey);
   }
 
+  computeStats(){
+    let catAge = ["-18", "18-30", "30-40", "40+"]
+    this.survey.options.forEach((oneOption)=>{
+      this.mapDataDonut["dataFix"].push(oneOption.number);
+      let numberH=0;
+      let numberF=0;
+      oneOption.users.forEach((user)=>{
+        if(user.sex=='H'){
+          numberH+=1
+        } else {
+          numberF+=1
+        }
+      })
+      this.mapDataSex["H"].push(numberH);
+      this.mapDataSex["F"].push(numberF);
+    })
+  }
+
   selectViewResult(key:string){
     this.mapSelectedViewResult={
       "list":false,
@@ -100,47 +129,81 @@ export class SurveyPreviewComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     // sexChart
     if(this.mapSelectedViewResult['sex']){
-      let data= [[5,6], [-3,-6]]
       this.sexBarsChart.push(new Chart(this.sexBarsGraph.nativeElement.getContext('2d'),
         {
           type: 'bar',
           data:{
-            labels: ['Option A','Option B',"Option C"],
+            labels: ['A','B',"C","D","E","F"].slice(0,this.survey.options.length),
             datasets: [
               {
                   label: "H",
                   backgroundColor: "#0D6EA3",
-                  data: [2,5,1]
+                  data: this.mapDataSex["H"]
               },
               {
                   label: "F",
                   backgroundColor: "#F8FF42",
-                  data: [3,8,4]
+                  data: this.mapDataSex["F"]
               }
             ]
           },
 
           options: {
-              scales: {
-                  xAxes: [{
-                    gridLines : {
-                      display:false,
-                    },
-                    stacked: true
-                  }],
-                  yAxes: [{
-                    gridLines : {
-                      display:false,
-                    },
-                    stacked: true,
-                    ticks: {
-                      display: false
-                    }
-                  }]
-              }
+            scales: {
+              xAxes: [{
+                gridLines : {
+                  display:false,
+                },
+                stacked: true
+              }],
+              yAxes: [{
+                gridLines : {
+                  display:false,
+                },
+                stacked: true,
+                ticks: {
+                  display: false
+                }
+              }]
+            }
           }
-        }));
-      }
+      }));
     }
-    
+
+    // donutChart
+    if(this.mapSelectedViewResult['donut']){
+      this.donutChart.push(new Chart(this.donutGraph.nativeElement.getContext('2d'),
+        {
+          type: 'doughnut',
+          data: {
+            labels: ['A','B',"C","D","E","F"].slice(0,this.survey.options.length),
+            datasets: [{
+              data: this.mapDataDonut["dataFix"],
+              backgroundColor: ["#0D6EA3","#F8FF42","#B9B9BA","#2A2A2A", "#C4E5FF","#FDFFC4"].slice(0,this.survey.options.length)
+            }]
+          },
+
+          options: {
+            scales: {
+              xAxes: [{
+                gridLines : {
+                  display:false,
+                },
+                ticks: {
+                  display: false
+                }
+              }],
+              yAxes: [{
+                gridLines : {
+                  display:false,
+                },
+                ticks: {
+                  display: false
+                }
+              }]
+            }
+          }
+      }));
+    }
+  }
 }

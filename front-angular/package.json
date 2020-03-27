@@ -26,6 +26,7 @@
     "@ckeditor/ckeditor5-build-classic": "^16.0.0",
     "@ng-bootstrap/ng-bootstrap": "^5.1.5",
     "bootstrap": "^4.4.1",
+    "chart.heatmap.js": "0.0.1-alpha",
     "chart.js": "^2.9.3",
     "choices.js": "^9.0.1",
     "core-js": "^2.5.4",

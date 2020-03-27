@@ -1,22 +1,28 @@
 <div class="fakeBody">
-    <div [ngClass]="{'isVoted': voted}" class="container">
+    <div [ngClass]="{
+        'isVoted': voted,
+        'sexCat':survey.category=='sex',
+        'loveCat':survey.category=='love',
+        'societyCat':survey.category=='society',
+        'uselessCat':survey.category=='useless',
+        'sportCat':survey.category=='sport',
+        'newsCat':survey.category=='news',
+        'artCat':survey.category=='art',
+        'lifeCat':survey.category=='life',
+        'musicCat':survey.category=='music'
+    }" class="container">
+
         <div style="visibility: hidden; position: relative;" class="side">
             <div class="content">
                 <h1>{{survey.text}}</h1>
                 <div class="listStatisticsView">
-                    <img src="https://image.flaticon.com/icons/svg/507/507205.svg"/>
-                    <img src="https://image.flaticon.com/icons/svg/335/335477.svg"/>
-                    <img src="https://image.flaticon.com/icons/svg/505/505972.svg"/>
-                    <img src="https://image.flaticon.com/icons/svg/483/483638.svg"/>
+                    <img [ngClass]="{selectedView:mapSelectedViewResult['list']}" class="button" (click)="selectViewResult('list')" src="https://image.flaticon.com/icons/svg/507/507205.svg"/>
+                    <img [ngClass]="{selectedView:mapSelectedViewResult['heatmap']}" class="button" (click)="selectViewResult('heatmap')" src="https://image.flaticon.com/icons/svg/335/335477.svg"/>
+                    <img [ngClass]="{selectedView:mapSelectedViewResult['sex']}" class="button" (click)="selectViewResult('sex')" src="https://image.flaticon.com/icons/svg/505/505972.svg"/>
+                    <img [ngClass]="{selectedView:mapSelectedViewResult['donut']}" class="button"(click)="selectViewResult('donut')" src="https://image.flaticon.com/icons/svg/483/483638.svg"/>
                 </div>
-                <div class="groupOptionBack">
-                    <div *ngFor="let option of survey.options;" [ngClass]="{selected: optionVotedTxt==option.text}" class="flexRow" style="position: relative;">
-                        <div class="option">
-                            <p>{{option.text}}</p>
-                        </div>
-                        <p class="percentInfo">{{option.percent}}%</p>
-                    </div>
-                </div>
+
+                <div class="pannelStat"></div>
             </div>
         </div>
 
@@ -42,7 +48,7 @@
 
                 <div class="pannelStat">
                     <div *ngIf="mapSelectedViewResult['list']" class="groupOptionBack">
-                        <div *ngFor="let option of survey.options;" [ngClass]="{selected: optionVotedTxt==option.text}" class="flexRow" style="position: relative;">
+                        <div *ngFor="let option of survey.options;" [ngClass]="{selected: optionVotedTxt==option.text}" class="flexRow" style="position: relative; align-items: center;">
                             <div class="option">
                                 <p>{{option.text}}</p>
                             </div>
@@ -50,14 +56,87 @@
                         </div>
                     </div>
                     <div *ngIf="mapSelectedViewResult['heatmap']">
-                        <p>hello</p>
+                        <div style="display: block; width: 40vw; height: 20vw; margin: auto;" class="blockGraph">
+                            <div class="tableHeatMap">
+                                <div class="flexRow row">
+                                    <p class="option" style="visibility: hidden;">Age</p>
+                                    <div class="flexRow listEntete">
+                                        <p>-18</p>
+                                        <p>18-30</p>
+                                        <p>30-40</p>
+                                        <p>40+</p>
+                                    </div>
+                                </div>
+                                <div class="flexRow row">
+                                    <p class="option">A</p>
+                                    <div class="flexRow listAgeStat">
+                                        <p>4</p>
+                                        <p>4</p>
+                                        <p>3</p>
+                                        <p>18</p>
+                                    </div>
+                                </div>
+                                <div class="flexRow row">
+                                    <p class="option">B</p>
+                                    <div class="flexRow listAgeStat">
+                                        <p>6</p>
+                                        <p>2</p>
+                                        <p>4</p>
+                                        <p>1</p>
+                                    </div>
+                                </div>
+                                <div class="flexRow row">
+                                    <p class="option">C</p>
+                                    <div class="flexRow listAgeStat">
+                                        <p>6</p>
+                                        <p>2</p>
+                                        <p>4</p>
+                                        <p>1</p>
+                                    </div>
+                                </div>
+                                <div class="flexRow row">
+                                    <p class="option">D</p>
+                                    <div class="flexRow listAgeStat">
+                                        <p>6</p>
+                                        <p>2</p>
+                                        <p>4</p>
+                                        <p>1</p>
+                                    </div>
+                                </div>
+                                <div class="flexRow row">
+                                    <p class="option">E</p>
+                                    <div class="flexRow listAgeStat">
+                                        <p>6</p>
+                                        <p>2</p>
+                                        <p>4</p>
+                                        <p>1</p>
+                                    </div>
+                                </div>
+                                <div class="flexRow row">
+                                    <p class="option">F</p>
+                                    <div class="flexRow listAgeStat">
+                                        <p>6</p>
+                                        <p>2</p>
+                                        <p>4</p>
+                                        <p>1</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
-                    <div *ngIf="mapSelectedViewResult['sex']">
-                        <div class="blockGraph">
+                    <div [ngStyle]="{'display':mapSelectedViewResult['sex'] ? 'block' : 'none' }">
+                        <div style="display: block; width: 40vw; height: 20vw; margin: auto;" class="blockGraph">
                             <canvas #sexBarsGraph>{{ sexBarsChart }}</canvas>
                         </div>
                     </div>
+
+                    <div [ngStyle]="{'display':mapSelectedViewResult['donut'] ? 'block' : 'none' }">
+                        <div style="display: block; width: 40vw; height: 20vw; margin: auto;" class="blockGraph">
+                            <canvas #donutGraph>{{ donutChart }}</canvas>
+                        </div>
+                    </div>
+
                 </div>
 
             </div>

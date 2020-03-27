@@ -7,6 +7,7 @@ interface SurveyData {
     likes:number;
     participations:number;
     warnings:number;
+    category:String;
     date: Date;
 }
 
@@ -14,6 +15,7 @@ interface SurveyOptionData {
     text: String;
     percent:number;
     number:number;
+    users:User[];
 }
 
 export class Survey{
@@ -23,6 +25,7 @@ export class Survey{
     likes:number=0;
     participations:number=0;
     warnings:number=0;
+    category:String;
     date:Date=new Date();
 
     fromHashMap(data: SurveyData) {
@@ -31,6 +34,7 @@ export class Survey{
         this.likes = data.likes;
         this.participations = data.participations;
         this.warnings = data.warnings;
+        this.category = String(data.category);
         this.date = data.date;
         this.options = []
         data.options.forEach((optionJson)=>{
@@ -77,5 +81,13 @@ export class SurveyOption{
         this.text = String(data.text);
         this.percent = data.percent;
         this.number = data.number;
+        this.users = []
+        if(data.users){
+            data.users.forEach((userJson)=>{
+                const user = new User();
+                user.fromHashMap(userJson);
+                this.users.push(user);
+            });
+        }
     }
 }
