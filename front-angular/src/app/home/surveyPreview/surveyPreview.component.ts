@@ -1,8 +1,9 @@
 import { CookieService } from 'ngx-cookie-service';
 import { SurveyManagementService } from './../surveyManagement.service';
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit, AfterViewInit, Input, ViewChild, ElementRef} from "@angular/core";
 import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
 import { Survey, SurveyOption } from 'src/models/Survey';
+import { Chart } from 'chart.js';
 
 @Component({
   selector: "app-surveyPreview",
@@ -10,7 +11,7 @@ import { Survey, SurveyOption } from 'src/models/Survey';
   styleUrls: ["./surveyPreview.component.scss"]
 })
 
-export class SurveyPreviewComponent implements OnInit {
+export class SurveyPreviewComponent implements OnInit, AfterViewInit {
   
   @Input() survey:Survey;
   @Input() admin:boolean;
@@ -18,8 +19,18 @@ export class SurveyPreviewComponent implements OnInit {
   liked:boolean=false;
   warned:boolean=false;
   optionVotedTxt:String;
+  mapSelectedViewResult={
+    "list":false,
+    "heatmap":false,
+    "sex":true,
+    "donut":false
+  };
 
-  constructor(private sanitizer : DomSanitizer, private surveyManagementService:SurveyManagementService, private cookieService : CookieService) {}
+  //GRAPHES
+  @ViewChild('sexBarsGraph',null) sexBarsGraph: ElementRef;
+  sexBarsChart =[];
+
+  constructor(private sanitizer : DomSanitizer, private surveyManagementService:SurveyManagementService, private cookieService : CookieService, private elementRef : ElementRef) {}
 
   ngOnInit() {
     if (this.admin){
@@ -74,4 +85,62 @@ export class SurveyPreviewComponent implements OnInit {
     this.survey.warnings+=1;
     this.surveyManagementService.addWarning(this.survey);
   }
+
+  selectViewResult(key:string){
+    this.mapSelectedViewResult={
+      "list":false,
+      "heatmap":false,
+      "sex":false,
+      "donut":false
+    };
+    this.mapSelectedViewResult[key]=true;
+    this.ngAfterViewInit();
+  }
+
+  ngAfterViewInit() {
+    // sexChart
+    if(this.mapSelectedViewResult['sex']){
+      let data= [[5,6], [-3,-6]]
+      this.sexBarsChart.push(new Chart(this.sexBarsGraph.nativeElement.getContext('2d'),
+        {
+          type: 'bar',
+          data:{
+            labels: ['Option A','Option B',"Option C"],
+            datasets: [
+              {
+                  label: "H",
+                  backgroundColor: "#0D6EA3",
+                  data: [2,5,1]
+              },
+              {
+                  label: "F",
+                  backgroundColor: "#F8FF42",
+                  data: [3,8,4]
+              }
+            ]
+          },
+
+          options: {
+              scales: {
+                  xAxes: [{
+                    gridLines : {
+                      display:false,
+                    },
+                    stacked: true
+                  }],
+                  yAxes: [{
+                    gridLines : {
+                      display:false,
+                    },
+                    stacked: true,
+                    ticks: {
+                      display: false
+                    }
+                  }]
+              }
+          }
+        }));
+      }
+    }
+    
 }

@@ -72,7 +72,6 @@
 	background-size: cover;
 	background-image: url(https://livewallpaperhd.com/wp-content/uploads/2017/07/Dark-Elegant-Wallpaper.jpg);
 	//background-image: url(https://i.pinimg.com/originals/51/03/f8/5103f8f289b70fbcb9242bc1b5c3d265.png);
-	height: auto;
 }
 .back {
 	background-color: #333;
@@ -81,7 +80,6 @@
 	padding-top: 10px;
 	background: black;
 	//background-image: url(https://lucadebiase.nova100.ilsole24ore.com/wp-content/uploads/sites/24/2019/09/data-grid.jpg);
-	height: auto;
 }
 .isVoted {
 	-webkit-transform: rotateY(180deg);
@@ -91,53 +89,22 @@
 .back h1 {
 	margin: 0;
 }
-form label,
-form input {
-	display: block;
-}
-form input,
-form textarea {
-	background: transparent;
-	border: 0;
-	border-bottom: 2px solid #444;
-	padding: 5px;
-	width: 100%;
-	color: #fff;
-}
-form label {
-	margin: 15px 0;
-}
-form input[type="submit"] {
-	display: block;
-	width: auto;
-	margin: 10px auto;
-	padding: 5px 10px;
-	border: 3px solid #555;
-	border-radius: 4px;
-	color: #fff;
-	cursor: pointer;
-}
-/* my button style  */
-.white-mode {
-	text-decoration: none;
-	padding: 7px 10px;
-	background-color: #122;
-	border-radius: 3px;
-	color: #fff;
-	transition: 0.35s ease-in-out;
-	position: fixed;
-	left: 15px;
-	bottom: 15px;
-	font-family: "Montserrat";
-}
 
-.white-mode:hover {
-	background-color: #fff;
-	color: #122;
+.listStatisticsView{
+    width: 140px;
+    margin: 3vh 1vw 0px auto;
+	img{
+		width: 35px;
+		background-color: white;
+		padding: 7px;
+		border: 1px solid black;
+		border-radius: 0.33em;
+	}
+	.selectedView{
+		background-color: var(--color-yellow);
+	}
 }
-
-.groupOption{
-  margin-top:4vh;
+.groupOptionFront, .groupOptionBack{
   .option{
     background-color: var(--color-white);
     padding: 5px 20px;
@@ -152,6 +119,10 @@ form input[type="submit"] {
     right: -50px;
     top: 1.5vh;
   }
+}
+
+.groupOptionFront{
+	margin-top:4vh;
 }
 
 .selected{
@@ -264,4 +235,21 @@ form input[type="submit"] {
 .isWarned{
 	pointer-events: none;
 	filter: opacity(0.5);
+}
+
+//Statistics view
+.pannelStat{
+	height: 30vh;
+	.onePannelStat{
+		visibility: hidden;
+	}
+	.visiblePannel{
+		visibility: visible;
+	}
+
+	.blockGraph{
+		padding:1vh 1vw;
+		background-color: white;
+		border-radius: 0.43em;
+	}
 }

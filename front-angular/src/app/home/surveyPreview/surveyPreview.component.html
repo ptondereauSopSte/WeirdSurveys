@@ -1,11 +1,20 @@
 <div class="fakeBody">
     <div [ngClass]="{'isVoted': voted}" class="container">
-        <div  style="visibility: hidden;; position: relative;" class="front side">
+        <div style="visibility: hidden; position: relative;" class="side">
             <div class="content">
                 <h1>{{survey.text}}</h1>
-                <div class="groupOption">
-                    <div *ngFor="let option of survey.options" class="flexRow option button" (click)="vote(option)">
-                        <p>{{option.text}}</p>
+                <div class="listStatisticsView">
+                    <img src="https://image.flaticon.com/icons/svg/507/507205.svg"/>
+                    <img src="https://image.flaticon.com/icons/svg/335/335477.svg"/>
+                    <img src="https://image.flaticon.com/icons/svg/505/505972.svg"/>
+                    <img src="https://image.flaticon.com/icons/svg/483/483638.svg"/>
+                </div>
+                <div class="groupOptionBack">
+                    <div *ngFor="let option of survey.options;" [ngClass]="{selected: optionVotedTxt==option.text}" class="flexRow" style="position: relative;">
+                        <div class="option">
+                            <p>{{option.text}}</p>
+                        </div>
+                        <p class="percentInfo">{{option.percent}}%</p>
                     </div>
                 </div>
             </div>
@@ -14,7 +23,7 @@
         <div class="front side">
             <div class="content">
                 <h1>{{survey.text}}</h1>
-                <div class="groupOption">
+                <div class="groupOptionFront">
                     <div *ngFor="let option of survey.options" class="flexRow option button" (click)="vote(option)">
                         <p>{{option.text}}</p>
                     </div>
@@ -24,14 +33,33 @@
         <div class="back side">
             <div class="content">
                 <h1>{{survey.text}}</h1>
-                <div class="groupOption">
-                    <div *ngFor="let option of survey.options;" [ngClass]="{selected: optionVotedTxt==option.text}" class="flexRow" style="position: relative;">
-                        <div class="option">
-                            <p>{{option.text}}</p>
+                <div class="listStatisticsView">
+                    <img [ngClass]="{selectedView:mapSelectedViewResult['list']}" class="button" (click)="selectViewResult('list')" src="https://image.flaticon.com/icons/svg/507/507205.svg"/>
+                    <img [ngClass]="{selectedView:mapSelectedViewResult['heatmap']}" class="button" (click)="selectViewResult('heatmap')" src="https://image.flaticon.com/icons/svg/335/335477.svg"/>
+                    <img [ngClass]="{selectedView:mapSelectedViewResult['sex']}" class="button" (click)="selectViewResult('sex')" src="https://image.flaticon.com/icons/svg/505/505972.svg"/>
+                    <img [ngClass]="{selectedView:mapSelectedViewResult['donut']}" class="button"(click)="selectViewResult('donut')" src="https://image.flaticon.com/icons/svg/483/483638.svg"/>
+                </div>
+
+                <div class="pannelStat">
+                    <div *ngIf="mapSelectedViewResult['list']" class="groupOptionBack">
+                        <div *ngFor="let option of survey.options;" [ngClass]="{selected: optionVotedTxt==option.text}" class="flexRow" style="position: relative;">
+                            <div class="option">
+                                <p>{{option.text}}</p>
+                            </div>
+                            <p class="percentInfo">{{option.percent}}%</p>
                         </div>
-                        <p class="percentInfo">{{option.percent}}%</p>
+                    </div>
+                    <div *ngIf="mapSelectedViewResult['heatmap']">
+                        <p>hello</p>
+                    </div>
+
+                    <div *ngIf="mapSelectedViewResult['sex']">
+                        <div class="blockGraph">
+                            <canvas #sexBarsGraph>{{ sexBarsChart }}</canvas>
+                        </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
