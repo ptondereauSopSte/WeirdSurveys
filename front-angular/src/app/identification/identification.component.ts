@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 import { CookieService } from 'ngx-cookie-service';
 import { User } from 'src/models/User';
 import { Router } from '@angular/router';
@@ -10,14 +10,20 @@ import { Router } from '@angular/router';
 })
 
 export class IdentificationComponent implements OnInit {
+  sharedSurvey:boolean = false;
   listAge: any;
   user:User = new User();
   userValid:boolean=false;
+
   constructor(private router : Router, private cookieService: CookieService) { 
 
   }
 
   ngOnInit() {
+    if (window.location.href.includes("ss=true")){
+      this.sharedSurvey=true
+    }
+
     if (this.cookieService.get('WS-user')){
       this.router.navigate(['home']);
     }
@@ -44,6 +50,10 @@ export class IdentificationComponent implements OnInit {
     this.cookieService.set('WS-mapVote',"{}", 365)
     this.cookieService.set('WS-mapLike',"{}", 365)
     this.cookieService.set('WS-mapLike',"{}", 365)
-    this.router.navigate(['home']);
+    if(!this.sharedSurvey){
+      this.router.navigate(['home']);
+    } else {
+      this.router.navigate(['sharedSurvey'], { queryParams: { id: window.location.href.split("id=")[1].split("&")[0]} });
+    }
   }
 }

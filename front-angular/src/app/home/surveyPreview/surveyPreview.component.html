@@ -27,6 +27,17 @@
         </div>
 
         <div class="front side">
+
+            <img *ngIf="survey.category=='sex'" class="logoCat" src="https://image.flaticon.com/icons/svg/2284/2284964.svg"/>
+            <img *ngIf="survey.category=='love'" class="logoCat" src="https://image.flaticon.com/icons/svg/765/765797.svg"/>
+            <img *ngIf="survey.category=='society'" class="logoCat" src="https://image.flaticon.com/icons/svg/2577/2577473.svg"/>
+            <img *ngIf="survey.category=='useless'" class="logoCat" src="https://image.flaticon.com/icons/svg/2706/2706872.svg"/>
+            <img *ngIf="survey.category=='sport'" class="logoCat" src="https://image.flaticon.com/icons/svg/2742/2742603.svg"/>
+            <img *ngIf="survey.category=='news'" class="logoCat" src="https://image.flaticon.com/icons/svg/2736/2736014.svg"/>
+            <img *ngIf="survey.category=='art'" class="logoCat" src="https://image.flaticon.com/icons/svg/1157/1157969.svg"/>
+            <img *ngIf="survey.category=='life'" class="logoCat" src="https://image.flaticon.com/icons/svg/123/123392.svg"/>
+            <img *ngIf="survey.category=='music'" class="logoCat" src="https://image.flaticon.com/icons/svg/2424/2424869.svg"/>
+
             <div class="content">
                 <h1>{{survey.text}}</h1>
                 <div class="groupOptionFront">
@@ -152,6 +163,8 @@
             <div [ngClass]="{barSignal: survey.warnings>=6}" class="bar bar6"></div>
             <h1>!</h1>
         </div>
+        
+        <img [ngStyle]="{'display':voted ? 'block' : 'none' }" class="button iconShare" (click)="copyShareLink()" src="https://image.flaticon.com/icons/svg/149/149722.svg">
         <img [ngClass]="{liked: liked}" class="button iconLike" (click)="like()" src="https://image.flaticon.com/icons/svg/1216/1216649.svg">
         <div class="flexRow oneInfo">
             <img class="iconButton" src="https://image.flaticon.com/icons/svg/1216/1216649.svg">

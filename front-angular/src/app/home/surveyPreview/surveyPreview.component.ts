@@ -1,3 +1,4 @@
+import { Survey } from './../../../models/Survey';
 import { CookieService } from 'ngx-cookie-service';
 import { SurveyManagementService } from './../surveyManagement.service';
 import { Component, OnInit, AfterViewInit, Input, ViewChild, ElementRef} from "@angular/core";
@@ -125,6 +126,22 @@ export class SurveyPreviewComponent implements OnInit, AfterViewInit {
     };
     this.mapSelectedViewResult[key]=true;
     this.ngAfterViewInit();
+  }
+
+  copyShareLink(){
+    var str = window.location.host + "/sharedSurvey?id=" + this.survey.id;
+    var el = document.createElement('textarea');
+    // Set value (string to be copied)
+    el.value = str;
+    // Set non-editable to avoid focus and move outside of view
+    el.setAttribute('readonly', '');
+    document.body.appendChild(el);
+    // Select text inside element
+    el.select();
+    // Copy text to clipboard
+    document.execCommand('copy');
+    // Remove temporary element
+    document.body.removeChild(el);
   }
 
   ngAfterViewInit() {

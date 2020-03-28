@@ -169,8 +169,13 @@
 
   .iconLike {
     width: 2vw;
-    margin: 2vh auto;
+    margin: 1vh auto;
     filter: drop-shadow(0px 2px 2px black) grayscale(0.8);
+  }
+
+  .iconShare {
+    width: 2vw;
+    margin: 1vh auto;
   }
 
   .liked {
@@ -180,7 +185,7 @@
 
 .hexagon {
   transform: scale(0.1);
-  margin-bottom: 2vh;
+  margin-bottom: 10vh;
   background-color: var(--color-black);
 
   h1 {
@@ -253,6 +258,7 @@
 //Statistics view
 .pannelStat{
   height: 37vh;
+  margin-top: 2vh;
   #sexBarsGraph{
     display: block;
     width: 30vw;
@@ -269,7 +275,7 @@
 	.blockGraph{
 		padding:1vh 1vw;
 		background-color: white;
-		border-radius: 0.43em;
+		border-radius: 1.43em;
   }
   
   .tableHeatMap{
@@ -306,99 +312,88 @@
 //CATEGORIES
 .sexCat{
   .front{
-    background-image: url(../../../assets/images/bannerSex_front.PNG);
+    background-color: #ec9c9c9e;
   }
   .back{
-    background-image: url(../../../assets/images/bannerSex_back.PNG);
+    background-color: #ec9c9c9e;
   }
 }
 
 .loveCat{
   .front{
-    background-image: url(../../../assets/images/bannerLove_front.PNG);
+    background-color: #c722229e;
   }
   .back{
-    background-image: url(../../../assets/images/bannerLove_back.PNG);
+    background-color: #c722229e;
   }
 }
 
 .societyCat{
   .front{
-    background-image: url(../../../assets/images/bannerSociety_front.PNG);
+    background-color: #0000009e;
   }
   .back{
-    background-image: url(../../../assets/images/bannerSociety_back.PNG);
+    background-color: #0000009e;
   }
 }
 
 .uselessCat{
-  h1, .percentInfo{
-    color:var(--color-black);
-  }
-  .selected .percentInfo{
-    color:var(--color-yellow);
-  }
   .front{
-    background-image: url(../../../assets/images/bannerUseless_front.PNG);
+    background-color: #48ff3c9e;
   }
   .back{
-    background-image: url(../../../assets/images/bannerUseless_back.PNG);
+    background-color: #48ff3c9e;
   }
 }
 
 .sportCat{
   .front{
-    background-image: url(../../../assets/images/bannerSport_front.PNG);
+    background-color: #2522c79e;
   }
   .back{
-    background-image: url(../../../assets/images/bannerSport_back.PNG);
+    background-color: #2522c79e;
   }
 }
-
+ 
 .newsCat{
   .front{
-    background-image: url(../../../assets/images/bannerNews_front.PNG);
+    background-color: #ff6c049c;
   }
   .back{
-    background-image: url(../../../assets/images/bannerNews_back.PNG);
+    background-color: #ff6c049c;
   }
 }
 
 .artCat{
   .front{
-    background-image: url(../../../assets/images/bannerArt_front.PNG);
+    background-color: #1fde629e;
   }
   .back{
-    background-image: url(../../../assets/images/bannerArt_back.PNG);
+    background-color: #1fde629e;
   }
 }
 
 .lifeCat{
-  h1, .percentInfo{
-    color:var(--color-black);
-  }
-  .selected .percentInfo{
-    color:var(--color-yellow);
-  }
   .front{
-    background-image: url(../../../assets/images/bannerLife_front.PNG);
+    background-color: #3cc0ff9e;
   }
   .back{
-    background-image: url(../../../assets/images/bannerLife_back.PNG);
+    background-color: #3cc0ff9e;
   }
 }
 
 .musicCat{
-  h1, .percentInfo{
-    color:var(--color-black);
-  }
-  .selected .percentInfo{
-    color:var(--color-yellow);
-  }
   .front{
-    background-image: url(../../../assets/images/bannerMusic_front.PNG);
+    background-color: #903cff9e;
   }
   .back{
-    background-image: url(../../../assets/images/bannerMusic_back.PNG);
+    background-color: #903cff9e;
   }
+}
+
+.logoCat{
+  position: absolute;
+  width: 5vw;
+  left: 1vw;
+  top: 1vw;
 }

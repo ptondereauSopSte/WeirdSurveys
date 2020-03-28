@@ -12,6 +12,9 @@ export class SurveyManagementService {
   listSurveys: Survey[] = [];
   listSurveysSubject= new Subject<Survey[]>();
 
+  oneSurvey: Survey;
+  oneSurveySubject= new Subject<Survey>();
+
   constructor(private httpClient : HttpClient, private router : Router, private cookieService: CookieService) {}
 
   getAllSurveys(){
@@ -25,6 +28,20 @@ export class SurveyManagementService {
               this.listSurveys.push(survey);
           });
           this.emitListSurveysSubject();
+      },
+      (error) => {
+          console.log('Erreur ! : ' + error);
+      }
+    );
+  }
+
+  getOneSurvey(idSharedSurvey:String){
+    this.httpClient.post<any>(environment.apiUrl + '/surveys/getById',{"idSurvey":idSharedSurvey}).subscribe(
+      (response) => {
+          const survey = new Survey();
+          survey.fromHashMap(response);
+          this.oneSurvey=survey
+          this.emitOneSurveySubject();
       },
       (error) => {
           console.log('Erreur ! : ' + error);
@@ -119,5 +136,9 @@ export class SurveyManagementService {
 
   emitListSurveysSubject(){
     this.listSurveysSubject.next(this.listSurveys.length!==0 ? this.listSurveys.slice() : []);
+  }
+
+  emitOneSurveySubject(){
+    this.oneSurveySubject.next(this.oneSurvey);
   }
 }

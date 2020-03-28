@@ -15,6 +15,7 @@ import { AppComponent } from './app.component';
 import { IdentificationComponent } from './identification/identification.component';
 import { HomeComponent } from './home/home.component';
 import { AdminComponent } from './admin/admin.component';
+import { SurveySharedComponent } from './surveyShared/surveyShared.component';
 import { AdminNavigationComponent } from './admin/adminNavigation/adminNavigation.component';
 import { StatistiquesComponent } from './admin/adminNavigation/pannels/statistiques/statistiques.component';
 import { SurveyGestionComponent } from './admin/adminNavigation/pannels/surveyGestion/surveyGestion.component';
@@ -24,7 +25,7 @@ import { SurveyPreviewComponent } from './home/surveyPreview/surveyPreview.compo
 
 import { SurveyManagementService } from './home/surveyManagement.service';
 import { AdminService } from './admin/admin.service';
-
+import { AuthGuard } from './auth-guard.service';
 
 
 @NgModule({
@@ -37,6 +38,7 @@ import { AdminService } from './admin/admin.service';
     StatistiquesComponent,
     IdentificationComponent,
     HomeComponent,
+    SurveySharedComponent,
     AddSurveyComponent,
     SurveyPreviewComponent,
   ],
@@ -52,7 +54,7 @@ import { AdminService } from './admin/admin.service';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [CookieService, SurveyManagementService, AdminService],
+  providers: [AuthGuard, CookieService, SurveyManagementService, AdminService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

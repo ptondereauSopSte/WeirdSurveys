@@ -17,6 +17,16 @@ router.get('/', function (req, res) {
     })
 });
 
+router.post('/getById', function (req, res) {
+    console.log("Request /surveys/getById")
+    var idSurvey = mongoose.Types.ObjectId(req.body["idSurvey"]);
+    surveysDB.collection('surveys').findOne({
+        _id: idSurvey
+    }, function (findErr, survey) {
+        res.json(survey);
+    });
+});
+
 router.get('/suspended', function (req, res) {
     console.log("Request /surveys/suspended")
     surveysDB.collection('surveys').find(
