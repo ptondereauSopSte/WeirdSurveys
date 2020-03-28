@@ -1,86 +1,87 @@
-.timelineWOptions{
-    height: 100vh;
-    overflow-y: scroll;
+.timelineWOptions {
+  height: 100vh;
+  overflow-y: scroll;
 }
 
-.timeline{
-    padding:0vh 0px 5vh 0px;
+.timeline {
+  padding: 0vh 0px 5vh 0px;
 }
 
-.timelineWOptions::-webkit-scrollbar-track 
-{
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-	border-radius: 10px;
-	background-color: #F5F5F5;
+.timelineWOptions::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: #F5F5F5;
 }
 
-.timelineWOptions::-webkit-scrollbar
-{
-	width: 8px;
-	background-color: #F5F5F5;
+.timelineWOptions::-webkit-scrollbar {
+  width: 8px;
+  background-color: #F5F5F5;
 }
 
-.timelineWOptions::-webkit-scrollbar-thumb
-{
-	border-radius: 10px;
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-	background-color: #000000bf;
+.timelineWOptions::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+  background-color: #000000bf;
 }
 
-.post{
-    text-align:center;
+.post {
+  text-align: center;
+  position: absolute;
+  top: 3vh;
+  right: 2vw;
+  background-color: #FCFEFB;
+  padding: 0.2vh 1vw;
+  border-radius: 0.43em;
+
+  img {
+    width: 1.5vw;
+  }
+
+  h1 {
+    font-size: 1.2em;
+    margin-right: 0.5vw;
+  }
+}
+
+.sorting {
+  position: relative;
+  width: 55vw;
+  justify-content: flex-end;
+  margin: 4vh auto 1vh auto;
+
+  .logoSort {
+    width: 2vw;
+    height: 2vw;
+    align-self: flex-end;
+    margin-right: -2vw;
+    padding: 0.5vw;
+  }
+
+  .choiceFilter {
     position: absolute;
-    top:1vh;
-    right:1vw;
-    background-color: #FCFEFB;
-    padding:0.2vh 1vw;
-    border-radius:0.43em;
-    img{
-        width:1.5vw;
-    }
-    h1{
-        font-size: 1.5em;
-        margin-right:0.5vw;
-    }
-}
+    background-color: var(--color-white);
+    ;
+    padding: 0px 1.5vw;
+    box-shadow: var(--shadow-light);
+    right: 13px;
+    top: 1vw;
+    z-index: 1;
+    border-radius: 0.43em;
 
-.sorting{
-    position: relative;
-    width: 55vw;
-    justify-content: flex-end;
-    margin: 4vh auto 1vh auto;
-    .logoSort {
-        width: 2vw;
-        height: 2vw;
-        align-self: flex-end;
-        margin-right: -2vw;
-        padding: 0.5vw;
+    .check {
+      margin-right: 15px;
+      font-weight: bold;
+      color: var(--color-blue);
     }
 
-    .choiceFilter {
-        position: absolute;
-        background-color: var(--color-white);;
-        padding: 0px 1.5vw;
-        box-shadow: var(--shadow-light);
-        right: 13px;
-        top: 1vw;
-        z-index: 1;
-        border-radius: 0.43em;
+    .isSelectable {
+      cursor: pointer;
 
-        .check {
-            margin-right: 15px;
-            font-weight: bold;
-            color: var(--color-blue);
+      &:hover {
+        p {
+          text-decoration: underline;
         }
-
-        .isSelectable {
-            cursor: pointer;
-
-            &:hover {
-                p {
-                    text-decoration: underline;
-                }
-            }
-        }
+      }
     }
+  }
 }
