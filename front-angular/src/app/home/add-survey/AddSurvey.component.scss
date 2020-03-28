@@ -20,13 +20,13 @@
   width: 100%;
 
   textarea {
-    height: 25vh;
+    height: 15vh;
     background-color: #f1f1f1;
   }
 }
 
 .optionSelection {
-  height: 40%;
+  height: 30vh;
   overflow-y: auto;
   margin-top: 2vh;
 
@@ -50,11 +50,12 @@
 
   .addOption {
     img {
-      width: 1vw;
+      width: 2vw;
     }
 
     .addLogo {
       margin-right: 1vw;
+      width: 1vw;
     }
 
     .newOptionInput {
@@ -62,6 +63,23 @@
       justify-content: space-between;
     }
   }
+}
+
+.optionSelection::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: #F5F5F5;
+}
+
+.optionSelection::-webkit-scrollbar {
+  width: 8px;
+  background-color: #F5F5F5;
+}
+
+.optionSelection::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+  background-color: #000000bf;
 }
 
 .buttonsCancelAndAdd {
@@ -81,7 +99,7 @@
 
   .disabled {
     pointer-events: none;
-    background-color: var(--color-gray) !important;
+    opacity: 0.6;
   }
 }
 

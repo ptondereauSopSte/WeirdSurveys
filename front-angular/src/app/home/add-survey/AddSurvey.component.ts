@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { Survey} from 'src/models/Survey';
+import { Survey } from 'src/models/Survey';
 import { SurveyManagementService } from '../surveyManagement.service';
 
 @Component({
@@ -9,40 +9,41 @@ import { SurveyManagementService } from '../surveyManagement.service';
 })
 
 export class AddSurveyComponent implements OnInit {
-  
+
   newSurvey: Survey = new Survey();
   newOptionTxt: String = new String();
-  isAddingOption:boolean=false;
-  isFull:boolean=false;
-  isCorrect:boolean =false;
+  isAddingOption: boolean = false;
+  isFull: boolean = false;
+  isCorrect: boolean = false;
 
-  constructor(private surveyManagementService : SurveyManagementService) {}
+  constructor(private surveyManagementService: SurveyManagementService) { }
 
   ngOnInit() {
   }
 
-  submitSurvey(){
+  submitSurvey() {
     this.surveyManagementService.postSurvey(this.newSurvey);
   }
 
-  addOption(){
-    this.isAddingOption=false;
+  addOption() {
+    this.isAddingOption = false;
     this.newSurvey.addOption(this.newOptionTxt);
-    this.newOptionTxt="";
+    this.newOptionTxt = "";
     this.checkIfSurveyIsCorrect();
-    this.isFull = this.newSurvey.options.length==6;
+    this.isFull = this.newSurvey.options.length == 6;
   }
 
-  deleteOption(textOptionToDelete :String){
+  deleteOption(textOptionToDelete: String) {
     this.newSurvey.deleteOption(textOptionToDelete);
-    this.isFull=false;
+    this.isFull = false;
   }
 
-  openNewOption(){
-    this.isAddingOption=true;
+  openNewOption() {
+    this.isAddingOption = true;
   }
 
-  checkIfSurveyIsCorrect(){
-    this.isCorrect=this.newSurvey.options.length>=2 && this.newSurvey.text!="";
+  checkIfSurveyIsCorrect() {
+    const listCat = ["sex", "love", "society", "useless", "sport", "news", "art", "life", "music"]
+    this.isCorrect = this.newSurvey.options.length >= 2 && this.newSurvey.text != "" && listCat.indexOf("" + this.newSurvey.category) > -1;
   }
 }

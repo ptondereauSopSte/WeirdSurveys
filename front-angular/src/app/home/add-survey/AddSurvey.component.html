@@ -1,52 +1,54 @@
 <div class="boxNewSurvey">
-    <h1 style="text-align: center;">Nouveau sondage</h1>
-    <mat-form-field class="textInput">
-        <mat-label>Expliquez votre problème...</mat-label>
-        <textarea [(ngModel)]="newSurvey.text" (keydown)="checkIfSurveyIsCorrect()" matInput></textarea>
-    </mat-form-field>
+  <h1 style="text-align: center;">Nouveau sondage</h1>
+  <mat-form-field class="textInput">
+    <mat-label>Expliquez votre problème...</mat-label>
+    <textarea [(ngModel)]="newSurvey.text" (keydown)="checkIfSurveyIsCorrect()" matInput></textarea>
+  </mat-form-field>
 
-    <div class="separator"></div>
+  <div class="separator"></div>
 
-    <div class="optionSelection">
-        <div *ngFor="let option of newSurvey.options" class="flexRow oneOption">
-            <p>{{option.text}}</p>
-            <img class="button" (click)="deleteOption(option.text)" src="https://image.flaticon.com/icons/svg/395/395848.svg"/>
-        </div>
-        <div class="addOption">
-            <div *ngIf="!isAddingOption && !isFull" class="flexRow button" (click)="openNewOption()">
-                <img class="addLogo" src="https://image.flaticon.com/icons/svg/1828/1828931.svg">
-                <p>Ajouter une option</p>
-            </div>
-            <div *ngIf="isAddingOption" class="newOptionInput flexRow">
-                <mat-form-field style="width: 95%;">
-                    <input [(ngModel)]="newOptionTxt" matInput placeholder="Nouvelle option">
-                </mat-form-field>
-                <img class="button" (click)="addOption()" src="https://image.flaticon.com/icons/svg/148/148764.svg"/>
-            </div>
-        </div>
+  <div class="optionSelection">
+    <div *ngFor="let option of newSurvey.options" class="flexRow oneOption">
+      <p>{{option.text}}</p>
+      <img class="button" (click)="deleteOption(option.text)"
+        src="https://image.flaticon.com/icons/svg/395/395848.svg" />
     </div>
-
-    <mat-form-field>
-        <mat-label>Catégorie</mat-label>
-        <mat-select [(value)]="newSurvey.category">
-          <mat-option value="sex">Sexe</mat-option>
-          <mat-option value="love">Amour</mat-option>
-          <mat-option value="society">Société</mat-option>
-          <mat-option value="useless">Inutile</mat-option>
-          <mat-option value="sport">Sport</mat-option>
-          <mat-option value="news">Actualité</mat-option>
-          <mat-option value="art">Art</mat-option>
-          <mat-option value="life">Vie quotidienne</mat-option>
-          <mat-option value="music">Musique</mat-option>
-        </mat-select>
-    </mat-form-field>
-
-    <div class="flexRow buttonsCancelAndAdd">
-        <div class="button" style="background-color: var(--color-black); color:var(--color-white);" routerLink="/home">
-            <p>Annuler</p>
-        </div>
-        <div class="button" style="background-color: blue; color:var(--color-white);" [ngClass]="{'disabled': !isCorrect}" (click)="submitSurvey()">
-            <p>Poster</p>
-        </div>
+    <div class="addOption">
+      <div *ngIf="!isAddingOption && !isFull" class="flexRow button" (click)="openNewOption()">
+        <img class="addLogo" src="https://image.flaticon.com/icons/svg/1828/1828931.svg">
+        <p>Ajouter une option</p>
+      </div>
+      <div *ngIf="isAddingOption" class="newOptionInput flexRow">
+        <mat-form-field style="width: 95%;">
+          <input [(ngModel)]="newOptionTxt" (keydown.enter)="addOption()" matInput placeholder="Nouvelle option">
+        </mat-form-field>
+        <img class="button" (click)="addOption()" src="https://image.flaticon.com/icons/svg/148/148764.svg" />
+      </div>
     </div>
+  </div>
+
+  <mat-form-field>
+    <mat-label>Catégorie</mat-label>
+    <mat-select [(value)]="newSurvey.category" (selectionChange)="checkIfSurveyIsCorrect()">
+      <mat-option value="sex">Sexe</mat-option>
+      <mat-option value="love">Amour</mat-option>
+      <mat-option value="society">Société</mat-option>
+      <mat-option value="useless">Inutile</mat-option>
+      <mat-option value="sport">Sport</mat-option>
+      <mat-option value="news">Actualité</mat-option>
+      <mat-option value="art">Art</mat-option>
+      <mat-option value="life">Vie quotidienne</mat-option>
+      <mat-option value="music">Musique</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <div class="flexRow buttonsCancelAndAdd">
+    <div class="button" style="background-color: var(--color-black); color:var(--color-white);" routerLink="/home">
+      <p>Annuler</p>
+    </div>
+    <div class="button" style="background-color: var(--color-blue); color:var(--color-white);"
+      [ngClass]="{'disabled': !isCorrect}" (click)="submitSurvey()">
+      <p>Poster</p>
+    </div>
+  </div>
 </div>

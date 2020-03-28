@@ -78,15 +78,15 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-	z-index: 2;
+  z-index: 2;
   background-size: 100%;
   background-color: #333;
 }
 
 .back {
-	background-color: #333;
-	transform: rotateY(180deg);
-	z-index: 0;
+  background-color: #333;
+  transform: rotateY(180deg);
+  z-index: 0;
   padding-top: 10px;
   background-size: 100%;
 }
@@ -100,22 +100,26 @@
   margin: 0;
 }
 
-.listStatisticsView{
-    width: 140px;
-    margin: 3vh 1vw 0px auto;
-	img{
-		width: 35px;
-		background-color: white;
-		padding: 7px;
-		border: 1px solid black;
-		border-radius: 0.33em;
-	}
-	.selectedView{
-		background-color: var(--color-yellow);
-	}
+.listStatisticsView {
+  width: 140px;
+  margin: 3vh 1vw 0px auto;
+
+  img {
+    width: 35px;
+    background-color: white;
+    padding: 7px;
+    border: 1px solid black;
+    border-radius: 0.33em;
+  }
+
+  .selectedView {
+    background-color: var(--color-yellow);
+  }
 }
-.groupOptionFront, .groupOptionBack{
-  .option{
+
+.groupOptionFront,
+.groupOptionBack {
+  .option {
     background-color: var(--color-white);
     padding: 5px 20px;
     border-radius: 3.43em;
@@ -130,24 +134,25 @@
   }
 }
 
-.groupOptionFront{
-	margin-top:4vh;
+.groupOptionFront {
+  margin-top: 4vh;
 }
 
-.groupOptionBack{
+.groupOptionBack {
   width: 110%;
 }
 
-.selected{
-	color:var(--color-yellow);
-	.option{
-		background-color: var(--color-yellow);
-	}
+.selected {
+  color: var(--color-yellow);
+
+  .option {
+    background-color: var(--color-yellow);
+  }
 }
 
-.friendSelected{
-  .option{
-    border:5px solid #007eff;
+.friendSelected {
+  .option {
+    border: 5px solid #007eff;
   }
 }
 
@@ -256,59 +261,68 @@
   background-color: var(--color-yellow);
 }
 
-.isWarned{
-	pointer-events: none;
-	filter: opacity(0.5);
+.isWarned {
+  pointer-events: none;
+  filter: opacity(0.5);
 }
 
 //Statistics view
-.pannelStat{
-  height: 37vh;
+.pannelStat {
+  height: 40vh;
   margin-top: 2vh;
-  #sexBarsGraph{
+
+  #sexBarsGraph {
     display: block;
     width: 30vw;
     height: 15vw;
     margin: auto;
   }
-	.onePannelStat{
-		visibility: hidden;
-	}
-	.visiblePannel{
-		visibility: visible;
-	}
 
-	.blockGraph{
-		padding:1vh 1vw;
-		background-color: white;
-		border-radius: 1.43em;
+  .onePannelStat {
+    visibility: hidden;
   }
-  
-  .tableHeatMap{
-    color:black;
-    width:40vw;
+
+  .visiblePannel {
+    visibility: visible;
+  }
+
+  .blockGraph {
+    padding: 1vh 1vw;
+    background-color: white;
+    border-radius: 1.43em;
+  }
+
+  .tableHeatMap {
+    color: black;
+    width: 40vw;
     width: 35vw;
     margin: auto;
-    .row{
+
+    .row {
       align-items: center;
     }
-    .option{
-      width:7vw;
+
+    .option {
+      width: 7vw;
     }
-    .listAgeStat{
-      p{
-        border:1px solid black;
+
+    .listAgeStat {
+      p {
+        border: 1px solid black;
       }
     }
-    .listEntete{
-      p{
-        border:1px solid white;
+
+    .listEntete {
+      p {
+        border: 1px solid white;
       }
     }
-    .listAgeStat, .listEntete{
-      p{
-        width:5vw;
-        margin:5px;
+
+    .listAgeStat,
+    .listEntete {
+      p {
+        width: 5vw;
+        margin: 5px;
         text-align: center;
       }
     }
@@ -316,88 +330,97 @@
 }
 
 //CATEGORIES
-.sexCat{
-  .front{
+.sexCat {
+  .front {
     background-color: #ec9c9c9e;
   }
-  .back{
+
+  .back {
     background-color: #ec9c9c9e;
   }
 }
 
-.loveCat{
-  .front{
+.loveCat {
+  .front {
     background-color: #c722229e;
   }
-  .back{
+
+  .back {
     background-color: #c722229e;
   }
 }
 
-.societyCat{
-  .front{
+.societyCat {
+  .front {
     background-color: #0000009e;
   }
-  .back{
+
+  .back {
     background-color: #0000009e;
   }
 }
 
-.uselessCat{
-  .front{
+.uselessCat {
+  .front {
     background-color: #48ff3c9e;
   }
-  .back{
+
+  .back {
     background-color: #48ff3c9e;
   }
 }
 
-.sportCat{
-  .front{
+.sportCat {
+  .front {
     background-color: #2522c79e;
   }
-  .back{
+
+  .back {
     background-color: #2522c79e;
   }
 }
- 
-.newsCat{
-  .front{
+
+.newsCat {
+  .front {
     background-color: #ff6c049c;
   }
-  .back{
+
+  .back {
     background-color: #ff6c049c;
   }
 }
 
-.artCat{
-  .front{
+.artCat {
+  .front {
     background-color: #1fde629e;
   }
-  .back{
+
+  .back {
     background-color: #1fde629e;
   }
 }
 
-.lifeCat{
-  .front{
+.lifeCat {
+  .front {
     background-color: #3cc0ff9e;
   }
-  .back{
+
+  .back {
     background-color: #3cc0ff9e;
   }
 }
 
-.musicCat{
-  .front{
+.musicCat {
+  .front {
     background-color: #903cff9e;
   }
-  .back{
+
+  .back {
     background-color: #903cff9e;
   }
 }
 
-.logoCat{
+.logoCat {
   position: absolute;
   width: 5vw;
   left: 1vw;
