@@ -24,7 +24,7 @@ export class IdentificationComponent implements OnInit {
       this.sharedSurvey=true
     }
 
-    if (this.cookieService.get('WS-user')){
+    if (this.cookieService.get('WS-user') && this.checkUserValidation(this.cookieService.get('WS-user'))){
       this.router.navigate(['home']);
     }
     this.listAge=["-18","18-30","30-40","40+"]
@@ -32,24 +32,25 @@ export class IdentificationComponent implements OnInit {
 
   selectSex(sex : String){
     this.user.sex=sex;
-    this.checkUserValidation();
+    this.checkUserValidation(this.user);
   }
 
   selectAge(age : String){
     this.user.age=age;
-    this.checkUserValidation();
+    this.checkUserValidation(this.user);
   }
 
-  checkUserValidation(){
-    this.userValid = this.user.age !== '' && this.user.sex !== '';
+  checkUserValidation(user){
+    this.userValid = this.listAge.indexOf(user.age) >-1 && ['H', 'F'].indexOf(user.sex)>-1;
+    return this.userValid;
   }
 
   //On met l'user en session
   userSubmit(){
     this.cookieService.set('WS-user', JSON.stringify(this.user), 365);
-    this.cookieService.set('WS-mapVote',"{}", 365)
-    this.cookieService.set('WS-mapLike',"{}", 365)
-    this.cookieService.set('WS-mapLike',"{}", 365)
+    this.cookieService.set('WS-mapVote',"{}", 365);
+    this.cookieService.set('WS-mapLike',"{}", 365);
+    this.cookieService.set('WS-mapLike',"{}", 365);
     if(!this.sharedSurvey){
       this.router.navigate(['home']);
     } else {
