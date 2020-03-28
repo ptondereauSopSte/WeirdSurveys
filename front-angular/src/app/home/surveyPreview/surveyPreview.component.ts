@@ -17,6 +17,7 @@ export class SurveyPreviewComponent implements OnInit, AfterViewInit {
   
   @Input() survey:Survey;
   @Input() admin:boolean;
+  @Input() friendOptionSelected:Number;
   voted:boolean;
   liked:boolean=false;
   warned:boolean=false;
@@ -129,7 +130,13 @@ export class SurveyPreviewComponent implements OnInit, AfterViewInit {
   }
 
   copyShareLink(){
-    var str = window.location.host + "/sharedSurvey?id=" + this.survey.id;
+    let idxAnswer = 0
+    for (var k=0; k<this.survey.options.length; k++){
+      if (this.survey.options[k].text==this.optionVotedTxt){
+        idxAnswer=k
+      }
+    }
+    var str = window.location.host + "/sharedSurvey?id=" + this.survey.id+"&r="+String(Math.floor(Math.random()*9999))+String(idxAnswer);
     var el = document.createElement('textarea');
     // Set value (string to be copied)
     el.value = str;

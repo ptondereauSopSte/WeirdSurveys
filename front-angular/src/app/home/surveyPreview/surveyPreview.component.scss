@@ -21,11 +21,11 @@
   position: relative;
   font-family: "Montserrat";
   width: 60vw;
-  margin: auto;
+  margin-left: 25vw;
 }
 
 .container {
-  width: 50vw;
+  width: 60vw;
   margin: 2vh auto;
   border-radius: 20px;
   position: relative;
@@ -143,6 +143,12 @@
 	.option{
 		background-color: var(--color-yellow);
 	}
+}
+
+.friendSelected{
+  .option{
+    border:5px solid #007eff;
+  }
 }
 
 .barInterract {

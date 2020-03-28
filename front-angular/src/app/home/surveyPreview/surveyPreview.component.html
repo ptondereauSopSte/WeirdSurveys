@@ -59,7 +59,7 @@
 
                 <div class="pannelStat">
                     <div *ngIf="mapSelectedViewResult['list']" class="groupOptionBack">
-                        <div *ngFor="let option of survey.options;" [ngClass]="{selected: optionVotedTxt==option.text}" class="flexRow" style="position: relative; align-items: center;">
+                        <div *ngFor="let option of survey.options; let index = index;" [ngClass]="{selected: optionVotedTxt==option.text, friendSelected:friendOptionSelected==index}" class="flexRow" style="position: relative; align-items: center;">
                             <div class="option">
                                 <p>{{option.text}}</p>
                             </div>
