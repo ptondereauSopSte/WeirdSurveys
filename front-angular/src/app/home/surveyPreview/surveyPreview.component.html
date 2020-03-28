@@ -78,58 +78,40 @@
                                         <p>40+</p>
                                     </div>
                                 </div>
-                                <div class="flexRow row">
+                                <div *ngIf="mapDataHeat['A']" class="flexRow row">
                                     <p class="option">A</p>
                                     <div class="flexRow listAgeStat">
-                                        <p>4</p>
-                                        <p>4</p>
-                                        <p>3</p>
-                                        <p>18</p>
+                                        <p *ngFor="let data of mapDataHeat['A']">{{data}}</p>
                                     </div>
                                 </div>
-                                <div class="flexRow row">
+                                <div *ngIf="mapDataHeat['B']" class="flexRow row">
                                     <p class="option">B</p>
                                     <div class="flexRow listAgeStat">
-                                        <p>6</p>
-                                        <p>2</p>
-                                        <p>4</p>
-                                        <p>1</p>
+                                        <p *ngFor="let data of mapDataHeat['B']">{{data}}</p>
                                     </div>
                                 </div>
-                                <div class="flexRow row">
+                                <div *ngIf="mapDataHeat['C']" class="flexRow row">
                                     <p class="option">C</p>
                                     <div class="flexRow listAgeStat">
-                                        <p>6</p>
-                                        <p>2</p>
-                                        <p>4</p>
-                                        <p>1</p>
+                                        <p *ngFor="let data of mapDataHeat['C']">{{data}}</p>
                                     </div>
                                 </div>
-                                <div class="flexRow row">
+                                <div *ngIf="mapDataHeat['D']" class="flexRow row">
                                     <p class="option">D</p>
                                     <div class="flexRow listAgeStat">
-                                        <p>6</p>
-                                        <p>2</p>
-                                        <p>4</p>
-                                        <p>1</p>
+                                        <p *ngFor="let data of mapDataHeat['D']">{{data}}</p>
                                     </div>
                                 </div>
-                                <div class="flexRow row">
+                                <div *ngIf="mapDataHeat['E']" class="flexRow row">
                                     <p class="option">E</p>
                                     <div class="flexRow listAgeStat">
-                                        <p>6</p>
-                                        <p>2</p>
-                                        <p>4</p>
-                                        <p>1</p>
+                                        <p *ngFor="let data of mapDataHeat['E']">{{data}}</p>
                                     </div>
                                 </div>
-                                <div class="flexRow row">
+                                <div *ngIf="mapDataHeat['F']" class="flexRow row">
                                     <p class="option">F</p>
                                     <div class="flexRow listAgeStat">
-                                        <p>6</p>
-                                        <p>2</p>
-                                        <p>4</p>
-                                        <p>1</p>
+                                        <p *ngFor="let data of mapDataHeat['F']">{{data}}</p>
                                     </div>
                                 </div>
                             </div>

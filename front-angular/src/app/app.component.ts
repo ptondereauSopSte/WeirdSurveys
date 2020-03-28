@@ -1,5 +1,8 @@
+import { Subscription } from 'rxjs';
+import { SurveyManagementService } from './home/surveyManagement.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Survey } from 'src/models/Survey';
 
 @Component({
   selector: 'app-root',
@@ -11,13 +14,20 @@ export class AppComponent implements OnInit{
   isLoaded=false;
   isAnimationClosed=false;
 
-  constructor(private router : Router){}
+  listSurveysSubscription:Subscription;
+
+  constructor(private router : Router, private surveyManagementService : SurveyManagementService){}
   ngOnInit(){
-    setTimeout(()=>{
-      this.isLoaded=true
-      setTimeout(()=>{
-        this.isAnimationClosed=true;
-      },400);
-    },0)
+    this.surveyManagementService.getAllSurveys();
+    this.listSurveysSubscription = this.surveyManagementService.listSurveysSubject.subscribe(
+      (listSurveys: Survey[]) => {
+        if(listSurveys.length>0){
+          this.isLoaded=true;
+          setTimeout(()=>{
+            this.isAnimationClosed=true;
+          },400);
+        }
+      }
+    );
   }
 }

@@ -20,14 +20,14 @@ export class IdentificationComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.listAge=["-18","18-30","30-40","40+"]
     if (window.location.href.includes("ss=true")){
       this.sharedSurvey=true
     }
 
-    if (this.cookieService.get('WS-user') && this.checkUserValidation(this.cookieService.get('WS-user'))){
+    if (this.cookieService.get('WS-user')){
       this.router.navigate(['home']);
     }
-    this.listAge=["-18","18-30","30-40","40+"]
   }
 
   selectSex(sex : String){
@@ -54,7 +54,7 @@ export class IdentificationComponent implements OnInit {
     if(!this.sharedSurvey){
       this.router.navigate(['home']);
     } else {
-      this.router.navigate(['sharedSurvey'], { queryParams: { id: window.location.href.split("id=")[1].split("&")[0]} });
+      this.router.navigate(['sharedSurvey'], { queryParams: { id: window.location.href.split("id=")[1].split("&")[0], r: window.location.href.split("r=")[1].split("&")[0]} });
     }
   }
 }

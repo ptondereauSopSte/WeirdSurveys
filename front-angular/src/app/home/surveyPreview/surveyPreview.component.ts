@@ -1,4 +1,3 @@
-import { Survey } from './../../../models/Survey';
 import { CookieService } from 'ngx-cookie-service';
 import { SurveyManagementService } from './../surveyManagement.service';
 import { Component, OnInit, AfterViewInit, Input, ViewChild, ElementRef} from "@angular/core";
@@ -29,14 +28,19 @@ export class SurveyPreviewComponent implements OnInit, AfterViewInit {
     "donut":false
   };
 
-  mapDataSex={
+  mapDataSex = {
     "H":[],
     "F":[]
   }
 
   mapDataDonut={
-    "dataFix":[]
+    "dataFix":[],
   }
+
+  mapDataHeat={
+  }
+  maxValueHeat=0;
+
   //GRAPHES
   @ViewChild('sexBarsGraph',null) sexBarsGraph: ElementRef;
   sexBarsChart =[];
@@ -82,6 +86,7 @@ export class SurveyPreviewComponent implements OnInit, AfterViewInit {
     this.optionVotedTxt=option.text;
     this.survey.participations+=1;
     this.surveyManagementService.vote(this.survey, option);
+    this.computeStats();
   }
 
   like(){
@@ -104,6 +109,7 @@ export class SurveyPreviewComponent implements OnInit, AfterViewInit {
     let catAge = ["-18", "18-30", "30-40", "40+"]
     this.survey.options.forEach((oneOption)=>{
       this.mapDataDonut["dataFix"].push(oneOption.number);
+      let oneDataHeat=[0,0,0,0]
       let numberH=0;
       let numberF=0;
       oneOption.users.forEach((user)=>{
@@ -112,10 +118,14 @@ export class SurveyPreviewComponent implements OnInit, AfterViewInit {
         } else {
           numberF+=1
         }
+        oneDataHeat[catAge.indexOf(""+user.age)]+=1;
       })
       this.mapDataSex["H"].push(numberH);
       this.mapDataSex["F"].push(numberF);
+      this.mapDataHeat[["A","B", "C", "D", "E", "F"][Object.keys(this.mapDataHeat).length]]=oneDataHeat;
+      this.maxValueHeat=Math.max(Math.max(...oneDataHeat), this.maxValueHeat);
     })
+    console.log(this.maxValueHeat)
   }
 
   selectViewResult(key:string){
