@@ -132,6 +132,9 @@
     margin-left: 30px;
     width: 2vw;
   }
+  .indicatorLetter{
+    margin-right: 30px;
+  }
 }
 
 .groupOptionFront {
@@ -139,7 +142,8 @@
 }
 
 .groupOptionBack {
-  width: 110%;
+  width: 120%;
+  margin-left: -8%;
 }
 
 .selected {

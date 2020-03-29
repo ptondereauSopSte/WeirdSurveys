@@ -118,14 +118,18 @@ export class SurveyPreviewComponent implements OnInit, AfterViewInit {
         } else {
           numberF+=1
         }
-        oneDataHeat[catAge.indexOf(""+user.age)]+=1;
+        //On ajoute le pourcentage
+        oneDataHeat[catAge.indexOf(""+user.age)]+=100/(this.survey.participations);
       })
       this.mapDataSex["H"].push(numberH);
       this.mapDataSex["F"].push(numberF);
-      this.mapDataHeat[["A","B", "C", "D", "E", "F"][Object.keys(this.mapDataHeat).length]]=oneDataHeat;
+      let oneDataHeatPer=[]
+      oneDataHeat.forEach((percent)=>{
+        oneDataHeatPer.push(Math.floor(percent*10)/10);
+      })
+      this.mapDataHeat[["A","B", "C", "D", "E", "F"][Object.keys(this.mapDataHeat).length]]=oneDataHeatPer;
       this.maxValueHeat=Math.max(Math.max(...oneDataHeat), this.maxValueHeat);
     })
-    console.log(this.maxValueHeat)
   }
 
   selectViewResult(key:string){

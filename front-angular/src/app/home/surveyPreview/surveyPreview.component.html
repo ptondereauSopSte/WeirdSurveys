@@ -60,6 +60,12 @@
                 <div class="pannelStat">
                     <div *ngIf="mapSelectedViewResult['list']" class="groupOptionBack">
                         <div *ngFor="let option of survey.options; let index = index;" [ngClass]="{selected: optionVotedTxt==option.text, friendSelected:friendOptionSelected==index}" class="flexRow" style="position: relative; align-items: center;">
+                            <p class="indicatorLetter" *ngIf="index==0">A</p>
+                            <p class="indicatorLetter" *ngIf="index==1">B</p>
+                            <p class="indicatorLetter" *ngIf="index==2">C</p>
+                            <p class="indicatorLetter" *ngIf="index==3">D</p>
+                            <p class="indicatorLetter" *ngIf="index==4">E</p>
+                            <p class="indicatorLetter" *ngIf="index==5">F</p>
                             <div class="option">
                                 <p>{{option.text}}</p>
                             </div>
@@ -81,37 +87,37 @@
                                 <div *ngIf="mapDataHeat['A']" class="flexRow row">
                                     <p class="option">A</p>
                                     <div class="flexRow listAgeStat">
-                                        <p *ngFor="let data of mapDataHeat['A']">{{data}}</p>
+                                        <p [ngStyle]="{'background':'rgba(248,255,66,'+data/maxValueHeat+')'}" *ngFor="let data of mapDataHeat['A']">{{data}}%</p>
                                     </div>
                                 </div>
                                 <div *ngIf="mapDataHeat['B']" class="flexRow row">
                                     <p class="option">B</p>
                                     <div class="flexRow listAgeStat">
-                                        <p *ngFor="let data of mapDataHeat['B']">{{data}}</p>
+                                        <p [ngStyle]="{'background':'rgba(248,255,66,'+data/maxValueHeat+')'}" *ngFor="let data of mapDataHeat['B']">{{data}}%</p>
                                     </div>
                                 </div>
                                 <div *ngIf="mapDataHeat['C']" class="flexRow row">
                                     <p class="option">C</p>
                                     <div class="flexRow listAgeStat">
-                                        <p *ngFor="let data of mapDataHeat['C']">{{data}}</p>
+                                        <p [ngStyle]="{'background':'rgba(248,255,66,'+data/maxValueHeat+')'}" *ngFor="let data of mapDataHeat['C']">{{data}}%</p>
                                     </div>
                                 </div>
                                 <div *ngIf="mapDataHeat['D']" class="flexRow row">
                                     <p class="option">D</p>
                                     <div class="flexRow listAgeStat">
-                                        <p *ngFor="let data of mapDataHeat['D']">{{data}}</p>
+                                        <p [ngStyle]="{'background':'rgba(248,255,66,'+data/maxValueHeat+')'}" *ngFor="let data of mapDataHeat['D']">{{data}}%</p>
                                     </div>
                                 </div>
                                 <div *ngIf="mapDataHeat['E']" class="flexRow row">
                                     <p class="option">E</p>
                                     <div class="flexRow listAgeStat">
-                                        <p *ngFor="let data of mapDataHeat['E']">{{data}}</p>
+                                        <p [ngStyle]="{'background':'rgba(248,255,66,'+data/maxValueHeat+')'}" *ngFor="let data of mapDataHeat['E']">{{data}}%</p>
                                     </div>
                                 </div>
                                 <div *ngIf="mapDataHeat['F']" class="flexRow row">
                                     <p class="option">F</p>
                                     <div class="flexRow listAgeStat">
-                                        <p *ngFor="let data of mapDataHeat['F']">{{data}}</p>
+                                        <p [ngStyle]="{'background':'rgba(248,255,66,'+data/maxValueHeat+')'}" *ngFor="let data of mapDataHeat['F']">{{data}}%</p>
                                     </div>
                                 </div>
                             </div>
