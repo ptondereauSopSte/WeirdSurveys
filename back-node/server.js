@@ -18,10 +18,14 @@ app.use(function (req, res, next) {
 // custom routes
 
 var SurveysController = require('./controllers/SurveysController');
+var UsersController = require('./controllers/UsersController');
+var StatisticsController = require('./controllers/StatisticsController');
 
 // Set our routes
 
 app.use('/surveys', SurveysController);
+app.use('/users', UsersController);
+app.use('/stats', StatisticsController);
 
 // Handle 404
 app.use(function (req, res) {

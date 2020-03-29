@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from "@angular/core";
 import { CookieService } from 'ngx-cookie-service';
 import { User } from 'src/models/User';
 import { Router } from '@angular/router';
+import { StatisticsService } from '../admin/adminNavigation/pannels/statistiques/statistics.service';
 
 @Component({
   selector: "app-identification",
@@ -15,7 +16,7 @@ export class IdentificationComponent implements OnInit {
   user:User = new User();
   userValid:boolean=false;
 
-  constructor(private router : Router, private cookieService: CookieService) { 
+  constructor(private router : Router, private cookieService: CookieService, private statisticsService : StatisticsService) { 
 
   }
 
@@ -51,6 +52,7 @@ export class IdentificationComponent implements OnInit {
     this.cookieService.set('WS-mapVote',"{}", 365);
     this.cookieService.set('WS-mapLike',"{}", 365);
     this.cookieService.set('WS-mapLike',"{}", 365);
+    this.statisticsService.addUser(this.user);
     if(!this.sharedSurvey){
       this.router.navigate(['home']);
     } else {

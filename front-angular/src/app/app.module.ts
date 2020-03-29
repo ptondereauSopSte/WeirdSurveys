@@ -24,6 +24,7 @@ import { AddSurveyComponent } from './home/add-survey/AddSurvey.component';
 import { SurveyPreviewComponent } from './home/surveyPreview/surveyPreview.component';
 
 import { SurveyManagementService } from './home/surveyManagement.service';
+import { StatisticsService } from './admin/adminNavigation/pannels/statistiques/statistics.service';
 import { AdminService } from './admin/admin.service';
 import { AuthGuard } from './auth-guard.service';
 
@@ -54,7 +55,7 @@ import { AuthGuard } from './auth-guard.service';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [AuthGuard, CookieService, SurveyManagementService, AdminService],
+  providers: [AuthGuard, CookieService, SurveyManagementService, AdminService, StatisticsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
