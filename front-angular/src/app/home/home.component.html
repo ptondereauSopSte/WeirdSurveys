@@ -1,7 +1,7 @@
 
 <div class="timelineWOptions">
     <div class="flexRow sorting">
-        <img class="button logoSort" (click)="openOrClosePopup()" src="../../assets/images/sort.svg" />
+        <img class="button logoSort" (click)="openOrClosePopup()" src="../../WeirdSurveys/assets/images/sort.svg" />
         <div *ngIf="isSortingPopupOpen" class="choiceFilter">
             <div [ngClass]="{'isSelectable':sortedBy!='time'}" (click)="changeSortBy('time')" class="flexRow">
                 <p [ngStyle]="{'visibility':sortedBy=='time' ? 'visible' : 'hidden' }" class="check">✓</p>
@@ -24,5 +24,5 @@
 
 <div class="flexRow post button" routerLink="/add-survey">
     <h1>Écrire un sondage</h1>
-    <img src="../../assets/images/post.svg"/>
+    <img src="../../WeirdSurveys/assets/images/post.svg"/>
 </div>

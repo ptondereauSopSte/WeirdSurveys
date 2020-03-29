@@ -150,7 +150,7 @@ export class SurveyPreviewComponent implements OnInit, AfterViewInit {
         idxAnswer=k
       }
     }
-    var str = window.location.host + "/sharedSurvey?id=" + this.survey.id+"&r="+String(Math.floor(Math.random()*9999))+String(idxAnswer);
+    var str = window.location.host + "/#/sharedSurvey?id=" + this.survey.id+"&r="+String(Math.floor(Math.random()*9999))+String(idxAnswer);
     var el = document.createElement('textarea');
     // Set value (string to be copied)
     el.value = str;
