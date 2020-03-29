@@ -1,18 +1,36 @@
 .identificationBox{
     width: 56vw;
-    height: 80vh;
+    height: 85vh;
     box-shadow: 2px 2px 5px #8c8c8c, 0px 0px 0px var(--color-black), 0px 0px 0px var(--color-black);
     background-color: rgba(255, 255, 255, 0.9);
     border-radius: 0.43em;
     padding: 1vh 2vw;
     position: absolute;
     left: 20vw;
-    top: 8vh;
+    top: 6vh;
+
+    img{
+        width: 2vw;
+        margin-right: 1vw;
+    }
+    .arrow{
+        margin: auto;
+        display: block;
+        transform: rotate(90deg);
+    }
 
     h1{
         text-align: center;
         font-size: 1.7em;
         margin: 0.5vh;
+    }
+
+    p{
+        font-size: 1.5em;
+    }
+
+    b{
+        color:var(--color-blue)
     }
 
     .button{
@@ -55,22 +73,44 @@
         justify-content: space-around;
         flex-direction: column;
         text-align: center;
-        width:10vw;
-        height: 10vw;
-        border:3px solid var(--color-black);
+        width: 8vw;
+        height: 9vw;
+        margin-bottom: 1vh;
+        border: 3px solid var(--color-black);
         border-radius: 100%;
         img {
-            width: 5vw;
-            margin: auto;
+            width: 3vw;
+            margin: 0px auto;
         }
     }
 }
 
 .selected{
-    background-color:var(--color-yellow);
+    background-color:#faff60;
 }
 
 .disabled{
     pointer-events: none;
-    background-color: var(--color-gray);
+    opacity: 0.6;
+    background: #8080808a;
+}
+
+.separator{
+    width:10vw;
+    margin:auto;
+    height:4px;
+    background-color: var(--color-blue);
+}
+
+h2{
+    text-align: center;
+    text-decoration: underline;
+    text-decoration-color: yellow;
+}
+
+h3{
+    font-style: italic;
+    text-align: center;
+    font-size: 1.7em;
+    margin: 20px;
 }

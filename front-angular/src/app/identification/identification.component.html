@@ -1,8 +1,17 @@
 <div class="identificationBox">
-    <h1>Bienvenue sur WeirdSurveys !</h1>
-    <p>Description de ce qu'on peut faire sur le site Description de ce qu'on peut faire sur le site Description de ce qu'on peut faire sur le site Description de ce qu'on peut faire sur le site Description de ce qu'on peut faire sur le site Description de ce qu'on peut faire sur le site Description de ce qu'on peut faire sur le site Description de ce qu'on peut faire sur le site </p>
-    <p>Complètement anonyme</p>
-    <p>Seulement quelques informations sur vous:</p>
+    <h1>WeirdSurveys</h1>
+    <div class="separator"></div>
+    <h3>"A des questions sans intérêt votre avis nous intéresse"</h3>
+    <div class="flexRow">
+        <img src="https://image.flaticon.com/icons/svg/2476/2476190.svg"/>
+        <p>Ici tu trouveras toutes les questions auxquelles tu n'as jamais eu de réponses.</p>
+    </div>
+    <div class="flexRow">
+        <img src="https://image.flaticon.com/icons/svg/2742/2742477.svg"/>
+        <p>Tu pourras <b>anonymement</b> voter, partager, aimer les sondages qui t'intéressent ou en proposer des nouveaux et obtenir les réponses aux questions que tu te poses.</p>
+    </div>
+    <img class="arrow" src="https://image.flaticon.com/icons/svg/724/724927.svg">
+    <p style="font-size: 1.2em; text-align: center;">Commence par indiquer tes <b>informations essentielles</b> (Non, tu n'es pas une femme de 56 ans) et accéde au site !</p>
     <h2>Age</h2>
     <div class="flexRow listAge">
         <div class="button oneAge" *ngFor="let age of listAge" (click)="selectAge(age)" [ngClass]="{selected: user.age==age}">
@@ -21,5 +30,5 @@
         </div>
     </div>
 
-    <p [ngClass]="{disabled: !userValid}" class="button" (click)="userSubmit()">OK</p>
+    <p [ngClass]="{disabled: !userValid}" style="background-color:var(--color-blue); color: white;" class="button" (click)="userSubmit()">OK</p>
 </div>
