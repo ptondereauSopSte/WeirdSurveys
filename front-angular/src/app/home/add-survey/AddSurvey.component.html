@@ -11,18 +11,18 @@
     <div *ngFor="let option of newSurvey.options" class="flexRow oneOption">
       <p>{{option.text}}</p>
       <img class="button" (click)="deleteOption(option.text)"
-        src="https://image.flaticon.com/icons/svg/395/395848.svg" />
+        src="../../../assets/images/delete.svg" />
     </div>
     <div class="addOption">
       <div *ngIf="!isAddingOption && !isFull" class="flexRow button" (click)="openNewOption()">
-        <img class="addLogo" src="https://image.flaticon.com/icons/svg/1828/1828931.svg">
+        <img class="addLogo" src="../../../assets/images/newAdd.svg">
         <p>Ajouter une option</p>
       </div>
       <div *ngIf="isAddingOption" class="newOptionInput flexRow">
         <mat-form-field style="width: 95%;">
           <input [(ngModel)]="newOptionTxt" (keydown.enter)="addOption()" matInput placeholder="Nouvelle option">
         </mat-form-field>
-        <img class="button" (click)="addOption()" src="https://image.flaticon.com/icons/svg/148/148764.svg" />
+        <img class="button" (click)="addOption()" src="../../../assets/images/add.svg" />
       </div>
     </div>
   </div>
