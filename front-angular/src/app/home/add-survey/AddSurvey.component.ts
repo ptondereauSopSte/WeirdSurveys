@@ -43,10 +43,17 @@ export class AddSurveyComponent implements OnInit {
   }
 
   checkSize(keyString: string) {
-    const limitOption = 10
-    if (keyString == 'option' && this.newOptionTxt.length > limitOption) {
-      this.newOptionTxt = this.newOptionTxt.substring(0, limitOption - 1)
-    }
+    const limitOption = 70;
+    const limitTextSondage = 300;
+    setTimeout(
+      () => {
+        if (keyString == 'option' && this.newOptionTxt.length > limitOption) {
+          this.newOptionTxt = this.newOptionTxt.substring(0, limitOption)
+        }
+        if (keyString == 'text' && this.newSurvey.text.length > limitTextSondage) {
+          this.newSurvey.text = this.newSurvey.text.substring(0, limitTextSondage)
+        }
+      }, 0)
   }
   checkIfSurveyIsCorrect() {
     const listCat = ["sex", "love", "society", "useless", "sport", "news", "art", "life", "music"]

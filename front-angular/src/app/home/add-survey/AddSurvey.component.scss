@@ -1,6 +1,6 @@
 .boxNewSurvey {
   width: 56vw;
-  height: 80vh;
+  height: 85vh;
   box-shadow: 2px 2px 5px #8c8c8c, 0px 0px 0px var(--color-black), 0px 0px 0px var(--color-black);
   background-color: rgba(255, 255, 255, 0.9);
   border-radius: 0.43em;
@@ -23,6 +23,12 @@
     height: 15vh;
     background-color: #f1f1f1;
   }
+}
+
+.lengthIndicator {
+  margin-top: -10px;
+  margin-bottom: 10px;
+  text-align: right;
 }
 
 .optionSelection {

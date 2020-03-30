@@ -2,9 +2,9 @@
   <h1 style="text-align: center;">Nouveau sondage</h1>
   <mat-form-field class="textInput">
     <mat-label>Expliquez votre problème...</mat-label>
-    <textarea [(ngModel)]="newSurvey.text" (keydown)="checkIfSurveyIsCorrect()" matInput></textarea>
+    <textarea [(ngModel)]="newSurvey.text" (keydown)="checkIfSurveyIsCorrect(); checkSize('text')" matInput></textarea>
   </mat-form-field>
-
+  <p class="lengthIndicator">{{newSurvey.text.length}}/300</p>
   <div class="separator"></div>
 
   <div class="optionSelection">
