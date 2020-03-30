@@ -32,9 +32,12 @@
   background-color: #FCFEFB;
   padding: 0.2vh 1vw;
   border-radius: 0.43em;
+  align-items: center;
 
   img {
     width: 1.5vw;
+    height: 1.5vw;
+    display: block;
   }
 
   h1 {
@@ -92,9 +95,12 @@
     top: 1vh;
     right: 3vw;
     padding: 0vh 2vw;
+    align-items: center;
 
     img {
       width: 5vw;
+      height: 5vw;
+      display: block;
     }
 
     h1 {

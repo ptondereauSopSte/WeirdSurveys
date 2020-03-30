@@ -40,6 +40,7 @@
     width: 100%;
     justify-content: space-between;
     margin-bottom: 1vh;
+    align-items: center;
 
     p {
       margin: 0px;
@@ -59,6 +60,10 @@
       width: 2vw;
     }
 
+    .button {
+      align-items: center;
+    }
+
     .addLogo {
       margin-right: 1vw;
       width: 1vw;
@@ -66,6 +71,7 @@
 
     .newOptionInput {
       width: 100%;
+      align-items: center;
       justify-content: space-between;
     }
   }
@@ -119,26 +125,29 @@
 @media (max-width: 800px) {
 
   .boxNewSurvey {
-    width: 80vw;
-    left: 8vw;
-    top: 8vh;
+    width: 90vw;
+    left: 3vw;
+    top: 5vh;
   }
   
   .optionSelection {
     .oneOption {
       img {
         width: 5vw;
+        height: 5vw;
       }
     }
   
     .addOption {
       img {
         width: 5vw;
+        height: 5vw;
         margin-left:1vw;
       }
   
       .addLogo {
         width: 5vw;
+        height: 5vw;
       }
     }
   }

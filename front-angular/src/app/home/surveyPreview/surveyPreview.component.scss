@@ -591,6 +591,7 @@
     .iconShare {
       width: 8vw;
       margin: 1vw;
+      visibility: hidden !important;
     }
 
     .liked {
@@ -678,7 +679,7 @@
 
   //Statistics view
   .pannelStat {
-    height: 20vh;
+    height: 25vh;
     margin-top: 0px;
 
     #sexBarsGraph {
@@ -698,7 +699,7 @@
 
     .blockGraph {
       width: 70vw;
-      height: 20vh;
+      height: 25vh;
       padding: 1vh 1vw;
       background-color: white;
       border-radius: 1.43em;
