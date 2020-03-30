@@ -14,3 +14,17 @@ h1{
     padding: 0.5vh 0.5vw;
     border-radius: 100px;
 }
+
+@media (max-width: 800px) {
+    h1{
+        width: 85vw;
+        border-radius: 5px;
+        font-size: 0.8em;
+    }
+
+    .backLogo{
+        width: 10vw;
+        left: 2vw;
+        top: 2vw;
+    }
+}

@@ -105,28 +105,26 @@
 
   .sorting {
     position: relative;
-    width: 55vw;
-    justify-content: flex-end;
-    margin: 4vh auto 1vh auto;
+    width: 30vw;
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+    margin: 1vh auto 1vh 5vw;
+
+    p{
+      font-size: 0.7em;
+    }
 
     .logoSort {
-      width: 2vw;
-      height: 2vw;
-      align-self: flex-end;
-      margin-right: -2vw;
+      width: 5vw;
+      height: 5vw;
+      align-self: flex-start;
       padding: 0.5vw;
     }
 
     .choiceFilter {
-      position: absolute;
-      background-color: var(--color-white);
-      ;
       padding: 0px 1.5vw;
-      box-shadow: var(--shadow-light);
-      right: 13px;
-      top: 1vw;
-      z-index: 1;
-      border-radius: 0.43em;
+      right: -20vw;
+      left: 7vw;
 
       .check {
         margin-right: 15px;

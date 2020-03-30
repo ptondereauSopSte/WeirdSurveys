@@ -115,3 +115,39 @@
   background-color: var(--color-blue);
   margin: auto;
 }
+
+@media (max-width: 800px) {
+
+  .boxNewSurvey {
+    width: 80vw;
+    left: 8vw;
+    top: 8vh;
+  }
+  
+  .optionSelection {
+    .oneOption {
+      img {
+        width: 5vw;
+      }
+    }
+  
+    .addOption {
+      img {
+        width: 5vw;
+        margin-left:1vw;
+      }
+  
+      .addLogo {
+        width: 5vw;
+      }
+    }
+  }
+  
+  .buttonsCancelAndAdd {
+    width: 35vw;
+  }
+  
+  .separator {
+    width: 15vw;
+  }
+}

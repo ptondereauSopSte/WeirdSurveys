@@ -1,6 +1,5 @@
 .identificationBox {
   width: 56vw;
-  height: 90vh;
   box-shadow: 2px 2px 5px #8c8c8c, 0px 0px 0px var(--color-black), 0px 0px 0px var(--color-black);
   background-color: rgba(255, 255, 255, 0.9);
   border-radius: 0.43em;
@@ -126,4 +125,118 @@ h3 {
   text-align: center;
   font-size: 1.4em;
   margin: 10px;
+}
+
+@media (max-width: 800px) {
+
+  .identificationBox {
+    width: 80vw;
+    left: 8vw;
+    top: 6vh;
+  
+    img {
+      width: 6vw;
+      margin-right: 2vw;
+    }
+  
+    .arrow {
+      margin: auto;
+      display: block;
+      transform: rotate(90deg);
+    }
+  
+    h1 {
+      text-align: center;
+      font-size: 1.1em;
+      margin: 0.5vh;
+    }
+  
+    p {
+      font-size: 1em;
+      margin: 5px;
+    }
+  
+    b {
+      color: var(--color-blue)
+    }
+  
+    .button {
+      border: 1px solid var(--color-black);
+      border-radius: 0.43em;
+      padding: 0.5vh 1vw;
+      width: 3vw;
+      margin: auto;
+      text-align: center;
+  
+      p {
+        margin: 0px;
+      }
+    }
+  }
+  
+  .listAge {
+    width: 100%;
+    margin: auto;
+    justify-content: space-between;
+  
+    .oneAge {
+      width: 15vw;
+      height: 3vh;
+      border: 1px solid var(--color-black);
+      border-radius: 0.43em;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+  
+      p {
+        margin: 0px auto;
+      }
+    }
+  }
+  
+  .listSexe {
+    width: 30vw;
+  
+    .oneSexe {
+      width: 10vw;
+      height: 10vw;
+      border-radius: 100%;
+  
+      img {
+        width: 8vw;
+      }
+    }
+  }
+  
+  .disabled {
+    pointer-events: none;
+    opacity: 0.6;
+    background: #8080808a;
+  }
+  
+  .separator {
+    width: 10vw;
+    margin: auto;
+    height: 4px;
+    background-color: var(--color-blue);
+  }
+  
+  h2 {
+    text-align: center;
+    text-decoration: underline;
+    text-decoration-color: yellow;
+    margin: 10px;
+  }
+  
+  h3 {
+    font-style: italic;
+    text-align: center;
+    font-size: 1em;
+    margin: 10px;
+  }
+
+  .buttonSubmit{
+    width: 10vw !important;
+    margin: 1vh auto !important;
+  }
 }
