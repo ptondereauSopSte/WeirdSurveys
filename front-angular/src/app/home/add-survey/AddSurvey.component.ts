@@ -42,6 +42,12 @@ export class AddSurveyComponent implements OnInit {
     this.isAddingOption = true;
   }
 
+  checkSize(keyString: string) {
+    const limitOption = 10
+    if (keyString == 'option' && this.newOptionTxt.length > limitOption) {
+      this.newOptionTxt = this.newOptionTxt.substring(0, limitOption - 1)
+    }
+  }
   checkIfSurveyIsCorrect() {
     const listCat = ["sex", "love", "society", "useless", "sport", "news", "art", "life", "music"]
     this.isCorrect = this.newSurvey.options.length >= 2 && this.newSurvey.text != "" && listCat.indexOf("" + this.newSurvey.category) > -1;
