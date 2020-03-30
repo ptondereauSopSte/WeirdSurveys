@@ -133,13 +133,14 @@
     margin-left: 30px;
     width: 2vw;
   }
-  .indicatorLetter{
+
+  .indicatorLetter {
     margin-right: 30px;
   }
 }
 
 .groupOptionFront {
-  margin-top: 4vh;
+  margin-top: 40px;
 }
 
 .groupOptionBack {
@@ -173,6 +174,7 @@
     border: 1px solid black;
     border-radius: 0.43em;
     justify-content: space-around;
+    align-items: center;
   }
 
   .iconButton {
@@ -207,10 +209,14 @@
   h1 {
     font-size: 206px;
     position: absolute;
-    left: 20px;
-    top: -105px;
+    left: -100px;
+    top: -92px;
     border-radius: 10px;
     color: yellow;
+    background: black;
+    border-radius: 100%;
+    width: 250px;
+    text-align: center;
   }
 }
 
@@ -430,4 +436,314 @@
   width: 5vw;
   left: 1vw;
   top: 1vw;
+}
+
+@media (max-width: 800px) {
+  .fakeBody {
+    width: 95vw;
+    margin-left: 0vw;
+    flex-direction: column;
+  }
+
+  .container {
+    width: 80vw;
+    margin: 1vw auto;
+  }
+
+  .side {
+    padding: 10px 10px;
+  }
+
+  .content h1 {
+    font-size: 1em;
+  }
+
+  .content p {
+    font-size: 0.4em;
+    line-height: 1em;
+  }
+
+  .content h1:before {
+    content: "";
+    position: absolute;
+    bottom: -20px;
+    height: 3px;
+    background-color: var(--color-blue);
+    width: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .front {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 2;
+    background-size: 100%;
+    background-color: #333;
+  }
+
+  .back {
+    background-color: #333;
+    transform: rotateY(180deg);
+    z-index: 0;
+    padding-top: 10px;
+    background-size: 100%;
+    border: 3px solid #0000008f;
+  }
+
+  .isVoted {
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+  }
+
+  .back h1 {
+    margin: 0;
+  }
+
+  .listStatisticsView {
+    width: 140px;
+    margin: 30px 1vw 0px auto;
+
+    img {
+      width: 25px;
+      padding: 4px;
+      margin-left: 3px;
+    }
+
+    .selectedView {
+      background-color: var(--color-yellow);
+    }
+  }
+
+  .groupOptionFront,
+  .groupOptionBack {
+    .option {
+      background-color: var(--color-white);
+      padding: 5px 20px;
+      border-radius: 3.43em;
+      margin-top: 1vh;
+      color: var(--color-black);
+      width: 100%;
+    }
+
+    .percentInfo {
+      margin-left: 30px;
+      width: 2vw;
+    }
+
+    .indicatorLetter {
+      margin-right: 30px;
+    }
+  }
+
+  .groupOptionFront {
+    margin-top: 40px;
+  }
+
+  .groupOptionBack {
+    width: 120%;
+    margin-left: -8%;
+  }
+
+  .selected {
+    color: var(--color-yellow);
+
+    .option {
+      background-color: var(--color-yellow);
+    }
+  }
+
+  .friendSelected {
+    .option {
+      border: 5px solid #007eff;
+    }
+  }
+
+  .barInterract {
+    width: 80vw;
+    height: 4vh;
+    margin-bottom: 3vh;
+    position: relative;
+    flex-direction: row-reverse;
+    justify-content: start;
+
+    .oneInfo {
+      padding: 5px;
+      margin: 0px 2vw 0px 0px;
+      width: 20vw;
+    }
+
+    .iconButton {
+      width: 4vw;
+    }
+
+    p {
+      font-size: 1.3em;
+    }
+
+    .iconLike {
+      width: 8vw;
+      margin: 1vw;
+      filter: drop-shadow(0px 2px 2px black) grayscale(0.8);
+    }
+
+    .iconShare {
+      width: 8vw;
+      margin: 1vw;
+    }
+
+    .liked {
+      filter: drop-shadow(0px 2px 2px black);
+    }
+  }
+
+  .hexagon {
+    transform: scale(0.07);
+    background-color: var(--color-black);
+    margin-bottom: 0px;
+    margin-left: 10vw;
+    width: 60px;
+
+    h1 {
+      font-size: 206px;
+      position: absolute;
+      left: -100px;
+      top: -92px;
+      border-radius: 10px;
+      color: yellow;
+      background: black;
+      border-radius: 100%;
+      width: 250px;
+      text-align: center;
+    }
+  }
+
+  .bar {
+    position: absolute;
+    background-color: black;
+    width: 200px;
+    height: 50px;
+    border-radius: 100px;
+  }
+
+  .bar1 {
+    top: -115px;
+    right: -133px;
+    transform: rotate(30deg);
+    z-index: 6;
+  }
+
+  .bar2 {
+    right: -198px;
+    transform: rotate(90deg);
+    z-index: 5;
+  }
+
+  .bar3 {
+    top: 115px;
+    right: -133px;
+    transform: rotate(-30deg);
+    z-index: 4;
+  }
+
+  .bar4 {
+    top: 115px;
+    left: -133px;
+    transform: rotate(30deg);
+    z-index: 3;
+  }
+
+  .bar5 {
+    left: -198px;
+    transform: rotate(90deg);
+    z-index: 2;
+  }
+
+  .bar6 {
+    top: -115px;
+    left: -133px;
+    transform: rotate(-30deg);
+    z-index: 1;
+  }
+
+  .barSignal {
+    background-color: var(--color-yellow);
+  }
+
+  .isWarned {
+    pointer-events: none;
+    filter: opacity(0.5);
+  }
+
+  //Statistics view
+  .pannelStat {
+    height: 20vh;
+    margin-top: 0px;
+
+    #sexBarsGraph {
+      display: block;
+      width: 30vw;
+      height: 15vw;
+      margin: auto;
+    }
+
+    .onePannelStat {
+      visibility: hidden;
+    }
+
+    .visiblePannel {
+      visibility: visible;
+    }
+
+    .blockGraph {
+      width: 70vw;
+      height: 20vh;
+      padding: 1vh 1vw;
+      background-color: white;
+      border-radius: 1.43em;
+    }
+
+    .tableHeatMap {
+      color: black;
+      width: 40vw;
+      width: 35vw;
+      margin: auto;
+
+      .row {
+        align-items: center;
+      }
+
+      .option {
+        width: 7vw;
+      }
+
+      .listAgeStat {
+        p {
+          border: 1px solid black;
+        }
+      }
+
+      .listEntete {
+        p {
+          border: 1px solid white;
+        }
+      }
+
+      .listAgeStat,
+      .listEntete {
+        p {
+          width: 5vw;
+          margin: 5px;
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  .logoCat {
+    width: 10vw;
+    left: 3vw;
+    top: 3vw;
+  }
 }

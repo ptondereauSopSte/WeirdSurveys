@@ -85,3 +85,64 @@
     }
   }
 }
+
+@media (max-width: 800px) {
+
+  .post {
+    top: 1vh;
+    right: 3vw;
+    padding: 0vh 2vw;
+
+    img {
+      width: 5vw;
+    }
+
+    h1 {
+      font-size: 1em;
+      margin: 5px;
+    }
+  }
+
+  .sorting {
+    position: relative;
+    width: 55vw;
+    justify-content: flex-end;
+    margin: 4vh auto 1vh auto;
+
+    .logoSort {
+      width: 2vw;
+      height: 2vw;
+      align-self: flex-end;
+      margin-right: -2vw;
+      padding: 0.5vw;
+    }
+
+    .choiceFilter {
+      position: absolute;
+      background-color: var(--color-white);
+      ;
+      padding: 0px 1.5vw;
+      box-shadow: var(--shadow-light);
+      right: 13px;
+      top: 1vw;
+      z-index: 1;
+      border-radius: 0.43em;
+
+      .check {
+        margin-right: 15px;
+        font-weight: bold;
+        color: var(--color-blue);
+      }
+
+      .isSelectable {
+        cursor: pointer;
+
+        &:hover {
+          p {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+}
