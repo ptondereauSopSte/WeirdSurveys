@@ -1,117 +1,129 @@
-.identificationBox{
-    width: 56vw;
-    height: 85vh;
-    box-shadow: 2px 2px 5px #8c8c8c, 0px 0px 0px var(--color-black), 0px 0px 0px var(--color-black);
-    background-color: rgba(255, 255, 255, 0.9);
+.identificationBox {
+  width: 56vw;
+  height: 90vh;
+  box-shadow: 2px 2px 5px #8c8c8c, 0px 0px 0px var(--color-black), 0px 0px 0px var(--color-black);
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 0.43em;
+  padding: 1vh 2vw;
+  position: absolute;
+  left: 20vw;
+  top: 6vh;
+  overflow: auto;
+
+  img {
+    width: 2vw;
+    margin-right: 1vw;
+  }
+
+  .arrow {
+    margin: auto;
+    display: block;
+    transform: rotate(90deg);
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 1.5em;
+    margin: 0.5vh;
+  }
+
+  p {
+    font-size: 1.2em;
+    margin: 10px;
+  }
+
+  b {
+    color: var(--color-blue)
+  }
+
+  .button {
+    border: 1px solid var(--color-black);
     border-radius: 0.43em;
-    padding: 1vh 2vw;
-    position: absolute;
-    left: 20vw;
-    top: 6vh;
-    overflow: auto;
-    
-    img{
-        width: 2vw;
-        margin-right: 1vw;
-    }
-    .arrow{
-        margin: auto;
-        display: block;
-        transform: rotate(90deg);
-    }
-
-    h1{
-        text-align: center;
-        font-size: 1.7em;
-        margin: 0.5vh;
-    }
-
-    p{
-        font-size: 1.5em;
-    }
-
-    b{
-        color:var(--color-blue)
-    }
-
-    .button{
-        border:1px solid var(--color-black);
-        border-radius:0.43em;
-        padding:0.5vh 1vw;
-        width:3vw;
-        margin:auto;
-        text-align: center;
-        p{
-            margin:0px;
-        }
-    }
-}
-
-.listAge{
-    width:60%;
+    padding: 0.5vh 1vw;
+    width: 3vw;
     margin: auto;
-    justify-content: space-between;
-    .oneAge{
-        width:5vw;
-        height:3vh;
-        border:1px solid var(--color-black);
-        border-radius:0.43em;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        p{
-            margin:0px auto;
-        }
-    }
-}
-
-.listSexe{
-    width:40%;
-    margin: auto;
-    justify-content: space-between;
-    .oneSexe{
-        display: flex;
-        justify-content: space-around;
-        flex-direction: column;
-        text-align: center;
-        width: 8vw;
-        height: 9vw;
-        margin-bottom: 1vh;
-        border: 3px solid var(--color-black);
-        border-radius: 100%;
-        img {
-            width: 3vw;
-            margin: 0px auto;
-        }
-    }
-}
-
-.selected{
-    background-color:#faff60;
-}
-
-.disabled{
-    pointer-events: none;
-    opacity: 0.6;
-    background: #8080808a;
-}
-
-.separator{
-    width:10vw;
-    margin:auto;
-    height:4px;
-    background-color: var(--color-blue);
-}
-
-h2{
     text-align: center;
-    text-decoration: underline;
-    text-decoration-color: yellow;
+
+    p {
+      margin: 0px;
+    }
+  }
 }
 
-h3{
-    font-style: italic;
+.listAge {
+  width: 60%;
+  margin: auto;
+  justify-content: space-between;
+
+  .oneAge {
+    width: 5vw;
+    height: 3vh;
+    border: 1px solid var(--color-black);
+    border-radius: 0.43em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    p {
+      margin: 0px auto;
+    }
+  }
+}
+
+.listSexe {
+  width: 15vw;
+  margin: auto;
+  justify-content: space-between;
+
+  .oneSexe {
+    display: -webkit-box;
+    display: flex;
+    justify-content: space-around;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
     text-align: center;
-    font-size: 1.7em;
-    margin: 20px;
+    width: 3vw;
+    height: 3vw;
+    margin-bottom: 1vh;
+    border: 3px solid var(--color-black);
+    border-radius: 100%;
+    padding: 1vw;
+
+    img {
+      width: 3vw;
+      margin: 0px auto;
+    }
+  }
+}
+
+.selected {
+  background-color: #faff60;
+}
+
+.disabled {
+  pointer-events: none;
+  opacity: 0.6;
+  background: #8080808a;
+}
+
+.separator {
+  width: 10vw;
+  margin: auto;
+  height: 4px;
+  background-color: var(--color-blue);
+}
+
+h2 {
+  text-align: center;
+  text-decoration: underline;
+  text-decoration-color: yellow;
+  margin: 10px;
+}
+
+h3 {
+  font-style: italic;
+  text-align: center;
+  font-size: 1.4em;
+  margin: 10px;
 }

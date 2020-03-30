@@ -16,10 +16,10 @@
             <div class="content">
                 <h1>{{survey.text}}</h1>
                 <div class="listStatisticsView">
-                    <img [ngClass]="{selectedView:mapSelectedViewResult['list']}" class="button" (click)="selectViewResult('list')" src="../../../WeirdSurveys/assets/images/list.svg"/>
-                    <img [ngClass]="{selectedView:mapSelectedViewResult['heatmap']}" class="button" (click)="selectViewResult('heatmap')" src="../../../WeirdSurveys/assets/images/heatmap.svg"/>
-                    <img [ngClass]="{selectedView:mapSelectedViewResult['sex']}" class="button" (click)="selectViewResult('sex')" src="../../../WeirdSurveys/assets/images/sex.svg"/>
-                    <img [ngClass]="{selectedView:mapSelectedViewResult['donut']}" class="button"(click)="selectViewResult('donut')" src="../../../WeirdSurveys/assets/images/donut.svg"/>
+                    <img [ngClass]="{selectedView:mapSelectedViewResult['list']}" class="button" (click)="selectViewResult('list')" src="../../../assets/images/list.svg"/>
+                    <img [ngClass]="{selectedView:mapSelectedViewResult['heatmap']}" class="button" (click)="selectViewResult('heatmap')" src="../../../assets/images/heatmap.svg"/>
+                    <img [ngClass]="{selectedView:mapSelectedViewResult['sex']}" class="button" (click)="selectViewResult('sex')" src="../../../assets/images/sex.svg"/>
+                    <img [ngClass]="{selectedView:mapSelectedViewResult['donut']}" class="button"(click)="selectViewResult('donut')" src="../../../assets/images/donut.svg"/>
                 </div>
 
                 <div class="pannelStat"></div>
@@ -28,15 +28,15 @@
 
         <div class="front side">
 
-            <img *ngIf="survey.category=='sex'" class="logoCat" src="../../../WeirdSurveys/assets/images/logoCat/logoSex.svg"/>
-            <img *ngIf="survey.category=='love'" class="logoCat" src="../../../WeirdSurveys/assets/images/logoCat/logoLove.svg"/>
-            <img *ngIf="survey.category=='society'" class="logoCat" src="../../../WeirdSurveys/assets/images/logoCat/logoSociety.svg"/>
-            <img *ngIf="survey.category=='useless'" class="logoCat" src="../../../WeirdSurveys/assets/images/logoCat/logoUseless.svg"/>
-            <img *ngIf="survey.category=='sport'" class="logoCat" src="../../../WeirdSurveys/assets/images/logoCat/logoSport.svg"/>
-            <img *ngIf="survey.category=='news'" class="logoCat" src="../../../WeirdSurveys/assets/images/logoCat/logoNews.svg"/>
-            <img *ngIf="survey.category=='art'" class="logoCat" src="../../../WeirdSurveys/assets/images/logoCat/logoArt.svg"/>
-            <img *ngIf="survey.category=='life'" class="logoCat" src="../../../WeirdSurveys/assets/images/logoCat/logoLife.svg"/>
-            <img *ngIf="survey.category=='music'" class="logoCat" src="../../../WeirdSurveys/assets/images/logoCat/logoMusic.svg"/>
+            <img *ngIf="survey.category=='sex'" class="logoCat" src="../../../assets/images/logoCat/logoSex.svg"/>
+            <img *ngIf="survey.category=='love'" class="logoCat" src="../../../assets/images/logoCat/logoLove.svg"/>
+            <img *ngIf="survey.category=='society'" class="logoCat" src="../../../assets/images/logoCat/logoSociety.svg"/>
+            <img *ngIf="survey.category=='useless'" class="logoCat" src="../../../assets/images/logoCat/logoUseless.svg"/>
+            <img *ngIf="survey.category=='sport'" class="logoCat" src="../../../assets/images/logoCat/logoSport.svg"/>
+            <img *ngIf="survey.category=='news'" class="logoCat" src="../../../assets/images/logoCat/logoNews.svg"/>
+            <img *ngIf="survey.category=='art'" class="logoCat" src="../../../assets/images/logoCat/logoArt.svg"/>
+            <img *ngIf="survey.category=='life'" class="logoCat" src="../../../assets/images/logoCat/logoLife.svg"/>
+            <img *ngIf="survey.category=='music'" class="logoCat" src="../../../assets/images/logoCat/logoMusic.svg"/>
 
             <div class="content">
                 <h1>{{survey.text}}</h1>
@@ -51,10 +51,10 @@
             <div class="content">
                 <h1>{{survey.text}}</h1>
                 <div class="listStatisticsView">
-                    <img [ngClass]="{selectedView:mapSelectedViewResult['list']}" class="button" (click)="selectViewResult('list')" src="../../../WeirdSurveys/assets/images/list.svg"/>
-                    <img [ngClass]="{selectedView:mapSelectedViewResult['heatmap']}" class="button" (click)="selectViewResult('heatmap')" src="../../../WeirdSurveys/assets/images/heatmap.svg"/>
-                    <img [ngClass]="{selectedView:mapSelectedViewResult['sex']}" class="button" (click)="selectViewResult('sex')" src="../../../WeirdSurveys/assets/images/sex.svg"/>
-                    <img [ngClass]="{selectedView:mapSelectedViewResult['donut']}" class="button"(click)="selectViewResult('donut')" src="../../../WeirdSurveys/assets/images/donut.svg"/>
+                    <img [ngClass]="{selectedView:mapSelectedViewResult['list']}" class="button" (click)="selectViewResult('list')" src="../../../assets/images/list.svg"/>
+                    <img [ngClass]="{selectedView:mapSelectedViewResult['heatmap']}" class="button" (click)="selectViewResult('heatmap')" src="../../../assets/images/heatmap.svg"/>
+                    <img [ngClass]="{selectedView:mapSelectedViewResult['sex']}" class="button" (click)="selectViewResult('sex')" src="../../../assets/images/sex.svg"/>
+                    <img [ngClass]="{selectedView:mapSelectedViewResult['donut']}" class="button"(click)="selectViewResult('donut')" src="../../../assets/images/donut.svg"/>
                 </div>
 
                 <div class="pannelStat">
@@ -152,14 +152,14 @@
             <h1>!</h1>
         </div>
         
-        <img [ngStyle]="{'display':voted ? 'block' : 'none' }" class="button iconShare" (click)="copyShareLink()" src="../../../WeirdSurveys/assets/images/share.svg">
-        <img [ngClass]="{liked: liked}" class="button iconLike" (click)="like()" src="../../../WeirdSurveys/assets/images/like.svg">
+        <img [ngStyle]="{'display':voted ? 'block' : 'none' }" class="button iconShare" (click)="copyShareLink()" src="../../../assets/images/share.svg">
+        <img [ngClass]="{liked: liked}" class="button iconLike" (click)="like()" src="../../../assets/images/like.svg">
         <div class="flexRow oneInfo">
-            <img class="iconButton" src="../../../WeirdSurveys/assets/images/like.svg">
+            <img class="iconButton" src="../../../assets/images/like.svg">
             <p>{{survey.likes}}</p>
         </div>
         <div class="flexRow oneInfo">
-            <img class="iconButton" src="../../../WeirdSurveys/assets/images/participations.svg">
+            <img class="iconButton" src="../../../assets/images/participations.svg">
             <p>{{survey.participations}}</p>
         </div>
     </div>

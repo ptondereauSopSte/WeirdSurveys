@@ -1,34 +1,36 @@
 <div class="identificationBox">
-    <h1>WeirdSurveys</h1>
-    <div class="separator"></div>
-    <h3>"A des questions sans intérêt votre avis nous intéresse"</h3>
-    <div class="flexRow">
-        <img src="../../WeirdSurveys/assets/images/ask.svg"/>
-        <p>Ici tu trouveras toutes les questions auxquelles tu n'as jamais eu de réponses.</p>
+  <h1>WeirdSurveys</h1>
+  <div class="separator"></div>
+  <h3>"A des questions sans intérêt votre avis nous intéresse"</h3>
+  <div class="flexRow">
+    <img src="../../assets/images/ask.svg" />
+    <p>Ici tu trouveras toutes les questions auxquelles tu n'as jamais eu de réponses.</p>
+  </div>
+  <div class="flexRow">
+    <img src="../../assets/images/anonym.svg" />
+    <p>Tu pourras <b>anonymement</b> voter, partager, aimer les sondages qui t'intéressent ou en proposer des nouveaux
+      et obtenir les réponses aux questions que tu te poses.</p>
+  </div>
+  <img class="arrow" src="../../assets/images/doublearrow.svg">
+  <p style="font-size: 1.2em; text-align: center;">Commence par indiquer tes <b>informations essentielles</b> (Non, tu
+    n'es pas une femme de 56 ans) et accéde au site !</p>
+  <h2>Age</h2>
+  <div class="flexRow listAge">
+    <div class="button oneAge" *ngFor="let age of listAge" (click)="selectAge(age)"
+      [ngClass]="{selected: user.age==age}">
+      <p>{{age}}</p>
     </div>
-    <div class="flexRow">
-        <img src="../../WeirdSurveys/assets/images/anonym.svg"/>
-        <p>Tu pourras <b>anonymement</b> voter, partager, aimer les sondages qui t'intéressent ou en proposer des nouveaux et obtenir les réponses aux questions que tu te poses.</p>
+  </div>
+  <h2>Sexe</h2>
+  <div class="flexRow listSexe">
+    <div class="button oneSexe" [ngClass]="{selected: user.sex=='H'}" (click)="selectSex('H')">
+      <img src="../../assets/images/male.svg" />
     </div>
-    <img class="arrow" src="../../WeirdSurveys/assets/images/doublearrow.svg">
-    <p style="font-size: 1.2em; text-align: center;">Commence par indiquer tes <b>informations essentielles</b> (Non, tu n'es pas une femme de 56 ans) et accéde au site !</p>
-    <h2>Age</h2>
-    <div class="flexRow listAge">
-        <div class="button oneAge" *ngFor="let age of listAge" (click)="selectAge(age)" [ngClass]="{selected: user.age==age}">
-            <p>{{age}}</p>
-        </div>
+    <div class="button oneSexe" [ngClass]="{selected: user.sex=='F'}" (click)="selectSex('F')">
+      <img src="../../assets/images/female.svg" />
     </div>
-    <h2>Sexe</h2>
-    <div class="flexRow listSexe">
-        <div class="button oneSexe" [ngClass]="{selected: user.sex=='H'}" (click)="selectSex('H')">
-            <img src="../../WeirdSurveys/assets/images/male.svg"/>
-            <p>Homme</p>
-        </div>
-        <div class="button oneSexe" [ngClass]="{selected: user.sex=='F'}" (click)="selectSex('F')">
-            <img src="../../WeirdSurveys/assets/images/female.svg"/>
-            <p>Femme</p>
-        </div>
-    </div>
+  </div>
 
-    <p [ngClass]="{disabled: !userValid}" style="background-color:var(--color-blue); color: white;" class="button" (click)="userSubmit()">OK</p>
+  <p [ngClass]="{disabled: !userValid}" style="background-color:var(--color-blue); color: white;" class="button"
+    (click)="userSubmit()">OK</p>
 </div>
