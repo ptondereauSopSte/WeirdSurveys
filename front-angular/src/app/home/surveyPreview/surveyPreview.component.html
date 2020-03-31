@@ -165,11 +165,17 @@
       <div [ngClass]="{barSignal: survey.warnings>=4}" class="bar bar4"></div>
       <div [ngClass]="{barSignal: survey.warnings>=5}" class="bar bar5"></div>
       <div [ngClass]="{barSignal: survey.warnings>=6}" class="bar bar6"></div>
-      <h1>!</h1>
+      <div class="hexagonTxt">
+        <h1>!</h1>
+        <p class="tooltip tooltipAvert">Signaler ce sondage</p>
+      </div>
     </div>
 
-    <img [ngStyle]="{'display':voted ? 'block' : 'none' }" class="button iconShare" (click)="copyShareLink()"
-      src="../../../assets/images/share.svg">
+    <div class="shareBlock">
+      <img [ngStyle]="{'visibility':voted ? 'visible' : 'none' }" class="button iconShare" (click)="copyShareLink()"
+        src="../../../assets/images/share.svg">
+      <p class="tooltip tooltipeShare">Copier le lien de partage</p>
+    </div>
     <img *ngIf="!liked" class="button iconLike" (click)="like()" src="../../../assets/images/likeWhite.svg">
     <img *ngIf="liked" class="button iconLike" (click)="like()" src="../../../assets/images/like.svg">
     <div class="flexRow oneInfo">
