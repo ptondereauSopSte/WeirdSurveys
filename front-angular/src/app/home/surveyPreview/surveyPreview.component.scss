@@ -618,6 +618,10 @@
     flex-direction: row-reverse;
     justify-content: start;
 
+    .tooltip{
+      display: none;
+    }
+    
     .shareBlock {
       margin: 5px
     }
