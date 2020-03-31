@@ -61,7 +61,6 @@
 
 .content p {
   line-height: 2em;
-  font-size: 1.1em;
 }
 
 .content h1:before {
@@ -204,10 +203,10 @@
   background-color: var(--color-black);
 
   h1 {
-    font-size: 206px;
+    font-size: 230px;
     position: absolute;
-    left: -100px;
-    top: -101px;
+    left: -108px;
+    top: -103px;
     border-radius: 10px;
     color: yellow;
     background: black;
@@ -705,7 +704,7 @@
       width: 60vw;
       margin: auto;
 
-      p{
+      p {
         padding: 5px;
       }
 

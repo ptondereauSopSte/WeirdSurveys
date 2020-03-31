@@ -1,6 +1,5 @@
-
 <div class="timelineWOptions">
-    <!--<div class="flexRow sorting">
+  <!--<div class="flexRow sorting">
         <img class="button logoSort" (click)="openOrClosePopup()" src="../../assets/images/sort.svg" />
         <div *ngIf="isSortingPopupOpen" class="choiceFilter">
             <div [ngClass]="{'isSelectable':sortedBy!='time'}" (click)="changeSortBy('time')" class="flexRow">
@@ -18,27 +17,52 @@
         </div>
     </div>-->
 
-    <div class="flexRow entete">
-        <mat-form-field>
-            <mat-label>Trier par</mat-label>
-            <mat-select [(value)]="sortKey" (selectionChange)="changeSortBy(sortKey)">
-                <mat-option *ngFor="let optionSort of sortingOptions" [value]="optionSort.value">{{optionSort.display}}</mat-option>
-            </mat-select>
-        </mat-form-field>
+  <div class="flexRow entete">
+    <mat-form-field>
+      <mat-label>Trier par</mat-label>
+      <mat-select [(value)]="sortKey" (selectionChange)="changeSortBy(sortKey)">
+        <mat-option *ngFor="let optionSort of sortingOptions" [value]="optionSort.value">{{optionSort.display}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
 
-        <mat-form-field>
-            <mat-label>Catégorie(s)</mat-label>
-            <mat-select [(value)]="categorieKey" (selectionChange)="categorieFilter(categorieKey)">
-                <mat-option *ngFor="let categorie of categories" [value]="categorie.value">{{categorie.display}}</mat-option>
-            </mat-select>
-        </mat-form-field>
-    </div>
-    <div class="timeline">
-        <app-surveyPreview *ngFor="let survey of listSurveys" [survey]="survey" [admin]="false"></app-surveyPreview>
-    </div>
+    <mat-form-field>
+      <mat-label>Catégorie(s)</mat-label>
+      <mat-select [(value)]="categorieKey" (selectionChange)="categorieFilter(categorieKey)">
+        <mat-option *ngFor="let categorie of categories" [value]="categorie.value">
+          <div class="flexRow">
+            <img *ngIf="categorie.value=='all'" style="width:15px; margin-right:20px"
+              src="../../../assets/images/logoCat/logoDot.svg" />
+            <img *ngIf="categorie.value=='sex'" style="width:15px; margin-right:20px"
+              src="../../../assets/images/logoCat/logoSex.svg" />
+            <img *ngIf="categorie.value=='love'" style="width:15px; margin-right:20px"
+              src="../../../assets/images/logoCat/logoLove.svg" />
+            <img *ngIf="categorie.value=='society'" style="width:15px; margin-right:20px"
+              src="../../../assets/images/logoCat/logoSociety.svg" />
+            <img *ngIf="categorie.value=='useless'" style="width:15px; margin-right:20px"
+              src="../../../assets/images/logoCat/logoUseless.svg" />
+            <img *ngIf="categorie.value=='sport'" style="width:15px; margin-right:20px"
+              src="../../../assets/images/logoCat/logoSport.svg" />
+            <img *ngIf="categorie.value=='news'" style="width:15px; margin-right:20px"
+              src="../../../assets/images/logoCat/logoNews.svg" />
+            <img *ngIf="categorie.value=='art'" style="width:15px; margin-right:20px"
+              src="../../../assets/images/logoCat/logoArt.svg" />
+            <img *ngIf="categorie.value=='life'" style="width:15px; margin-right:20px"
+              src="../../../assets/images/logoCat/logoLife.svg" />
+            <img *ngIf="categorie.value=='music'" style="width:15px; margin-right:20px"
+              src="../../../assets/images/logoCat/logoMusic.svg" />
+            {{categorie.display}}
+          </div>
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="timeline">
+    <app-surveyPreview *ngFor="let survey of listSurveys" [survey]="survey" [admin]="false"></app-surveyPreview>
+  </div>
 </div>
 
 <div class="flexRow post button" routerLink="/add-survey">
-    <h1>Écrire un sondage</h1>
-    <img src="../../assets/images/post.svg"/>
+  <h1>Écrire un sondage</h1>
+  <img src="../../assets/images/post.svg" />
 </div>
