@@ -59,7 +59,6 @@
 }
 
 @media (max-width: 800px) {
-
   .post {
     top: 1vh;
     right: 3vw;
@@ -75,6 +74,17 @@
     h1 {
       font-size: 1em;
       margin: 5px;
+    }
+  }
+
+  .entete {
+    width: 90vw;
+    justify-content: space-around;
+    margin: 4vh auto 1vh auto;
+
+    mat-form-field {
+      width: 40vw;
+      font-size: 0.7em;
     }
   }
 }
