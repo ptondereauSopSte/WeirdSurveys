@@ -26,7 +26,6 @@ export class AddSurveyComponent implements OnInit {
   }
 
   addOption() {
-    this.isAddingOption = false;
     if (this.newOptionTxt == ""){
       return;
     }

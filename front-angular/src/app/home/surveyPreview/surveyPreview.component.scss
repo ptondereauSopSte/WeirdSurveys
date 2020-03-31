@@ -61,6 +61,7 @@
 
 .content p {
   line-height: 2em;
+  font-size: 1.1em;
 }
 
 .content h1:before {
@@ -188,16 +189,12 @@
   .iconLike {
     width: 2vw;
     margin: 1vh auto;
-    filter: drop-shadow(0px 2px 2px black) grayscale(0.8);
+    filter: drop-shadow(0px 2px 2px black);
   }
 
   .iconShare {
     width: 2vw;
     margin: 1vh auto;
-  }
-
-  .liked {
-    filter: drop-shadow(0px 2px 2px black);
   }
 }
 
@@ -210,12 +207,12 @@
     font-size: 206px;
     position: absolute;
     left: -100px;
-    top: -92px;
+    top: -101px;
     border-radius: 10px;
     color: yellow;
     background: black;
     border-radius: 100%;
-    width: 250px;
+    width: 280px;
     text-align: center;
   }
 }
@@ -298,9 +295,11 @@
   }
 
   .blockGraph {
-    padding: 1vh 1vw;
+    padding: 2vh 4vw;
     background-color: white;
     border-radius: 1.43em;
+    height: 45vh;
+    overflow: hidden;
   }
 
   .tableHeatMap {
@@ -459,7 +458,7 @@
   }
 
   .content p {
-    font-size: 0.4em;
+    font-size: 0.5em;
     line-height: 1em;
   }
 
@@ -528,7 +527,7 @@
     }
 
     .percentInfo {
-      margin-left: 30px;
+      margin-left: 20px;
       width: 2vw;
     }
 
@@ -543,7 +542,7 @@
 
   .groupOptionBack {
     width: 120%;
-    margin-left: -8%;
+    margin-left: -11%;
   }
 
   .selected {
@@ -592,10 +591,6 @@
       width: 8vw;
       margin: 1vw;
       visibility: hidden !important;
-    }
-
-    .liked {
-      filter: drop-shadow(0px 2px 2px black);
     }
   }
 
@@ -698,7 +693,7 @@
     }
 
     .blockGraph {
-      width: 70vw;
+      width: 100%;
       height: 25vh;
       padding: 1vh 1vw;
       background-color: white;
@@ -707,16 +702,19 @@
 
     .tableHeatMap {
       color: black;
-      width: 40vw;
-      width: 35vw;
+      width: 60vw;
       margin: auto;
+
+      p{
+        padding: 5px;
+      }
 
       .row {
         align-items: center;
       }
 
       .option {
-        width: 7vw;
+        width: 10vw;
       }
 
       .listAgeStat {
@@ -734,8 +732,8 @@
       .listAgeStat,
       .listEntete {
         p {
-          width: 5vw;
-          margin: 5px;
+          width: 10vw;
+          margin: 2px;
           text-align: center;
         }
       }

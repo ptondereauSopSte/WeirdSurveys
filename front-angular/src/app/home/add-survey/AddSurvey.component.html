@@ -10,7 +10,7 @@
   <div class="optionSelection">
     <div *ngFor="let option of newSurvey.options" class="flexRow oneOption">
       <p>{{option.text}}</p>
-      <img class="button" (click)="deleteOption(option.text)" src="../../../assets/images/delete.svg" />
+      <img class="button deleteIcon" (click)="deleteOption(option.text)" src="../../../assets/images/delete.svg" />
     </div>
     <div class="addOption">
       <div *ngIf="!isAddingOption && !isFull" class="flexRow button" (click)="openNewOption()">
@@ -20,7 +20,7 @@
       <div *ngIf="isAddingOption" class="newOptionInput flexRow">
         <mat-form-field style="width: 95%;">
           <input [(ngModel)]="newOptionTxt" (keydown)="checkSize('option')" (keydown.enter)="addOption()" matInput
-            placeholder="Nouvelle option">
+            placeholder="Nouvelle option" autofocus >
         </mat-form-field>
         <img class="button" (click)="addOption()" src="../../../assets/images/add.svg" />
       </div>

@@ -140,14 +140,14 @@
             </div>
           </div>
 
-          <div [ngStyle]="{'display':mapSelectedViewResult['sex'] ? 'block' : 'none' }">
-            <div style="display: block;margin: auto;" class="blockGraph">
+          <div [ngStyle]="{'display':mapSelectedViewResult['sex'] ? 'block' : 'none' }" class="blockGraph">
+            <div class="chart-container" style="position: relative; height:100%; width:100%">
               <canvas #sexBarsGraph>{{ sexBarsChart }}</canvas>
             </div>
           </div>
 
-          <div [ngStyle]="{'display':mapSelectedViewResult['donut'] ? 'block' : 'none' }">
-            <div style="display: block; margin: auto;" class="blockGraph">
+          <div [ngStyle]="{'display':mapSelectedViewResult['donut'] ? 'block' : 'none' }" class="blockGraph"> 
+            <div class="chart-container" style="position: relative; height:100%; width:100%" >
               <canvas #donutGraph>{{ donutChart }}</canvas>
             </div>
           </div>
@@ -170,7 +170,8 @@
 
     <img [ngStyle]="{'display':voted ? 'block' : 'none' }" class="button iconShare" (click)="copyShareLink()"
       src="../../../assets/images/share.svg">
-    <img [ngClass]="{liked: liked}" class="button iconLike" (click)="like()" src="../../../assets/images/like.svg">
+    <img *ngIf="!liked" class="button iconLike" (click)="like()" src="../../../assets/images/likeWhite.svg">
+    <img *ngIf="liked" class="button iconLike" (click)="like()" src="../../../assets/images/like.svg">
     <div class="flexRow oneInfo">
       <img class="iconButton" src="../../../assets/images/like.svg">
       <p>{{survey.likes}}</p>

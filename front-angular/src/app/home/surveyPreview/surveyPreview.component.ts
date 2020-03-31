@@ -86,7 +86,7 @@ export class SurveyPreviewComponent implements OnInit, AfterViewInit {
     this.optionVotedTxt=option.text;
     this.survey.participations+=1;
     this.surveyManagementService.vote(this.survey, option);
-    this.computeStats();
+    setTimeout(()=>{this.computeStats()},1400);
   }
 
   like(){
@@ -188,6 +188,8 @@ export class SurveyPreviewComponent implements OnInit, AfterViewInit {
           },
 
           options: {
+            responsive:true,
+            maintainAspectRatio:true,
             scales: {
               xAxes: [{
                 gridLines : {
