@@ -618,6 +618,10 @@
     flex-direction: row-reverse;
     justify-content: start;
 
+    .shareBlock {
+      margin: 5px
+    }
+
     .oneInfo {
       padding: 5px;
       margin: 0px 2vw 0px 0px;
@@ -639,9 +643,8 @@
     }
 
     .iconShare {
-      width: 8vw;
-      margin: 1vw;
-      visibility: hidden !important;
+      width: 5vw;
+      margin: 0vw;
     }
   }
 

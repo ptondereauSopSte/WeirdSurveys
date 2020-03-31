@@ -172,8 +172,8 @@
     </div>
 
     <div class="shareBlock">
-      <img [ngStyle]="{'visibility':voted ? 'visible' : 'none' }" class="button iconShare" (click)="copyShareLink()"
-        src="../../../assets/images/share.svg">
+      <img [ngStyle]="{'display':voted ? 'block' : 'none' }" class="button iconShare"
+        (click)="copyShareLink(); copyToClipboard();" src="../../../assets/images/share.svg">
       <p class="tooltip tooltipeShare">Copier le lien de partage</p>
     </div>
     <img *ngIf="!liked" class="button iconLike" (click)="like()" src="../../../assets/images/likeWhite.svg">
