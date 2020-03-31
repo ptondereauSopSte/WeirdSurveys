@@ -52,7 +52,7 @@ export class SurveyManagementService {
   sortSurveys(key:string){
       if (key == "time") {
           this.listSurveys.sort(function (a: Survey, b: Survey) {
-              return +b.date - +a.date;
+              return +new Date(a.date).getTime() - +new Date(b.date).getTime();
           });
       } else if (key == "likes") {
           this.listSurveys.sort(function (a: Survey, b: Survey) {

@@ -9,7 +9,7 @@ import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common
 import {MatSelectModule} from '@angular/material/select';
 import {MatInputModule} from '@angular/material/input';
 import {MatCheckboxModule} from '@angular/material/checkbox';
-import {MatTabsModule} from '@angular/material';
+import {MatTabsModule, MatListModule, MatButtonModule} from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { IdentificationComponent } from './identification/identification.component';
@@ -48,6 +48,8 @@ import { AuthGuard } from './auth-guard.service';
     BrowserAnimationsModule,
     AppRoutingModule,
     MatSelectModule,
+    MatListModule,
+    MatButtonModule,
     MatInputModule,
     MatCheckboxModule,
     MatTabsModule,
