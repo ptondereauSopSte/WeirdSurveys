@@ -11,51 +11,52 @@ import { StatisticsService } from '../admin/adminNavigation/pannels/statistiques
 })
 
 export class IdentificationComponent implements OnInit {
-  sharedSurvey:boolean = false;
+  sharedSurvey: boolean = false;
   listAge: any;
-  user:User = new User();
-  userValid:boolean=false;
+  user: User = new User();
+  userValid: boolean = false;
 
-  constructor(private router : Router, private cookieService: CookieService, private statisticsService : StatisticsService) { 
+  constructor(private router: Router, private cookieService: CookieService, private statisticsService: StatisticsService) {
 
   }
 
   ngOnInit() {
-    this.listAge=["-18","18-30","30-40","40+"]
-    if (window.location.href.includes("ss=true")){
-      this.sharedSurvey=true
+    this.listAge = ["-18", "18-30", "30-40", "40+"]
+    if (window.location.href.includes("ss=true")) {
+      this.sharedSurvey = true
     }
 
-    if (this.cookieService.get('WS-user')){
+    if (this.cookieService.get('WS-user')) {
       this.router.navigate(['home']);
     }
   }
 
-  selectSex(sex : String){
-    this.user.sex=sex;
+  selectSex(sex: String) {
+    this.user.sex = sex;
     this.checkUserValidation(this.user);
   }
 
-  selectAge(age : String){
-    this.user.age=age;
+  selectAge(age: String) {
+    this.user.age = age;
     this.checkUserValidation(this.user);
   }
 
-  checkUserValidation(user){
-    this.userValid = this.listAge.indexOf(user.age) >-1 && ['H', 'F'].indexOf(user.sex)>-1;
+  checkUserValidation(user) {
+    this.userValid = this.listAge.indexOf(user.age) > -1 && ['H', 'F'].indexOf(user.sex) > -1;
     return this.userValid;
   }
 
   //On met l'user en session
-  userSubmit(){
+  userSubmit() {
     this.cookieService.set('WS-user', JSON.stringify(this.user), 365);
-    this.cookieService.set('WS-mapVote',"{}", 365);
-    this.cookieService.set('WS-mapLike',"{}", 365);
+    this.cookieService.set('WS-mapVote', "{}", 365);
+    this.cookieService.set('WS-mapLike', "{}", 365);
+    this.cookieService.set('WS-listWarning', "", 365);
     this.statisticsService.addUser(this.user);
-    if(!this.sharedSurvey){
+    if (!this.sharedSurvey) {
       this.router.navigate(['home']);
     } else {
-      this.router.navigate(['sharedSurvey'], { queryParams: { id: window.location.href.split("id=")[1].split("&")[0], r: window.location.href.split("r=")[1].split("&")[0]} });
+      this.router.navigate(['sharedSurvey'], { queryParams: { id: window.location.href.split("id=")[1].split("&")[0], r: window.location.href.split("r=")[1].split("&")[0] } });
     }
   }
 }
