@@ -51,7 +51,6 @@ export class IdentificationComponent implements OnInit {
     this.cookieService.set('WS-user', JSON.stringify(this.user), 365);
     this.cookieService.set('WS-mapVote',"{}", 365);
     this.cookieService.set('WS-mapLike',"{}", 365);
-    this.cookieService.set('WS-mapLike',"{}", 365);
     this.statisticsService.addUser(this.user);
     if(!this.sharedSurvey){
       this.router.navigate(['home']);

@@ -33,6 +33,14 @@ export class HomeComponent implements OnInit {
       value: "likes",
       display: "Nombre de likes"
     },
+    {
+      value: "variance",
+      display: "Les plus controversés"
+    },
+    {
+      value: "random",
+      display: "Aléatoire"
+    },
   ]
 
   categorieKey = 'all';
@@ -80,17 +88,20 @@ export class HomeComponent implements OnInit {
     },
   ]
 
+  statutKey:string='all';
+  oldStatutKey='all';
+
   constructor(private surveyManagementService: SurveyManagementService, private statisticsService: StatisticsService) { }
 
   ngOnInit() {
     this.surveyManagementService.getAllSurveys();
-    this.listSurveysSubscription = this.surveyManagementService.listSurveysSubject.subscribe(
+    this.listSurveysSubscription = this.surveyManagementService.listSurveysDisplayedSubject.subscribe(
       (listSurveys: Survey[]) => {
         this.listSurveys = listSurveys.slice();
         this.listSurveys.reverse()
       }
     );
-    this.surveyManagementService.emitListSurveysSubject();
+    this.surveyManagementService.emitlistSurveysDisplayedSubject();
 
     this.statisticsService.addImpression();
   }
@@ -107,6 +118,13 @@ export class HomeComponent implements OnInit {
     if (keyCat != this.categorieFiltered) {
       this.surveyManagementService.filterByCat(keyCat);
       this.categorieFiltered = keyCat;
+    }
+  }
+
+  statutFilter(statutKey:string){
+    if (statutKey != this.oldStatutKey) {
+      this.surveyManagementService.filterByStatut(statutKey);
+      this.oldStatutKey = statutKey;
     }
   }
 }

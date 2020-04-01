@@ -56,6 +56,16 @@
         </mat-option>
       </mat-select>
     </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Statut</mat-label>
+      <mat-select [(value)]="statutKey" (selectionChange)="statutFilter(statutKey)">
+        <mat-option value="all">Tous</mat-option>
+        <mat-option value="nonVoted">Non votés</mat-option>
+        <mat-option value="voted">Votés</mat-option>
+      </mat-select>
+    </mat-form-field>
+
   </div>
   <div class="timeline">
     <app-surveyPreview *ngFor="let survey of listSurveys" [survey]="survey" [admin]="false"></app-surveyPreview>

@@ -19,7 +19,7 @@ export class AppComponent implements OnInit{
   constructor(private router : Router, private surveyManagementService : SurveyManagementService){}
   ngOnInit(){
     this.surveyManagementService.getAllSurveys();
-    this.listSurveysSubscription = this.surveyManagementService.listSurveysSubject.subscribe(
+    this.listSurveysSubscription = this.surveyManagementService.listSurveysDisplayedSubject.subscribe(
       (listSurveys: Survey[]) => {
         if(listSurveys.length>0){
           this.isLoaded=true;

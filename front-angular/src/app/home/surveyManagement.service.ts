@@ -5,17 +5,23 @@ import { Survey, SurveyOption } from 'src/models/Survey';
 import { environment } from '../../environments/environment';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
+import { summaryFileName } from '@angular/compiler/src/aot/util';
 
 @Injectable()
 export class SurveyManagementService {
 
   listSurveys: Survey[] = [];
-  listSurveysSubject = new Subject<Survey[]>();
+  listSurveysDisplayed: Survey[] = [];
+  listSurveysDisplayedSubject = new Subject<Survey[]>();
 
   oneSurvey: Survey;
   oneSurveySubject = new Subject<Survey>();
 
   keySort: string = 'time';
+  keyCat: string = 'all';
+  keyStatut: string = 'all';
+
+  
 
   constructor(private httpClient: HttpClient, private router: Router, private cookieService: CookieService) { }
 
@@ -29,7 +35,7 @@ export class SurveyManagementService {
           survey.fromHashMap(surveyJson);
           this.listSurveys.push(survey);
         });
-        this.emitListSurveysSubject();
+        this.sortSurveys(this.keySort);
       },
       (error) => {
         console.log('Erreur ! : ' + error);
@@ -65,12 +71,36 @@ export class SurveyManagementService {
       this.listSurveys.sort(function (a: Survey, b: Survey) {
         return +a.participations - b.participations;
       });
+    } else if (key == "variance") {
+      this.listSurveys.sort(function (a: Survey, b: Survey) {
+        let varA=0
+        let varB=0
+        let percentA=[]
+        let percentB=[]
+        a.options.forEach((option)=>{
+          percentA.push(option.percent)
+        })
+        b.options.forEach((option)=>{
+          percentB.push(option.percent)
+        })
+        for (var k=0; k<percentA.length; k++){
+          varA+=Math.sqrt(Math.pow(percentA[k] - (100/a.options.length), 2))
+        }
+        for (var k=0; k<percentB.length; k++){
+          varB+=Math.sqrt(Math.pow(percentB[k] - (100/b.options.length), 2))
+        }
+        return varB-varA;
+      });
+    } else if (key == "random") {
+      this.listSurveys.sort(function (a: Survey, b: Survey) {
+        return Math.random() - Math.random();
+      });
     }
-    this.emitListSurveysSubject();
+    this.filterByStatut(this.keyStatut);
   }
 
   filterByCat(keyCat: string) {
-    console.log(keyCat)
+    this.keyCat = keyCat;
     if (keyCat == 'all') {
       this.getAllSurveys();
       return;
@@ -84,13 +114,35 @@ export class SurveyManagementService {
           survey.fromHashMap(surveyJson);
           this.listSurveys.push(survey);
         });
-        this.sortSurveys(this.keySort)
-        this.emitListSurveysSubject();
+        this.sortSurveys(this.keySort);
       },
       (error) => {
         console.log('Erreur ! : ' + error);
       }
     );
+  }
+
+  filterByStatut(statutKey:string){
+    this.keyStatut = statutKey;
+    console.log(this.keyStatut)
+    if (statutKey!='all'){
+      const mapVote = JSON.parse(this.cookieService.get('WS-mapVote'));
+      console.log(Object.keys(mapVote))
+      let tempList = [];
+      this.listSurveys.forEach((survey)=>{
+        if(Object.keys(mapVote).indexOf(''+survey.id)>-1 && statutKey=='voted'){
+          //Le sondage a déja été voté et on filtre les votés
+            tempList.push(survey);
+        } else if(Object.keys(mapVote).indexOf(''+survey.id)==-1 && statutKey=='nonVoted'){
+          //Le sondage n'a pas déja été voté et on filtre les non votés
+            tempList.push(survey);
+        }
+      })
+      this.listSurveysDisplayed = tempList.slice();
+    } else {
+      this.listSurveysDisplayed = this.listSurveys.slice();
+    }
+    this.emitlistSurveysDisplayedSubject();
   }
 
   postSurvey(newSurvey: Survey) {
@@ -117,7 +169,7 @@ export class SurveyManagementService {
         this.listSurveys.forEach((oneSurvey) => {
           if (oneSurvey.id == survey.id) {
             oneSurvey.options = survey.options;
-            this.emitListSurveysSubject();
+            this.emitlistSurveysDisplayedSubject();
           }
         })
         //On met en session le vote
@@ -161,8 +213,8 @@ export class SurveyManagementService {
     );
   }
 
-  emitListSurveysSubject() {
-    this.listSurveysSubject.next(this.listSurveys.length !== 0 ? this.listSurveys.slice() : []);
+  emitlistSurveysDisplayedSubject() {
+    this.listSurveysDisplayedSubject.next(this.listSurveysDisplayed.length !== 0 ? this.listSurveysDisplayed.slice() : []);
   }
 
   emitOneSurveySubject() {
