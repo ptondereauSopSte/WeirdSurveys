@@ -84,10 +84,10 @@ export class SurveyManagementService {
           percentB.push(option.percent)
         })
         for (var k=0; k<percentA.length; k++){
-          varA+=Math.sqrt(Math.pow(percentA[k] - (100/a.options.length), 2))
+          varA+=(1/a.options.length)*Math.pow(percentA[k] - (100/a.options.length), 2);
         }
         for (var k=0; k<percentB.length; k++){
-          varB+=Math.sqrt(Math.pow(percentB[k] - (100/b.options.length), 2))
+          varB+=(1/b.options.length)*Math.pow(percentB[k] - (100/b.options.length), 2);
         }
         return varB-varA;
       });

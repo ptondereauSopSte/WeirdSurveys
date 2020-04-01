@@ -167,28 +167,33 @@
   margin-left: 0.5vw;
   position: relative;
 
-  .tooltip {
+  .tooltipeShare, .tooltipAvert {
+    display: none;
+    position: absolute;
+    top: 0.5vw;
+    left: 3vw;
+    font-size: 0.8em;
+    width: 13vw;
     background-color: gray;
     color: white;
     padding: 5px 0px;
     text-align: center;
-    width: 15vw;
     border-radius: 0.43em;
   }
 
-  .tooltipAvert {
-    display: none;
-    position: absolute;
-    left: 70vw;
-    top: 25px;
-    transform: scale(6);
-  }
+  .warningBlock{
+    position: relative;
+    width: 2vw;
+    margin: 1vh auto 20vh auto;
 
-  .hexagonTxt {
-    width: 323px;
-    height: 323px;
-    margin-left: -130px;
-    margin-top: -130px;
+    .nbrWarning{
+      position: absolute;
+      top: 1vw;
+      width: 2vw;
+      text-align: center;
+      color: black;
+      font-size: 1vw;
+    }
 
     &:hover {
       .tooltipAvert {
@@ -197,13 +202,9 @@
     }
   }
 
-  .tooltipeShare {
-    display: none;
-    top: 7px;
-    position: absolute;
-    left: 5vw;
-    font-size: 0.8em;
-    width: 13vw;
+  .isWarned {
+    pointer-events: none;
+    filter: opacity(0.5);
   }
 
   .shareBlock {
@@ -242,86 +243,15 @@
     filter: drop-shadow(0px 2px 2px black);
   }
 
+  .iconWarning {
+    width: 2vw;
+    margin: 1vh auto;
+  }
+
   .iconShare {
     width: 2vw;
     margin: 1vh auto;
   }
-}
-
-.hexagon {
-  transform: scale(0.1);
-  margin-top: -10vh;
-  background-color: var(--color-black);
-
-  h1 {
-    font-size: 230px;
-    position: absolute;
-    left: -100px;
-    top: -117px;
-    border-radius: 10px;
-    color: yellow;
-    background: black;
-    border-radius: 100%;
-    width: 300px;
-    text-align: center;
-  }
-}
-
-.bar {
-  position: absolute;
-  background-color: black;
-  width: 200px;
-  height: 50px;
-  border-radius: 100px;
-}
-
-.bar1 {
-  top: -115px;
-  right: -125px;
-  transform: rotate(30deg);
-  z-index: 6;
-}
-
-.bar2 {
-  right: -198px;
-  transform: rotate(90deg);
-  z-index: 5;
-}
-
-.bar3 {
-  top: 115px;
-  right: -125px;
-  transform: rotate(-30deg);
-  z-index: 4;
-}
-
-.bar4 {
-  top: 115px;
-  left: -125px;
-  transform: rotate(30deg);
-  z-index: 3;
-}
-
-.bar5 {
-  left: -198px;
-  transform: rotate(90deg);
-  z-index: 2;
-}
-
-.bar6 {
-  top: -115px;
-  left: -125px;
-  transform: rotate(-30deg);
-  z-index: 1;
-}
-
-.barSignal {
-  background-color: var(--color-yellow);
-}
-
-.isWarned {
-  pointer-events: none;
-  filter: opacity(0.5);
 }
 
 //Statistics view
@@ -622,8 +552,18 @@
       display: none;
     }
     
-    .shareBlock {
+    .shareBlock, .warningBlock {
       margin: 5px
+    }
+
+    .warningBlock{
+      margin: auto auto auto 20vw;
+  
+      .nbrWarning{
+        top: 2vw;
+        width: 8vw;
+        font-size: 4vw;
+      }
     }
 
     .oneInfo {
@@ -650,85 +590,11 @@
       width: 5vw;
       margin: 0vw;
     }
-  }
 
-  .hexagon {
-    transform: scale(0.07);
-    background-color: var(--color-black);
-    margin-bottom: 0px;
-    margin-top: 0px;
-    margin-left: 10vw;
-    width: 60px;
-
-    h1 {
-      font-size: 206px;
-      position: absolute;
-      left: -100px;
-      top: -92px;
-      border-radius: 10px;
-      color: yellow;
-      background: black;
-      border-radius: 100%;
-      width: 250px;
-      text-align: center;
+    .iconWarning{
+      width: 6vw;
+      margin: 1vw;
     }
-  }
-
-  .bar {
-    position: absolute;
-    background-color: black;
-    width: 200px;
-    height: 50px;
-    border-radius: 100px;
-  }
-
-  .bar1 {
-    top: -115px;
-    right: -125px;
-    transform: rotate(30deg);
-    z-index: 6;
-  }
-
-  .bar2 {
-    right: -198px;
-    transform: rotate(90deg);
-    z-index: 5;
-  }
-
-  .bar3 {
-    top: 115px;
-    right: -125px;
-    transform: rotate(-30deg);
-    z-index: 4;
-  }
-
-  .bar4 {
-    top: 115px;
-    left: -125px;
-    transform: rotate(30deg);
-    z-index: 3;
-  }
-
-  .bar5 {
-    left: -198px;
-    transform: rotate(90deg);
-    z-index: 2;
-  }
-
-  .bar6 {
-    top: -115px;
-    left: -125px;
-    transform: rotate(-30deg);
-    z-index: 1;
-  }
-
-  .barSignal {
-    background-color: var(--color-yellow);
-  }
-
-  .isWarned {
-    pointer-events: none;
-    filter: opacity(0.5);
   }
 
   //Statistics view
