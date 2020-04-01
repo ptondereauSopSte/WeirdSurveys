@@ -179,7 +179,7 @@
   .tooltipAvert {
     display: none;
     position: absolute;
-    left: 750px;
+    left: 70vw;
     top: 25px;
     transform: scale(6);
   }
@@ -256,13 +256,13 @@
   h1 {
     font-size: 230px;
     position: absolute;
-    left: -108px;
-    top: -103px;
+    left: -100px;
+    top: -117px;
     border-radius: 10px;
     color: yellow;
     background: black;
     border-radius: 100%;
-    width: 280px;
+    width: 300px;
     text-align: center;
   }
 }
@@ -277,7 +277,7 @@
 
 .bar1 {
   top: -115px;
-  right: -133px;
+  right: -125px;
   transform: rotate(30deg);
   z-index: 6;
 }
@@ -290,14 +290,14 @@
 
 .bar3 {
   top: 115px;
-  right: -133px;
+  right: -125px;
   transform: rotate(-30deg);
   z-index: 4;
 }
 
 .bar4 {
   top: 115px;
-  left: -133px;
+  left: -125px;
   transform: rotate(30deg);
   z-index: 3;
 }
@@ -310,7 +310,7 @@
 
 .bar6 {
   top: -115px;
-  left: -133px;
+  left: -125px;
   transform: rotate(-30deg);
   z-index: 1;
 }
@@ -684,7 +684,7 @@
 
   .bar1 {
     top: -115px;
-    right: -133px;
+    right: -125px;
     transform: rotate(30deg);
     z-index: 6;
   }
@@ -697,14 +697,14 @@
 
   .bar3 {
     top: 115px;
-    right: -133px;
+    right: -125px;
     transform: rotate(-30deg);
     z-index: 4;
   }
 
   .bar4 {
     top: 115px;
-    left: -133px;
+    left: -125px;
     transform: rotate(30deg);
     z-index: 3;
   }
@@ -717,7 +717,7 @@
 
   .bar6 {
     top: -115px;
-    left: -133px;
+    left: -125px;
     transform: rotate(-30deg);
     z-index: 1;
   }
