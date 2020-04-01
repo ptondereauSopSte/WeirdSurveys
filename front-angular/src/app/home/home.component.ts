@@ -86,10 +86,18 @@ export class HomeComponent implements OnInit {
       value: "sex",
       display: "Sexe"
     },
+    {
+      value: "science",
+      display: "Science"
+    },
+    {
+      value: "film",
+      display: "Film/Séries"
+    },
   ]
 
-  statutKey:string='all';
-  oldStatutKey='all';
+  statutKey: string = 'all';
+  oldStatutKey = 'all';
 
   constructor(private surveyManagementService: SurveyManagementService, private statisticsService: StatisticsService) { }
 
@@ -121,7 +129,7 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  statutFilter(statutKey:string){
+  statutFilter(statutKey: string) {
     if (statutKey != this.oldStatutKey) {
       this.surveyManagementService.filterByStatut(statutKey);
       this.oldStatutKey = statutKey;

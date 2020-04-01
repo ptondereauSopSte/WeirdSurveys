@@ -20,7 +20,7 @@
       <div *ngIf="isAddingOption" class="newOptionInput flexRow">
         <mat-form-field style="width: 95%;">
           <input [(ngModel)]="newOptionTxt" (keydown)="checkSize('option')" (keydown.enter)="addOption()" matInput
-            placeholder="Nouvelle option" autofocus >
+            placeholder="Nouvelle option" autofocus>
         </mat-form-field>
         <img class="button" (click)="addOption()" src="../../../assets/images/add.svg" />
       </div>
@@ -39,6 +39,8 @@
       <mat-option value="art">Art</mat-option>
       <mat-option value="life">Vie quotidienne</mat-option>
       <mat-option value="music">Musique</mat-option>
+      <mat-option value="science">Science</mat-option>
+      <mat-option value="film">Film/Série</mat-option>
     </mat-select>
   </mat-form-field>
 

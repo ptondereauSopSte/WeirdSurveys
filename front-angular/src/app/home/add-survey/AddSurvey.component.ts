@@ -26,13 +26,16 @@ export class AddSurveyComponent implements OnInit {
   }
 
   addOption() {
-    if (this.newOptionTxt == ""){
+    if (this.newOptionTxt == "") {
       return;
     }
     this.newSurvey.addOption(this.newOptionTxt);
     this.newOptionTxt = "";
     this.checkIfSurveyIsCorrect();
     this.isFull = this.newSurvey.options.length == 6;
+    if (this.isFull) {
+      this.isAddingOption = false;
+    }
   }
 
   deleteOption(textOptionToDelete: String) {
@@ -58,7 +61,7 @@ export class AddSurveyComponent implements OnInit {
       }, 0)
   }
   checkIfSurveyIsCorrect() {
-    const listCat = ["sex", "love", "society", "useless", "sport", "news", "art", "life", "music"]
+    const listCat = ["sex", "love", "society", "useless", "sport", "news", "art", "life", "music", "film", "science"]
     this.isCorrect = this.newSurvey.options.length >= 2 && this.newSurvey.text != "" && listCat.indexOf("" + this.newSurvey.category) > -1;
   }
 }

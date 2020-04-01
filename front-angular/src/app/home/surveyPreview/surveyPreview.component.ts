@@ -276,7 +276,7 @@ export class SurveyPreviewComponent implements OnInit, AfterViewInit {
             labels: ['A', 'B', "C", "D", "E", "F"].slice(0, this.survey.options.length),
             datasets: [{
               data: this.mapDataDonut["dataFix"],
-              backgroundColor: ["#0D6EA3", "#F8FF42", "#B9B9BA", "#2A2A2A", "#C4E5FF", "#FDFFC4"].slice(0, this.survey.options.length)
+              backgroundColor: ["#B9B9BA", "#2A2A2A", "#C4E5FF", "#FDFFC4", "#85ffc1", "#d085ff"].slice(0, this.survey.options.length)
             }]
           },
 
