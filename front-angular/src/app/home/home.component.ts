@@ -3,6 +3,7 @@ import { Component, OnInit } from "@angular/core";
 import { Subscription } from 'rxjs';
 import { Survey } from 'src/models/Survey';
 import { FormControl, NgModel } from '@angular/forms';
+import { StatisticsService } from '../admin/adminNavigation/pannels/statistiques/statistics.service';
 
 @Component({
   selector: "app-home",
@@ -79,7 +80,7 @@ export class HomeComponent implements OnInit {
     },
   ]
 
-  constructor(private surveyManagementService: SurveyManagementService) { }
+  constructor(private surveyManagementService: SurveyManagementService, private statisticsService: StatisticsService) { }
 
   ngOnInit() {
     this.surveyManagementService.getAllSurveys();
@@ -90,6 +91,8 @@ export class HomeComponent implements OnInit {
       }
     );
     this.surveyManagementService.emitListSurveysSubject();
+
+    this.statisticsService.addImpression();
   }
 
   changeSortBy(key: string) {

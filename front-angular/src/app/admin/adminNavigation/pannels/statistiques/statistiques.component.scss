@@ -1,18 +1,22 @@
-.card{
-    background-color: var(--color-gray);
-    width: 25vw;
-    border: 1px solid black;
-    border-radius: 0.43em;
-    text-align: center;
-    margin: 1vw;
+h1 {
+  margin: 10px;
 }
 
-.cardGraph{
-    background-color: var(--color-gray);
-    width: 40vw;
-    height: 45vh;
-    border: 1px solid black;
-    border-radius: 0.43em;
-    text-align: center;
-    margin: 1vw;
+.card {
+  background-color: var(--color-gray);
+  width: 25vw;
+  border: 1px solid black;
+  border-radius: 0.43em;
+  text-align: center;
+  margin: 1vw;
+}
+
+.cardGraph {
+  background-color: var(--color-gray);
+  width: 35vw;
+  height: 32vh;
+  border: 1px solid black;
+  border-radius: 0.43em;
+  text-align: center;
+  margin: 1vw;
 }

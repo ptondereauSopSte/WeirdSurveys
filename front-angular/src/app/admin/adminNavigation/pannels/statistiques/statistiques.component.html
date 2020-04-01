@@ -1,32 +1,40 @@
 <div class="flexRow">
 
-    <div>
-        <div *ngIf="mapStats['nbrUsers']" class="card">
-            <h1>Nombre d'utilisateurs</h1>
-            <h1 style="color:var(--color-blue)">{{mapStats['nbrUsers']}}</h1>
-        </div>
-        
-        <div *ngIf="mapStats['nbrSurveys']" class="card">
-            <h1>Nombre de sondages</h1>
-            <h1 style="color:var(--color-blue)">{{mapStats['nbrSurveys']}}</h1>
-        </div>
-        
-        <div *ngIf="mapStats['nbrVotes']" class="card">
-            <h1>Nombre de votes</h1>
-            <h1 style="color:var(--color-blue)">{{mapStats['nbrVotes']}}</h1>
-        </div>
-        
-        <div *ngIf="mapStats['nbrLikes']" class="card">
-            <h1>Nombre de likes</h1>
-            <h1 style="color:var(--color-blue)">{{mapStats['nbrLikes']}}</h1>
-        </div>
+  <div>
+    <div *ngIf="mapStats['nbrUsers']" class="card">
+      <h1>Nombre d'utilisateurs</h1>
+      <h1 style="color:var(--color-blue)">{{mapStats['nbrUsers']}}</h1>
     </div>
 
-<div [ngStyle]="{'display':mapStats['evolutionUser'] ? 'block' : 'none' }" class="cardGraph">
-    <h1>Evolution du nombre d'utilisateurs</h1>
-    <div style="display: block;height: 34vh;width: 36vw; margin: auto;" class="blockGraph">
+    <div *ngIf="mapStats['nbrSurveys']" class="card">
+      <h1>Nombre de sondages</h1>
+      <h1 style="color:var(--color-blue)">{{mapStats['nbrSurveys']}}</h1>
+    </div>
+
+    <div *ngIf="mapStats['nbrVotes']" class="card">
+      <h1>Nombre de votes</h1>
+      <h1 style="color:var(--color-blue)">{{mapStats['nbrVotes']}}</h1>
+    </div>
+
+    <div *ngIf="mapStats['nbrLikes']" class="card">
+      <h1>Nombre de likes</h1>
+      <h1 style="color:var(--color-blue)">{{mapStats['nbrLikes']}}</h1>
+    </div>
+  </div>
+
+  <div>
+    <div [ngStyle]="{'display':mapStats['evolutionUser'] ? 'block' : 'none' }" class="cardGraph">
+      <h1>Evolution du nombre d'utilisateurs</h1>
+      <div style="display: block;height: 24vh;width: 25vw; margin: auto;" class="blockGraph">
         <canvas #userEvolutionGraph>{{ userEvolutionChart }}</canvas>
+      </div>
     </div>
-</div>
 
+    <div [ngStyle]="{'display':mapStats['evolutionVisitor'] ? 'block' : 'none' }" class="cardGraph">
+      <h1>Evolution du nombre de visite par jour</h1>
+      <div style="display: block;height: 24vh;width: 25vw; margin: auto;" class="blockGraph">
+        <canvas #visitorEvolutionGraph>{{ visitorEvolutionChart }}</canvas>
+      </div>
+    </div>
+  </div>
 </div>

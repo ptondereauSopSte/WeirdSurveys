@@ -10,15 +10,17 @@ import { Chart } from 'chart.js';
 })
 
 export class StatistiquesComponent implements OnInit, AfterViewInit {
-  
-  mapStats:any = {};
+
+  mapStats: any = {};
   mapStatsSubscription: Subscription;
 
   //GRAPHES
-  @ViewChild('userEvolutionGraph',null) userEvolutionGraph: ElementRef;
-  userEvolutionChart =[];
+  @ViewChild('userEvolutionGraph', null) userEvolutionGraph: ElementRef;
+  userEvolutionChart = [];
+  @ViewChild('visitorEvolutionGraph', null) visitorEvolutionGraph: ElementRef;
+  visitorEvolutionChart = [];
 
-  constructor(private statisticsService : StatisticsService) {}
+  constructor(private statisticsService: StatisticsService) { }
 
   ngOnInit() {
     this.statisticsService.getAllStats();
@@ -32,26 +34,26 @@ export class StatistiquesComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    // sexChart
-    if(this.mapStats['evolutionUser']){
-      let dates=[]
-      let nbrUsers=[]
-      this.mapStats['evolutionUser'].forEach((dataForOneDay)=>{
-        dates.push((new Date(dataForOneDay["ts"]).getUTCDate())+"/"+(new Date(dataForOneDay["ts"]).getUTCMonth()+1))
+    // userChart
+    if (this.mapStats['evolutionUser']) {
+      let dates = []
+      let nbrUsers = []
+      this.mapStats['evolutionUser'].forEach((dataForOneDay) => {
+        dates.push((new Date(dataForOneDay["ts"]).getUTCDate()) + "/" + (new Date(dataForOneDay["ts"]).getUTCMonth() + 1))
         nbrUsers.push(dataForOneDay["value"])
       })
-      
+
       this.userEvolutionChart.push(new Chart(this.userEvolutionGraph.nativeElement.getContext('2d'),
         {
           type: 'line',
           data: {
             labels: dates,
-            datasets: [{ 
-                data: nbrUsers,
-                borderColor: "#0D6EA3",
-                fill: true,
-                lineTension:0,
-              }]
+            datasets: [{
+              data: nbrUsers,
+              borderColor: "#0D6EA3",
+              fill: true,
+              lineTension: 0,
+            }]
           },
           options: {
             responsive: true,
@@ -61,20 +63,64 @@ export class StatistiquesComponent implements OnInit, AfterViewInit {
             },
             scales: {
               xAxes: [{
-                gridLines : {
-                  display:false,
+                gridLines: {
+                  display: false,
                 },
                 stacked: true
               }],
               yAxes: [{
-                gridLines : {
-                  display:false,
+                gridLines: {
+                  display: false,
                 },
                 stacked: true,
               }]
             }
           }
-      }));
+        }));
+    }
+
+    // visitorChart
+    if (this.mapStats['evolutionVisitor']) {
+      let dates = []
+      let nbrVisitors = []
+      this.mapStats['evolutionVisitor'].forEach((dataForOneDay) => {
+        dates.push(dataForOneDay["day"].split("/")[0] + "/" + dataForOneDay["day"].split("/")[1]);
+        nbrVisitors.push(dataForOneDay["value"])
+      })
+
+      this.visitorEvolutionChart.push(new Chart(this.visitorEvolutionGraph.nativeElement.getContext('2d'),
+        {
+          type: 'line',
+          data: {
+            labels: dates,
+            datasets: [{
+              data: nbrVisitors,
+              borderColor: "#0D6EA3",
+              fill: true,
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            legend: {
+              display: false
+            },
+            scales: {
+              xAxes: [{
+                gridLines: {
+                  display: false,
+                },
+                stacked: true
+              }],
+              yAxes: [{
+                gridLines: {
+                  display: false,
+                },
+                stacked: true,
+              }]
+            }
+          }
+        }));
     }
   }
 }
