@@ -21,7 +21,7 @@ export class SurveyManagementService {
   keyCat: string = 'all';
   keyStatut: string = 'all';
 
-  
+
 
   constructor(private httpClient: HttpClient, private router: Router, private cookieService: CookieService) { }
 
@@ -73,23 +73,23 @@ export class SurveyManagementService {
       });
     } else if (key == "variance") {
       this.listSurveys.sort(function (a: Survey, b: Survey) {
-        let varA=0
-        let varB=0
-        let percentA=[]
-        let percentB=[]
-        a.options.forEach((option)=>{
+        let varA = 0
+        let varB = 0
+        let percentA = []
+        let percentB = []
+        a.options.forEach((option) => {
           percentA.push(option.percent)
         })
-        b.options.forEach((option)=>{
+        b.options.forEach((option) => {
           percentB.push(option.percent)
         })
-        for (var k=0; k<percentA.length; k++){
-          varA+=(1/a.options.length)*Math.pow(percentA[k] - (100/a.options.length), 2);
+        for (var k = 0; k < percentA.length; k++) {
+          varA += (1 / a.options.length) * Math.pow(percentA[k] - (100 / a.options.length), 2);
         }
-        for (var k=0; k<percentB.length; k++){
-          varB+=(1/b.options.length)*Math.pow(percentB[k] - (100/b.options.length), 2);
+        for (var k = 0; k < percentB.length; k++) {
+          varB += (1 / b.options.length) * Math.pow(percentB[k] - (100 / b.options.length), 2);
         }
-        return varB-varA;
+        return varB - varA;
       });
     } else if (key == "random") {
       this.listSurveys.sort(function (a: Survey, b: Survey) {
@@ -122,20 +122,20 @@ export class SurveyManagementService {
     );
   }
 
-  filterByStatut(statutKey:string){
+  filterByStatut(statutKey: string) {
     this.keyStatut = statutKey;
     console.log(this.keyStatut)
-    if (statutKey!='all'){
+    if (statutKey != 'all') {
       const mapVote = JSON.parse(this.cookieService.get('WS-mapVote'));
       console.log(Object.keys(mapVote))
       let tempList = [];
-      this.listSurveys.forEach((survey)=>{
-        if(Object.keys(mapVote).indexOf(''+survey.id)>-1 && statutKey=='voted'){
+      this.listSurveys.forEach((survey) => {
+        if (Object.keys(mapVote).indexOf('' + survey.id) > -1 && statutKey == 'voted') {
           //Le sondage a déja été voté et on filtre les votés
-            tempList.push(survey);
-        } else if(Object.keys(mapVote).indexOf(''+survey.id)==-1 && statutKey=='nonVoted'){
+          tempList.push(survey);
+        } else if (Object.keys(mapVote).indexOf('' + survey.id) == -1 && statutKey == 'nonVoted') {
           //Le sondage n'a pas déja été voté et on filtre les non votés
-            tempList.push(survey);
+          tempList.push(survey);
         }
       })
       this.listSurveysDisplayed = tempList.slice();
@@ -198,13 +198,18 @@ export class SurveyManagementService {
     );
   }
 
-  addWarning(survey: Survey) {
-    this.httpClient.post<any>(environment.apiUrl + '/surveys/addwarning', { "surveyId": survey.id }).subscribe(
+  addWarning(survey: Survey, isAdd: Boolean) {
+    this.httpClient.post<any>(environment.apiUrl + '/surveys/addOrRemoveWarning', { "surveyId": survey.id, "isAdd": isAdd }).subscribe(
       (response) => {
         console.log('Warning ajouté avec succès');
         //On met le warning en session
         let listWarning = this.cookieService.get('WS-listWarning');
-        listWarning += "," + survey.id
+        if (isAdd) {
+          listWarning += "," + survey.id
+        } else {
+          listWarning = listWarning.replace(survey.id + ",", "")
+          listWarning = listWarning.replace("," + survey.id, "")
+        }
         this.cookieService.set('WS-listWarning', listWarning, 365);
       },
       (error) => {

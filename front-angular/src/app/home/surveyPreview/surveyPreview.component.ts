@@ -100,9 +100,14 @@ export class SurveyPreviewComponent implements OnInit, AfterViewInit {
   }
 
   warn() {
-    this.warned = true;
-    this.survey.warnings += 1;
-    this.surveyManagementService.addWarning(this.survey);
+    this.warned = !this.warned;
+    if (this.warned) {
+      this.survey.warnings += 1;
+    } else {
+      this.survey.warnings -= 1;
+    }
+
+    this.surveyManagementService.addWarning(this.survey, this.warned);
   }
 
   computeStats() {
