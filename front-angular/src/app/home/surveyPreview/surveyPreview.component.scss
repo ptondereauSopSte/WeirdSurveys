@@ -188,7 +188,7 @@
 
     .nbrWarning{
       position: absolute;
-      top: 1vw;
+      top: 1.1vw;
       width: 2vw;
       text-align: center;
       color: black;
@@ -548,8 +548,8 @@
     flex-direction: row-reverse;
     justify-content: start;
 
-    .tooltip{
-      display: none;
+    .tooltipeShare, .tooltipAvert {
+      display: none !important;
     }
     
     .shareBlock, .warningBlock {
