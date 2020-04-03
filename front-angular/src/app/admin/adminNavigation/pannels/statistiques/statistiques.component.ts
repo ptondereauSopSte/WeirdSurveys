@@ -12,7 +12,13 @@ import { Chart } from 'chart.js';
 export class StatistiquesComponent implements OnInit, AfterViewInit {
 
   mapStats: any = {};
+  oldMapStats = {
+    "evolutionUser": "",
+    "evolutionVisitor": ""
+  };
   mapStatsSubscription: Subscription;
+
+  timer: number = 60; //in sec
 
   //GRAPHES
   @ViewChild('userEvolutionGraph', null) userEvolutionGraph: ElementRef;
@@ -24,6 +30,13 @@ export class StatistiquesComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.statisticsService.getAllStats();
+    setInterval(() => {
+      this.timer -= 1;
+      if (this.timer == 0) {
+        this.statisticsService.getAllStats();
+        this.timer = 60;
+      }
+    }, 1000)
     this.mapStatsSubscription = this.statisticsService.mapStatsSubject.subscribe(
       (mapStats: any) => {
         this.mapStats = mapStats;
